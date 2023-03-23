@@ -4,37 +4,11 @@ import {
   StyledStack,
   StyledBox,
   StyledTextField,
-} from "./SignUp.style";
+} from "./auth.style";
 const SignUp = () => {
   return (
     <StyledContainer maxWidth="1200px">
-      <StyledStack direction="row" spacing={2}>
-        <StyledBox>
-          <Box
-            style={{
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              margin: "auto",
-              padding: "10px",
-              flexDirection: "column",
-            }}
-          >
-            <Typography
-              variant="h6"
-              sx={{
-                color: " #AC9969",
-              }}
-            >
-              Concoe | Coffee & Grain
-            </Typography>
-            <br />
-            <Typography variant="body2">
-              Our registration proces is quick and easy, taking no more than 10
-              minutes to complete
-            </Typography>
-          </Box>
-        </StyledBox>
+      <Box>
         <Box
           sx={{
             display: "flex",
@@ -43,6 +17,8 @@ const SignUp = () => {
             margin: "auto",
             flexDirection: "column",
             width: "50%",
+            backgroundColor: "#fff",
+            borderRadius: "5px",
           }}
         >
           <Typography
@@ -51,7 +27,7 @@ const SignUp = () => {
               marginTop: "10px",
             }}
           >
-            Get Started
+            Concoe | Coffee
           </Typography>
           <Typography
             variant="body2"
@@ -71,7 +47,7 @@ const SignUp = () => {
               variant="subtitle2"
               ml={1}
               sx={{
-                color: " #AC9969",
+                color: " #279AF1",
                 marginTop: "10px",
               }}
             >
@@ -90,7 +66,7 @@ const SignUp = () => {
               variant="subtitle2"
               ml={1}
               sx={{
-                color: " #AC9969",
+                color: " #279AF1",
               }}
             >
               Last name
@@ -109,7 +85,7 @@ const SignUp = () => {
               variant="subtitle2"
               ml={1}
               sx={{
-                color: " #AC9969",
+                color: " #279AF1",
               }}
             >
               Email
@@ -128,7 +104,7 @@ const SignUp = () => {
               variant="subtitle2"
               ml={1}
               sx={{
-                color: " #AC9969",
+                color: " #279AF1",
               }}
             >
               Password
@@ -161,7 +137,7 @@ const SignUp = () => {
             </Typography>
           </Box>
         </Box>
-      </StyledStack>
+      </Box>
     </StyledContainer>
   );
 };
