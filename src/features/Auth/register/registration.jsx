@@ -20,9 +20,7 @@ const Registration = () => {
 
   const authState = useSelector((state) => state.auth);
   useEffect(() => {
-    if (authState?.error) {
-      setError(authState.error);
-    } else if (authState?.isAuthenticated) {
+    if (authState?.isAuthenticated) {
       navigate("/");
     }
   }, [authState]);

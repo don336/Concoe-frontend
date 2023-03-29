@@ -50,7 +50,7 @@ const RegistrationForm = ({ handleSumbit, handleChange }) => {
             sx={{ mt: 3, mb: 2, backgroundColor: "#435058" }}
             onClick={handleSumbit}
           >
-            Sign Up
+            Sign In
           </Button>
           <Grid container justifyContent="flex-end">
             <Grid item>

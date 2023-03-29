@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { register } from "./authService";
+import { register, login } from "./authService";
 
 const initialState = {
   isAuthenticated: false,
@@ -19,6 +19,18 @@ const authSlice = createSlice({
         error: "",
       }))
       .addCase(register.rejected, (state, action) => ({
+        ...state,
+        isAuthenticated: false,
+        currentUser: {},
+        error: action.payload,
+      }))
+      .addCase(login.fulfilled, (state, action) => ({
+        ...state,
+        isAuthenticated: true,
+        currentUser: action.payload,
+        error: "",
+      }))
+      .addCase(login.rejected, (state, action) => ({
         ...state,
         isAuthenticated: false,
         currentUser: {},
