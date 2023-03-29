@@ -64,7 +64,7 @@ const Navbar = () => {
           noWrap
           component="a"
           href="/"
-          sx={{ display: { xs: "none", md: "flex" }, mr: 1 }}
+          sx={{ display: { xs: "none", md: "flex" }, mr: 1, color: "#A2D729" }}
         >
           Concoe Farm
         </StyledTypography>
@@ -105,7 +105,9 @@ const Navbar = () => {
             ))}
           </Menu>
         </StyledBox>
-        <SpaOutlinedIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} />
+        <SpaOutlinedIcon
+          sx={{ display: { xs: "flex", md: "none" }, mr: 1, color: "#A2D729" }}
+        />
         <StyledTypography
           variant="h5"
           noWrap
@@ -182,7 +184,7 @@ const Navbar = () => {
                 color: "#fff",
               }}
             >
-              Start free Trial
+              Sign Up
             </StyledLink>
             <StyledLink
               href="/Login"
@@ -192,7 +194,7 @@ const Navbar = () => {
                 color: "#333",
               }}
             >
-              Account
+              Login
             </StyledLink>
           </Box>
         )}

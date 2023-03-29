@@ -8,14 +8,15 @@ import {
   Box,
   Typography,
 } from "@mui/material";
+import SpaOutlinedIcon from "@mui/icons-material/SpaOutlined";
 import { StyledBox } from "./registrationStyles";
 
 const RegistrationForm = ({ handleSumbit, handleChange }) => {
   return (
     <Container component="main" maxWidth="xs">
       <StyledBox>
-        <Typography component="h1" variant="h5">
-          Concoe | Coffee
+        <Typography component="h1" variant="h5" sx={{ color: "#A2D729" }}>
+          <SpaOutlinedIcon /> Concoe | Coffee
         </Typography>
         <Box sx={{ mt: 3 }}>
           <Grid container spacing={2}>
@@ -82,7 +83,7 @@ const RegistrationForm = ({ handleSumbit, handleChange }) => {
             type="submit"
             fullWidth
             variant="contained"
-            sx={{ mt: 3, mb: 2, backgroundColor: "#435058" }}
+            sx={{ mt: 3, mb: 2, backgroundColor: "#222222" }}
             onClick={handleSumbit}
           >
             Sign Up

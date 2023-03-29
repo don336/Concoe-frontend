@@ -3,5 +3,5 @@ import styled from "@emotion/styled";
 import { COLORS } from "../../Styles/theme";
 export const StyledContainer = styled(muiContainer)`
   background: ${COLORS.ERIE_BLACK};
-  height: 100vh;
+  height: 200vh;
 `;
