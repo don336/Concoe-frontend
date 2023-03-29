@@ -11,3 +11,10 @@
     margin: auto;
 
 }
+
+.primary-color {
+  background: #A2D729;
+  color: #333;
+  padding: 2px;
+  border-radius: 5px;
+}
