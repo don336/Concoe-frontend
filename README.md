@@ -38,3 +38,4 @@ The Application is still uder production and hopefully it shall be complete by t
 ## License
 
 The project is licensed under the ISC License. See the LICENSE file for more information.
+[![Netlify Status](https://api.netlify.com/api/v1/badges/eff2da57-938d-4249-b090-febd19f332e2/deploy-status)](https://app.netlify.com/sites/quiet-frangipane-5f0ff6/deploys)
