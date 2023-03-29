@@ -46,7 +46,7 @@ const Content = () => {
               Our farming startup brings sustainable, locally grown produce to
               Uganda and the whole of east africa. With innovative technology,
               we're revolutionizing the way we grow and consume fresh coffee &
-              food.
+              food. Apart from plant Growing, Concoe takes part in Live Stock Farming and has a variety of Breeds both exotic and Local.
             </Typography>
           </StyledBox>
           <Box>
