@@ -7,11 +7,15 @@ import {
   Grid,
   Box,
   Typography,
+  useTheme,
 } from "@mui/material";
 import SpaOutlinedIcon from "@mui/icons-material/SpaOutlined";
 import { StyledBox } from "./Login.style";
+import CustomButton from "../../../elements/customButton/customButton";
+import { COLORS } from "../../../Styles/theme";
 
 const RegistrationForm = ({ handleSumbit, handleChange }) => {
+  const theme = useTheme();
   return (
     <Container component="main" maxWidth="xs">
       <StyledBox>
@@ -44,15 +48,15 @@ const RegistrationForm = ({ handleSumbit, handleChange }) => {
               />
             </Grid>
           </Grid>
-          <Button
-            type="submit"
-            fullWidth
+          <CustomButton
+            background={COLORS.ERIE_BLACK}
             variant="contained"
-            sx={{ mt: 3, mb: 2, backgroundColor: "#222222" }}
             onClick={handleSumbit}
+            width="100%"
+            margin={theme.spacing(3, 0, 2, 0)}
           >
             Sign In
-          </Button>
+          </CustomButton>
           <Grid container justifyContent="flex-end">
             <Grid item>
               <Link href="/signup" variant="body2">

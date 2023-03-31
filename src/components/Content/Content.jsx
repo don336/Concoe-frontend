@@ -5,6 +5,7 @@ import {
   Typography,
   ImageList,
   ImageListItem,
+  useTheme,
 } from "@mui/material";
 import ArrowOutwardIcon from "@mui/icons-material/ArrowOutward";
 import {
@@ -13,7 +14,10 @@ import {
   StyledButton,
   SecondButton,
 } from "./content.style";
+import { COLORS } from "../../Styles/theme";
+import CustomButton from "../../elements/customButton/customButton";
 const Content = () => {
+  const theme = useTheme();
   return (
     <StyledContainer>
       <Grid
@@ -32,9 +36,9 @@ const Content = () => {
         >
           <Box>
             <Typography
-              variant="h3"
+              variant="h1"
               sx={{
-                color: "#fff",
+                color: `${COLORS.WHITE}`,
               }}
             >
               Fresh, Sustainable, Coffee and Corn Grown in{" "}
@@ -42,17 +46,26 @@ const Content = () => {
             </Typography>
           </Box>
           <StyledBox>
-            <Typography variant="body2">
+            <Typography variant="w1">
               Our farming startup brings sustainable, locally grown produce to
               Uganda and the whole of east africa. With innovative technology,
               we're revolutionizing the way we grow and consume fresh coffee &
-              food. Apart from plant Growing, Concoe takes part in Live Stock Farming and has a variety of Breeds both exotic and Local.
+              food. Apart from plant Growing, Concoe takes part in Live Stock
+              Farming and has a variety of Breeds both exotic and Local.
             </Typography>
           </StyledBox>
           <Box>
-            <StyledButton>
-              Start Now <ArrowOutwardIcon />
-            </StyledButton>
+            <CustomButton
+              fontcolor={COLORS.DARK_GREY}
+              background={COLORS.LIGHT_GREEN}
+              borderRadius={"1.125rem"}
+              endIcon={<ArrowOutwardIcon />}
+              padding={theme.spacing(1, 3)}
+              hoverbackground={COLORS.DARK_GREY}
+              hovercolor={COLORS.LIGHT_GREEN}
+            >
+              <Typography variant="w2"> Start Now</Typography>
+            </CustomButton>
             <SecondButton>How it Works</SecondButton>
           </Box>
         </Grid>

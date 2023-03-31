@@ -4,16 +4,14 @@
   box-sizing: border-box;
 }
 
-
 .cl {
-    justify-content: center;
-    align-items: center;
-    margin: auto;
-
+  justify-content: center;
+  align-items: center;
+  margin: auto;
 }
 
 .primary-color {
-  background: #A2D729;
+  background: #a2d729;
   color: #333;
   padding: 2px;
   border-radius: 5px;

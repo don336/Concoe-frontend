@@ -4,9 +4,9 @@ import { StyledContainer } from "./Home.styles";
 
 const Home = () => {
   return (
-    <StyledContainer maxWidth='xl'>
+    <StyledContainer maxWidth="xl">
       <Navbar />
-      <Content/>
+      <Content />
     </StyledContainer>
   );
 };
