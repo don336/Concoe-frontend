@@ -2,8 +2,8 @@ import {
   Typography as muiTypography,
   AppBar as muiAppbar,
   Box as muiBox,
-  Link as muiLink,
 } from "@mui/material";
+import { Link as muiLink } from "react-router-dom";
 import styled from "@emotion/styled";
 import { COLORS } from "../../Styles/theme";
 
@@ -29,4 +29,14 @@ export const StyledLink = styled(muiLink)`
   text-decoration: none;
   border-radius: 15px;
   padding: 8px;
+  text-decoration: none;
+  color: #fff;
+  &:hover {
+    cursor: pointer;
+    background: ${({ hoverbackground }) =>
+      hoverbackground || COLORS.YELLOW_GREEN};
+    box-shadow: ${({ boxshadow }) =>
+      boxshadow ? "0rem 0.375rem 0.375rem rgba(0, 0, 0, 0.32)" : "auto"};
+    color: ${({ hovercolor }) => hovercolor || "#333"};
+  }
 `;

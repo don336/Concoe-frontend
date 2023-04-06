@@ -4,17 +4,25 @@ import RegistrationForm from "./registrationForm";
 import { useDispatch, useSelector } from "react-redux";
 import { register } from "../authService";
 import { toast } from "react-toastify";
+import { Formik } from "formik";
+import * as Yup from "yup";
 import { useNavigate } from "react-router-dom";
 
 const Registration = () => {
-  const [userInput, setUserInput] = useState({
+  const defaultValues = {
     name: "",
     username: "",
     email: "",
     password: "",
     confirmPassword: "",
+  };
+  const yupObject = Yup.object({
+    name: Yup.string().max(15, "Must not be more than 15 characters").required(),
+    username: Yup.string().required(),
+    email: Yup.string().email().required(),
+    password: Yup.string().required(),
+    confirmPassword: Yup.string().required(),
   });
-  const { name, username, email, password, confirmPassword } = userInput;
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -24,15 +32,9 @@ const Registration = () => {
       navigate("/");
     }
   }, [authState]);
-  const handleChange = (event) => {
-    const { name, value } = event.target;
-    setUserInput((prevState) => ({
-      ...prevState,
-      [name]: value,
-    }));
-  };
 
-  const handleSubmit = () => {
+  const handleSubmit = (values) => {
+    const {name, username, email, password, confirmPassword} = values
     if (password !== confirmPassword) {
       toast.error("Passwords do not match");
     } else {
@@ -48,10 +50,13 @@ const Registration = () => {
 
   return (
     <StyledContainer maxWidth="1200px">
-      <RegistrationForm
-        handleSumbit={handleSubmit}
-        handleChange={handleChange}
-      />
+      <Formik
+        initialValues={defaultValues}
+        validationSchema={yupObject}
+        onSubmit={handleSubmit}
+      >
+        {(formik) => <RegistrationForm formik={formik} />}
+      </Formik>
     </StyledContainer>
   );
 };
