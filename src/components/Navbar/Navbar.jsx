@@ -1,4 +1,5 @@
 import * as React from "react";
+import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import {
   Box,
@@ -10,7 +11,6 @@ import {
   Button,
   Tooltip,
   MenuItem,
-  Link,
 } from "@mui/material";
 import {
   StyledTypography,
@@ -177,25 +177,8 @@ const Navbar = () => {
           </Box>
         ) : (
           <Box>
-            <StyledLink
-              href="/signup"
-              variant="body2"
-              sx={{
-                color: "#fff",
-              }}
-            >
-              Sign Up
-            </StyledLink>
-            <StyledLink
-              href="/Login"
-              variant="body2"
-              sx={{
-                backgroundColor: "#D3E298",
-                color: "#333",
-              }}
-            >
-              Login
-            </StyledLink>
+            <StyledLink to="/signup">Sign Up</StyledLink>
+            <StyledLink to="/Login">Login</StyledLink>
           </Box>
         )}
       </Toolbar>

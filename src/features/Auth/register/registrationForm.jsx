@@ -7,11 +7,17 @@ import {
   Grid,
   Box,
   Typography,
+  useTheme,
 } from "@mui/material";
+
 import SpaOutlinedIcon from "@mui/icons-material/SpaOutlined";
 import { StyledBox } from "./registrationStyles";
+import CustomButton from "../../../elements/customButton/customButton";
+import { COLORS } from "../../../Styles/theme";
 
-const RegistrationForm = ({ handleSumbit, handleChange }) => {
+const RegistrationForm = ({ handleSumbit, handleChange, formik }) => {
+  const theme = useTheme();
+
   return (
     <Container component="main" maxWidth="xs">
       <StyledBox>
@@ -23,33 +29,53 @@ const RegistrationForm = ({ handleSumbit, handleChange }) => {
             <Grid item xs={12} sm={12}>
               <TextField
                 autoComplete="given-name"
-                name="name"
+                name={formik.values.name}
                 required
                 fullWidth
-                id="name"
+                id={formik.values.name}
                 label="Full Name"
                 autoFocus
                 onChange={handleChange}
               />
+              {formik.errors.name ? (
+                <Typography
+                  variant="body2"
+                  sx={{
+                    color: "red",
+                  }}
+                >
+                  {formik.errors.name}
+                </Typography>
+              ) : null}
             </Grid>
             <Grid item xs={12} sm={12}>
               <TextField
                 required
                 fullWidth
-                id="username"
+                id={formik.values.username}
                 label="Username"
-                name="username"
+                name={formik.values.username}
                 autoComplete="family-name"
                 onChange={handleChange}
               />
+              {formik.errors.name ? (
+                <Typography
+                  variant="body2"
+                  sx={{
+                    color: "red",
+                  }}
+                >
+                  {formik.errors.name}
+                </Typography>
+              ) : null}
             </Grid>
             <Grid item xs={12}>
               <TextField
                 required
                 fullWidth
-                id="email"
+                id={formik.values.email}
                 label="Email Address"
-                name="email"
+                name={formik.values.email}
                 autoComplete="email"
                 onChange={handleChange}
               />
@@ -58,10 +84,10 @@ const RegistrationForm = ({ handleSumbit, handleChange }) => {
               <TextField
                 required
                 fullWidth
-                name="password"
+                name={formik.values.password}
                 label="Password"
                 type="password"
-                id="password"
+                id={formik.values.password}
                 autoComplete="new-password"
                 onChange={handleChange}
               />
@@ -70,24 +96,25 @@ const RegistrationForm = ({ handleSumbit, handleChange }) => {
               <TextField
                 required
                 fullWidth
-                name="confirmPassword"
+                name={formik.values.confirmPassword}
                 label="Confirm Password"
                 type="password"
-                id="confirmPassword"
+                id={formik.values.confirmPassword}
                 autoComplete="new-password"
                 onChange={handleChange}
               />
             </Grid>
           </Grid>
-          <Button
-            type="submit"
-            fullWidth
+          <CustomButton
+            background={COLORS.ERIE_BLACK}
             variant="contained"
-            sx={{ mt: 3, mb: 2, backgroundColor: "#222222" }}
             onClick={handleSumbit}
+            width="100%"
+            margin={theme.spacing(3, 0, 2, 0)}
+            hoverbackground={COLORS.YELLOW_GREEN}
           >
             Sign Up
-          </Button>
+          </CustomButton>
           <Grid container justifyContent="flex-end">
             <Grid item>
               <Link href="/Login" variant="body2">
