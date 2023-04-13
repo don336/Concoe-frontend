@@ -8,6 +8,7 @@ import Register from "./features/Auth/register/registration";
 import Login from "./features/Auth/Login/Login";
 import { store } from "./redux/store";
 import Home from "./features/Home/Home";
+import Footer from "./components/Footer/Footer";
 function App() {
   return (
     <ThemeProvider theme={theme}>

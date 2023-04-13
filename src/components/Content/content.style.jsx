@@ -74,4 +74,5 @@ export const TeamBox = styled(Box)`
   padding: 10px;
   margin: auto;
   margin-top: 5rem;
+  margin-Bottom: 5rem;
 `;

@@ -120,6 +120,7 @@ const Content = () => {
           sx={{
             marginLeft: "1rem",
             marginTop: "1rem",
+          
             padding: "1rem",
           }}
         >
