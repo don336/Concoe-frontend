@@ -33,10 +33,19 @@ export const StyledLink = styled(muiLink)`
   color: #fff;
   &:hover {
     cursor: pointer;
-    background: ${({ hoverbackground }) =>
-      hoverbackground || COLORS.YELLOW_GREEN};
+    background: ${({ hoverbackground }) => hoverbackground || COLORS.ERIE_BLACK};
     box-shadow: ${({ boxshadow }) =>
       boxshadow ? "0rem 0.375rem 0.375rem rgba(0, 0, 0, 0.32)" : "auto"};
-    color: ${({ hovercolor }) => hovercolor || "#333"};
+    color: ${({ hovercolor }) => hovercolor || COLORS.LIGHT_GREEN};
   }
+
+  
+`;
+
+export const CustomLink = styled(muiLink)`
+  text-decoration: none;
+  text-align: center;
+  color: #333;
+  margin: 0;
+  padding: 0;
 `;

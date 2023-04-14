@@ -17,18 +17,13 @@ import {
   StyledAppBar,
   StyledBox,
   StyledLink,
+  CustomLink,
 } from "./Navbar.style";
 
 import MenuIcon from "@mui/icons-material/Menu";
 import SpaOutlinedIcon from "@mui/icons-material/SpaOutlined";
 
-const pages = [
-  "Solutions",
-  "Departments",
-  "Farming Methods",
-  "Company",
-  "About",
-];
+const pages = ["Crops", "Departments", "Farming Methods", "Company", "About"];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
 const Navbar = () => {
@@ -100,7 +95,9 @@ const Navbar = () => {
           >
             {pages.map((page) => (
               <MenuItem key={page} onClick={handleCloseNavMenu}>
-                <Typography textAlign="center">{page}</Typography>
+                <CustomLink to={`/${page}`}>
+                  <MenuItem textalign="center">{page}</MenuItem>
+                </CustomLink>
               </MenuItem>
             ))}
           </Menu>
@@ -130,7 +127,7 @@ const Navbar = () => {
           }}
         >
           {pages.map((page) => (
-            <Button
+            <StyledLink
               key={page}
               onClick={handleCloseNavMenu}
               sx={{
@@ -140,9 +137,10 @@ const Navbar = () => {
                 marginRight: "7px",
                 fontSize: "small",
               }}
+              to={`/${page}`}
             >
               {page}
-            </Button>
+            </StyledLink>
           ))}
         </Box>
         {isAuthenticated ? (
