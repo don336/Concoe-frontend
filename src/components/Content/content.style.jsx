@@ -7,6 +7,7 @@ import {
   Typography,
   Stack,
 } from "@mui/material";
+import { Link } from "react-router-dom";
 import { COLORS } from "../../Styles/theme";
 
 export const StyledContainer = styled(muiContainer)`
@@ -74,5 +75,12 @@ export const TeamBox = styled(Box)`
   padding: 10px;
   margin: auto;
   margin-top: 5rem;
-  margin-Bottom: 5rem;
+  margin-bottom: 5rem;
+`;
+
+export const CustomLink = styled(Link)`
+  text-decoration: none;
+  text-align: center;
+  margin: 0;
+  padding: 0;
 `;

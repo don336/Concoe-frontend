@@ -1,8 +1,9 @@
-import React from 'react'
-import { ImageListItem, ImageList } from "@mui/material";
+import React from "react";
+import { ImageListItem } from "@mui/material";
+import { StyledImageList } from "./image.style";
 const Images = () => {
   return (
-    <ImageList sx={{ width: 500, height: 450}} cols={3} rowHeight={164}>
+    <StyledImageList rowHeight={164} cols={3}>
       {itemData.map((item) => (
         <ImageListItem key={item.img}>
           <img
@@ -13,11 +14,11 @@ const Images = () => {
           />
         </ImageListItem>
       ))}
-    </ImageList>
+    </StyledImageList>
   );
-}
+};
 
-export default Images
+export default Images;
 const itemData = [
   {
     img: "https://images.unsplash.com/photo-1607681034540-2c46cc71896d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",

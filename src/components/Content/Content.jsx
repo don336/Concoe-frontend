@@ -4,7 +4,6 @@ import {
   Card,
   Typography,
   CardMedia,
- 
   useTheme,
   CardActions,
   CardContent,
@@ -20,10 +19,12 @@ import {
   MissionTypography,
   TeamBox,
   TeamTypography,
+  CustomLink,
 } from "./content.style";
 import CustomButton from "../../elements/customButton/customButton";
 import Images from "../../assets/ImageList/images";
 import { COLORS } from "../../Styles/theme";
+import { Link } from "react-router-dom";
 
 const Content = () => {
   const theme = useTheme();
@@ -64,17 +65,20 @@ const Content = () => {
             </Typography>
           </StyledBox>
           <Box>
-            <CustomButton
-              fontcolor={COLORS.DARK_GREY}
-              background={COLORS.LIGHT_GREEN}
-              borderRadius={"1.125rem"}
-              endIcon={<ArrowOutwardIcon />}
-              padding={theme.spacing(1, 3)}
-              hoverbackground={COLORS.DARK_GREY}
-              hovercolor={COLORS.LIGHT_GREEN}
-            >
-              <Typography variant="w2"> Start Now</Typography>
-            </CustomButton>
+            <CustomLink to="/signup">
+              <CustomButton
+                fontcolor={COLORS.DARK_GREY}
+                background={COLORS.LIGHT_GREEN}
+                borderRadius={"1.125rem"}
+                endIcon={<ArrowOutwardIcon />}
+                padding={theme.spacing(1, 3)}
+                hoverbackground={COLORS.DARK_GREY}
+                hovercolor={COLORS.LIGHT_GREEN}
+              >
+                {" "}
+                <Typography variant="w2">Start Now</Typography>
+              </CustomButton>
+            </CustomLink>
             <SecondButton>How it Works</SecondButton>
           </Box>
         </Grid>
@@ -120,7 +124,7 @@ const Content = () => {
           sx={{
             marginLeft: "1rem",
             marginTop: "1rem",
-          
+
             padding: "1rem",
           }}
         >
@@ -134,11 +138,11 @@ const Content = () => {
                 <CardMedia
                   sx={{ height: 250 }}
                   image="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
-                  title="green iguana"
+                  title="Team member"
                 />
                 <CardContent>
                   <Typography gutterBottom variant="h5" component="div">
-                    Lizard
+                    Lisa Druxler
                   </Typography>
                   <Typography variant="body2" color="text.secondary">
                     Lizards are a widespread group of squamate reptiles, with
@@ -157,11 +161,11 @@ const Content = () => {
                 <CardMedia
                   sx={{ height: 250 }}
                   image="https://images.unsplash.com/photo-1552058544-f2b08422138a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1398&q=80"
-                  title="green iguana"
+                  title="team member"
                 />
                 <CardContent>
                   <Typography gutterBottom variant="h5" component="div">
-                    Lizard
+                    Crage Druxla
                   </Typography>
                   <Typography variant="body2" color="text.secondary">
                     Lizards are a widespread group of squamate reptiles, with
@@ -188,11 +192,11 @@ const Content = () => {
                 <CardMedia
                   sx={{ height: 250 }}
                   image="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=388&q=80"
-                  title="green iguana"
+                  title="Team member"
                 />
                 <CardContent>
                   <Typography gutterBottom variant="h5" component="div">
-                    Lizard
+                    Loraine Britney
                   </Typography>
                   <Typography variant="body2" color="text.secondary">
                     Lizards are a widespread group of squamate reptiles, with
