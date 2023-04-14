@@ -34,6 +34,9 @@ const Content = () => {
         container
         spacing={{ xs: 2, md: 3 }}
         columns={{ xs: 1, sm: 2, md: 4 }}
+        sx={{
+          justifyContent: "space-between"
+        }}
       >
         <Grid
           item

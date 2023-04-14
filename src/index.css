@@ -33,10 +33,15 @@
   }
 } */
 
+.MuiImageList-root::-webkit-scrollbar {
+  display: none;
+}
+
 @media screen and (max-width: 500px) {
-  .imgList  {
+  .imgList {
     display: none;
   }
+
   #root {
     height: 500vh;
   }
