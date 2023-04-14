@@ -3,18 +3,20 @@ import { ImageListItem } from "@mui/material";
 import { StyledImageList } from "./image.style";
 const Images = () => {
   return (
-    <StyledImageList rowHeight={164} cols={3}>
-      {itemData.map((item) => (
-        <ImageListItem key={item.img}>
-          <img
-            src={`${item.img}?w=164&h=164&fit=crop&auto=format`}
-            srcSet={`${item.img}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
-            alt={item.title}
-            loading="lazy"
-          />
-        </ImageListItem>
-      ))}
-    </StyledImageList>
+    <div className="imgList">
+      <StyledImageList rowHeight={164} cols={3}>
+        {itemData.map((item) => (
+          <ImageListItem key={item.img}>
+            <img
+              src={`${item.img}?w=164&h=164&fit=crop&auto=format`}
+              srcSet={`${item.img}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
+              alt={item.title}
+              loading="lazy"
+            />
+          </ImageListItem>
+        ))}
+      </StyledImageList>
+    </div>
   );
 };
 
