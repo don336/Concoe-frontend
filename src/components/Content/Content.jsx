@@ -22,7 +22,7 @@ import {
   CustomLink,
 } from "./content.style";
 import CustomButton from "../../elements/customButton/customButton";
-import Images from "../../assets/ImageList/images";
+import Images from "../ImageList/Images";
 import { COLORS } from "../../Styles/theme";
 import { Link } from "react-router-dom";
 
