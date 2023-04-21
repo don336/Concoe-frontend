@@ -1,8 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { register, login } from "./authService";
 
+const isAuthenticated = localStorage.getItem("isAuthenticated");
 const initialState = {
-  isAuthenticated: false,
+  isAuthenticated: isAuthenticated ? isAuthenticated : false,
   error: "",
   currentUser: {},
 };
