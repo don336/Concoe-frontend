@@ -8,7 +8,7 @@ import Register from "./features/Auth/register/registration";
 import Login from "./features/Auth/Login/Login";
 import { store } from "./redux/store";
 import Home from "./features/Home/Home";
-import Footer from "./components/Footer/Footer";
+import Crops from "./features/Crop/Crops";
 function App() {
   return (
     <ThemeProvider theme={theme}>
@@ -19,6 +19,7 @@ function App() {
             <Route path="/signup" exact element={<Register />} />
             <Route path="/Login" exact element={<Login />} />
             <Route path="/" exact element={<Home />} />
+            <Route path="/Crops" exact element={<Crops />} />
           </Routes>
         </Router>
       </Provider>
