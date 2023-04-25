@@ -24,10 +24,13 @@ import {
 import CustomButton from "../../elements/customButton/customButton";
 import Images from "../ImageList/Images";
 import { COLORS } from "../../Styles/theme";
-import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const Content = () => {
   const theme = useTheme();
+  const authState = useSelector((state) => state.auth);
+
+  const { isAuthenticated } = authState;
   return (
     <StyledContainer>
       <Grid
@@ -35,7 +38,7 @@ const Content = () => {
         spacing={{ xs: 2, md: 3 }}
         columns={{ xs: 1, sm: 2, md: 4 }}
         sx={{
-          justifyContent: "space-between"
+          justifyContent: "space-between",
         }}
       >
         <Grid
@@ -68,21 +71,27 @@ const Content = () => {
             </Typography>
           </StyledBox>
           <Box>
-            <CustomLink to="/signup">
-              <CustomButton
-                fontcolor={COLORS.DARK_GREY}
-                background={COLORS.LIGHT_GREEN}
-                borderRadius={"1.125rem"}
-                endIcon={<ArrowOutwardIcon />}
-                padding={theme.spacing(1, 3)}
-                hoverbackground={COLORS.DARK_GREY}
-                hovercolor={COLORS.LIGHT_GREEN}
-              >
-                {" "}
-                <Typography variant="w2">Start Now</Typography>
-              </CustomButton>
+            {isAuthenticated ? (
+              ""
+            ) : (
+              <CustomLink to="/signup">
+                <CustomButton
+                  fontcolor={COLORS.DARK_GREY}
+                  background={COLORS.LIGHT_GREEN}
+                  borderRadius={"1.125rem"}
+                  endIcon={<ArrowOutwardIcon />}
+                  padding={theme.spacing(1, 3)}
+                  hoverbackground={COLORS.DARK_GREY}
+                  hovercolor={COLORS.LIGHT_GREEN}
+                >
+                  {" "}
+                  <Typography variant="w2">Start Now</Typography>
+                </CustomButton>
+              </CustomLink>
+            )}
+            <CustomLink to="/About">
+              <SecondButton>How it Works</SecondButton>
             </CustomLink>
-            <SecondButton>How it Works</SecondButton>
           </Box>
         </Grid>
         <Grid item xs={1} sm={2} md={2}>
