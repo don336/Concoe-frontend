@@ -8,8 +8,10 @@ import Register from "./features/Auth/register/registration";
 import Login from "./features/Auth/Login/Login";
 import { store } from "./redux/store";
 import Home from "./features/Home/Home";
-import Crops from "./features/Crop/Crops";
+import Crops from "./features/Crop/Layout/Crops";
+import getWeather from "./utils/weather";
 function App() {
+  getWeather();
   return (
     <ThemeProvider theme={theme}>
       <Provider store={store}>

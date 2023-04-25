@@ -6,6 +6,7 @@
 
 #root {
   background: #222222;
+  min-height: 100vh;
 }
 
 .cl {
@@ -40,9 +41,5 @@
 @media screen and (max-width: 500px) {
   .imgList {
     display: none;
-  }
-
-  #root {
-    height: 500vh;
   }
 }
