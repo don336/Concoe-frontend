@@ -1,10 +1,16 @@
 import React, { useState, useEffect } from "react";
-import { Container, Box, Grid, Typography } from "@mui/material";
+import { Container, Box, Grid } from "@mui/material";
 import Navbar from "../../../components/Navbar/Navbar";
-import { StyledBox, WeatherBox, StyledTypography } from "./crops.style";
+import {
+  StyledBox,
+  WeatherBox,
+  StyledTypography,
+  CropLink,
+} from "./crops.style";
 import CustomButton from "../../../elements/customButton/customButton";
 import { COLORS } from "../../../Styles/theme";
 import CropDataGrid from "./CropDataGrid";
+// import Footer from "../../../components/Footer/Footer";
 // import pics from "../../../assets/icons/"
 
 const Crops = () => {
@@ -37,14 +43,16 @@ const Crops = () => {
       <Navbar />
       <Container>
         <StyledBox>
-          <CustomButton
-            fontcolor={COLORS.DARK_GREY}
-            background={COLORS.YELLOW_GREEN}
-            hoverbackground={COLORS.DARK_GREY}
-            onClick={handleDisplay}
-          >
-            Add Crop +
-          </CustomButton>
+          <CropLink to="/Crops/add-crop">
+            <CustomButton
+              fontcolor={COLORS.DARK_GREY}
+              background={COLORS.YELLOW_GREEN}
+              hoverbackground={COLORS.DARK_GREY}
+              onClick={handleDisplay}
+            >
+              Add Crop +
+            </CustomButton>
+          </CropLink>
           <Grid
             container
             spacing={{ xs: 2, md: 3 }}
@@ -64,7 +72,7 @@ const Crops = () => {
                 <StyledTypography variant="h4">{district}</StyledTypography>
                 <img
                   src={`http://127.0.0.1:5173/src/assets/icons/${weather.icon}.png`}
-                  alt=""
+                  alt="weather icon"
                 />
                 <StyledTypography>
                   Temperature: {Math.round(temp.temp)}°C
