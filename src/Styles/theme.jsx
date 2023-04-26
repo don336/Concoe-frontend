@@ -15,17 +15,18 @@ export const ONE_REM_TO_PX = 16;
 
 export const FONT = {
   // Define available font-families to be used throughout the app
+  // font-family: 'Montserrat', sans-serif;
   FAMILY: {
-    POPPINS: ["Poppins", "sans-serif"].join(","),
+    Montserrat: ["Montserrat", "sans-serif"].join(","),
   },
   LINE_HEIGHT: "136.4%",
   // Define font weights that would be used throughout the app
   WEIGHT: {
-    LIGHT: 300,
-    REGULAR: 400,
-    MEDIUM: 500,
-    SEMIBOLD: 600,
-    BOLD: 700,
+    LIGHT: 400,
+    REGULAR: 500,
+    MEDIUM: 600,
+    SEMIBOLD: 700,
+    BOLD: 800,
   },
   // Define font sizes that would be used throughout the app in rem
   // the numbers on the left indicates the px equivalent of the rem values
@@ -67,7 +68,7 @@ export const FONT = {
 
 export const theme = createTheme({
   typography: {
-    fontFamily: FONT.FAMILY.POPPINS,
+    fontFamily: FONT.FAMILY.Montserrat,
     h1: {
       fontSize: FONT.SIZES[49],
       lineHeight: FONT.LINE_HEIGHT,

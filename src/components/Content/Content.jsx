@@ -107,8 +107,12 @@ const Content = () => {
             Our coffee farm strives to be a sustainable and innovative leader in
             the industry, providing exceptional quality coffee beans while
             prioritizing the well-being of our environment, community, and
-            employees. We envision a future where every cup of our coffee tells
-            the story of our commitment to responsible farming practices, social
+            employees.
+          </MissionTypography>
+          <MissionTypography variant="body2">
+            {" "}
+            We envision a future where every cup of our coffee tells the story
+            of our commitment to responsible farming practices, social
             responsibility, and the art of producing a truly exceptional cup of
             coffee.
           </MissionTypography>
@@ -120,11 +124,13 @@ const Content = () => {
           <MissionTypography variant="body2">
             Our mission is to produce the finest quality coffee beans while
             maintaining the highest standards of environmental stewardship,
-            social responsibility, and ethical business practices. Through
-            sustainable farming methods, community engagement, and investment in
-            our employees, we are dedicated to delivering exceptional coffee to
-            our customers, while leaving a positive impact on the world around
-            us.
+            social responsibility, and ethical business practices.
+          </MissionTypography>{" "}
+          <MissionTypography variant="body2">
+            Through sustainable farming methods, community engagement, and
+            investment in our employees, we are dedicated to delivering
+            exceptional coffee to our customers, while leaving a positive impact
+            on the world around us.
           </MissionTypography>
         </Box>
       </MissionBox>
@@ -156,7 +162,7 @@ const Content = () => {
                   <Typography gutterBottom variant="h5" component="div">
                     Lisa Druxler
                   </Typography>
-                  <Typography variant="body2" color="text.secondary">
+                  <Typography variant="h6" color="text.secondary">
                     Lizards are a widespread group of squamate reptiles, with
                     over 6,000 species, ranging across all continents except
                     Antarctica
@@ -179,7 +185,7 @@ const Content = () => {
                   <Typography gutterBottom variant="h5" component="div">
                     Crage Druxla
                   </Typography>
-                  <Typography variant="body2" color="text.secondary">
+                  <Typography variant="h6" color="text.secondary">
                     Lizards are a widespread group of squamate reptiles, with
                     over 6,000 species, ranging across all continents except
                     Antarctica
@@ -210,7 +216,7 @@ const Content = () => {
                   <Typography gutterBottom variant="h5" component="div">
                     Loraine Britney
                   </Typography>
-                  <Typography variant="body2" color="text.secondary">
+                  <Typography variant="h6" color="text.secondary">
                     Lizards are a widespread group of squamate reptiles, with
                     over 6,000 species, ranging across all continents except
                     Antarctica

@@ -1,4 +1,5 @@
 import { Typography, Box as muiBox } from "@mui/material";
+import { Link } from "react-router-dom";
 import styled from "@emotion/styled";
 import { COLORS } from "../../../Styles/theme";
 
@@ -30,4 +31,9 @@ export const StyledTypography = styled(Typography)`
   color: ${COLORS.WHITE};
   text-align: center;
   line-height: 2.5rem;
+`;
+
+export const CropLink = styled(Link)`
+  text-decoration: none;
+  color: none;
 `;
