@@ -22,14 +22,14 @@ const columns = [
     field: "Acreage",
     headerName: "Acreage",
     type: "number",
-    width: 150,
+    width: 112,
     editable: true,
   },
   {
     field: "expectedYield",
     headerName: "Expected Yields",
     type: "number",
-    width: 150,
+    width: 140,
     editable: true,
   },
 ];
