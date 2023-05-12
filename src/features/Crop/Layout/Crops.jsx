@@ -71,7 +71,7 @@ const Crops = () => {
               <WeatherBox>
                 <StyledTypography variant="h4">{district}</StyledTypography>
                 <img
-                  src={`http://127.0.0.1:5173/src/assets/icons/${weather.icon}.png`}
+                  src={`https://quiet-frangipane-5f0ff6.netlify.app/src/assets/icons/${weather.icon}.png`}
                   alt="weather icon"
                 />
                 <StyledTypography>
