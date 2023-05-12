@@ -22,6 +22,11 @@
   border-radius: 5px;
 }
 
+.primary {
+  color: #a2d729;
+  
+}
+
 /* @media screen and (max-width: 500px) {
   #root {
     height: 500vh;

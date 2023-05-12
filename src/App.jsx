@@ -10,6 +10,7 @@ import { store } from "./redux/store";
 import Home from "./features/Home/Home";
 import Crops from "./features/Crop/Layout/Crops";
 import getWeather from "./utils/weather";
+import Account from "./components/Account/Account";
 function App() {
   getWeather();
   return (
@@ -22,6 +23,7 @@ function App() {
             <Route path="/Login" exact element={<Login />} />
             <Route path="/" exact element={<Home />} />
             <Route path="/Crops" exact element={<Crops />} />
+            <Route path="/Account" exact element={<Account />} />
           </Routes>
         </Router>
       </Provider>

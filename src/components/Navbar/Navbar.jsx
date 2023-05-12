@@ -22,9 +22,10 @@ import {
 
 import MenuIcon from "@mui/icons-material/Menu";
 import SpaOutlinedIcon from "@mui/icons-material/SpaOutlined";
+import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 
 const pages = ["Crops", "Departments", "Farming Methods", "Company", "About"];
-const settings = ["Profile", "Account", "Dashboard", "Logout"];
+const settings = ["Account", "Logout"];
 
 const Navbar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -147,7 +148,11 @@ const Navbar = () => {
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+                <AccountCircleIcon
+                  sx={{
+                    color: "#fff",
+                  }}
+                />
               </IconButton>
             </Tooltip>
             <Menu
@@ -168,7 +173,11 @@ const Navbar = () => {
             >
               {settings.map((setting) => (
                 <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center" variant="h4">{setting}</Typography>
+                  <CustomLink to={`/${setting}`}>
+                    <Typography textAlign="center" variant="h4">
+                      {setting}
+                    </Typography>
+                  </CustomLink>
                 </MenuItem>
               ))}
             </Menu>
