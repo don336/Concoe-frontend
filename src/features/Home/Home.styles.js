@@ -5,5 +5,5 @@ export const StyledContainer = styled(muiContainer)`
   min-height: 100vh;
   @media screen and (max-width: 700px) {
     height: 400vh;
-}
+  }
 `;

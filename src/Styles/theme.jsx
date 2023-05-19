@@ -9,6 +9,18 @@ export const COLORS = {
   WHITE: "#fff",
   LIGHT_GREEN: "#d3e298",
   DARK_GREY: "#333",
+  LIGHT: "#eee",
+  MEDIUM_GREY: "#00aba6",
+  WHITE: "#fff",
+  LIGHT_BLUE: "#32b8cb",
+  BLUE: "#0035C7",
+  RED: "#dd4b39",
+  LIGHT_RED: "#ee475b",
+  MEDIUM_RED: "#808080",
+  SKY_BLUE: "#4a90e2",
+  BLACK: "#000",
+  METAL_GREY: "#97a2a2",
+  DARK_BLUE: "#001257",
 };
 
 export const ONE_REM_TO_PX = 16;

@@ -8,17 +8,14 @@ const config = {
     Authentication: `Bearer ${localStorage.getItem("access_token")}`,
   },
 };
-export const getAllCrops = createAsyncThunk(
-  "getAllCrops",
-  async (thunkAPI) => {
-    try {
-      const response = await axios.get(`${baseUrl}/crop/`, config);
-      return response.data.crops;
-    } catch (error) {
-      return thunkAPI.rejectWithValue(response.message);
-    }
+export const getAllCrops = createAsyncThunk("getAllCrops", async (thunkAPI) => {
+  try {
+    const response = await axios.get(`${baseUrl}/crop/`, config);
+    return response.data.crops;
+  } catch (error) {
+    return thunkAPI.rejectWithValue(response.message);
   }
-);
+});
 export const login = createAsyncThunk("login", async (data, thunkAPI) => {
   try {
     const response = await axios.post(`${baseUrl}auth/signin`, data);

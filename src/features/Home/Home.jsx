@@ -8,7 +8,7 @@ const Home = () => {
     <StyledContainer maxWidth="xl">
       <Navbar />
       <Content />
-      <Footer/>
+      <Footer />
     </StyledContainer>
   );
 };

@@ -17,7 +17,9 @@ const Registration = () => {
     confirmPassword: "",
   };
   const yupObject = Yup.object({
-    name: Yup.string().max(15, "Must not be more than 15 characters").required(),
+    name: Yup.string()
+      .max(15, "Must not be more than 15 characters")
+      .required(),
     username: Yup.string().required(),
     email: Yup.string().email().required(),
     password: Yup.string().required(),
@@ -34,7 +36,7 @@ const Registration = () => {
   }, [authState]);
 
   const handleSubmit = (values) => {
-    const {name, username, email, password, confirmPassword} = values
+    const { name, username, email, password, confirmPassword } = values;
     if (password !== confirmPassword) {
       toast.error("Passwords do not match");
     } else {

@@ -1,9 +1,10 @@
 import * as React from "react";
 import Box from "@mui/material/Box";
-import { DataGrid } from "@mui/x-data-grid";
 import { getAllCrops } from "../CropServices";
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
+import { DataGridContainer } from "../../../components/dataGridContainer/index.js";
+import { DataGrid } from "../../../elements/dataGrid";
 
 const columns = [
   {
@@ -52,8 +53,18 @@ export default function CropDataGrid() {
   useEffect(() => {
     dispatch(getAllCrops());
   }, []);
+  const heading = [
+    {
+      title1: "Crops",
+      title2: null,
+    },
+    {
+      title1: "Total Acreage",
+      title2: 0,
+    },
+  ];
   return (
-    <Box sx={{ height: 400, width: 800 }}>
+    <DataGridContainer headings={heading} buttonTitle="Add Crop">
       <DataGrid
         sx={{
           color: "#fff",
@@ -68,10 +79,12 @@ export default function CropDataGrid() {
             },
           },
         }}
+        rowHeight={2.7}
+        height="27rem"
         pageSizeOptions={[5]}
         checkboxSelection
         disableRowSelectionOnClick
       />
-    </Box>
+    </DataGridContainer>
   );
 }
