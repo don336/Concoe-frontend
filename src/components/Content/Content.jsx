@@ -1,29 +1,45 @@
 import {
   Grid,
   Box,
-  Stack,
+  Card,
   Typography,
-  ImageList,
-  ImageListItem,
+  CardMedia,
   useTheme,
+  CardActions,
+  CardContent,
+  Button,
 } from "@mui/material";
 import ArrowOutwardIcon from "@mui/icons-material/ArrowOutward";
 import {
   StyledContainer,
   StyledBox,
-  StyledButton,
   SecondButton,
+  MissionBox,
+  StyledTypography,
+  MissionTypography,
+  TeamBox,
+  TeamTypography,
+  CustomLink,
 } from "./content.style";
-import { COLORS } from "../../Styles/theme";
 import CustomButton from "../../elements/customButton/customButton";
+import Images from "../ImageList/Images";
+import { COLORS } from "../../Styles/theme";
+import { useSelector } from "react-redux";
+
 const Content = () => {
   const theme = useTheme();
+  const authState = useSelector((state) => state.auth);
+
+  const { isAuthenticated } = authState;
   return (
     <StyledContainer>
       <Grid
         container
         spacing={{ xs: 2, md: 3 }}
         columns={{ xs: 1, sm: 2, md: 4 }}
+        sx={{
+          justifyContent: "space-between",
+        }}
       >
         <Grid
           item
@@ -55,86 +71,168 @@ const Content = () => {
             </Typography>
           </StyledBox>
           <Box>
-            <CustomButton
-              fontcolor={COLORS.DARK_GREY}
-              background={COLORS.LIGHT_GREEN}
-              borderRadius={"1.125rem"}
-              endIcon={<ArrowOutwardIcon />}
-              padding={theme.spacing(1, 3)}
-              hoverbackground={COLORS.DARK_GREY}
-              hovercolor={COLORS.LIGHT_GREEN}
-            >
-              <Typography variant="w2"> Start Now</Typography>
-            </CustomButton>
-            <SecondButton>How it Works</SecondButton>
+            {isAuthenticated ? (
+              ""
+            ) : (
+              <CustomLink to="/signup">
+                <CustomButton
+                  fontcolor={COLORS.DARK_GREY}
+                  background={COLORS.LIGHT_GREEN}
+                  borderRadius={"1.125rem"}
+                  endIcon={<ArrowOutwardIcon />}
+                  padding={theme.spacing(1, 3)}
+                  hoverbackground={COLORS.DARK_GREY}
+                  hovercolor={COLORS.LIGHT_GREEN}
+                >
+                  {" "}
+                  <Typography variant="w2">Start Now</Typography>
+                </CustomButton>
+              </CustomLink>
+            )}
+            <CustomLink to="/About">
+              <SecondButton>How it Works</SecondButton>
+            </CustomLink>
           </Box>
         </Grid>
         <Grid item xs={1} sm={2} md={2}>
-          <ImageList sx={{ width: 500, height: 450 }} cols={3} rowHeight={164}>
-            {itemData.map((item) => (
-              <ImageListItem key={item.img}>
-                <img
-                  src={`${item.img}?w=164&h=164&fit=crop&auto=format`}
-                  srcSet={`${item.img}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
-                  alt={item.title}
-                  loading="lazy"
-                />
-              </ImageListItem>
-            ))}
-          </ImageList>
+          <Images />
         </Grid>
       </Grid>
+      <MissionBox direction={{ xs: "column", sm: "row" }} spacing={2}>
+        <Box>
+          <StyledTypography variant="h3">
+            Vision <span className="primary-color">Statement</span>
+          </StyledTypography>
+          <MissionTypography variant="body2">
+            Our coffee farm strives to be a sustainable and innovative leader in
+            the industry, providing exceptional quality coffee beans while
+            prioritizing the well-being of our environment, community, and
+            employees.
+          </MissionTypography>
+          <MissionTypography variant="body2">
+            {" "}
+            We envision a future where every cup of our coffee tells the story
+            of our commitment to responsible farming practices, social
+            responsibility, and the art of producing a truly exceptional cup of
+            coffee.
+          </MissionTypography>
+        </Box>
+        <Box>
+          <StyledTypography variant="h3">
+            Mission <span className="primary-color">Statement</span>{" "}
+          </StyledTypography>
+          <MissionTypography variant="body2">
+            Our mission is to produce the finest quality coffee beans while
+            maintaining the highest standards of environmental stewardship,
+            social responsibility, and ethical business practices.
+          </MissionTypography>{" "}
+          <MissionTypography variant="body2">
+            Through sustainable farming methods, community engagement, and
+            investment in our employees, we are dedicated to delivering
+            exceptional coffee to our customers, while leaving a positive impact
+            on the world around us.
+          </MissionTypography>
+        </Box>
+      </MissionBox>
+      <TeamBox>
+        <Box>
+          <TeamTypography variant="h3">Our Team.</TeamTypography>
+        </Box>
+        <Box
+          sx={{
+            marginLeft: "1rem",
+            marginTop: "1rem",
+
+            padding: "1rem",
+          }}
+        >
+          <Grid
+            container
+            spacing={{ xs: 2, md: 3 }}
+            columns={{ xs: 1, sm: 2, md: 9 }}
+          >
+            <Grid item xs={2} sm={2} md={3}>
+              <Card sx={{ maxWidth: 345 }}>
+                <CardMedia
+                  sx={{ height: 250 }}
+                  image="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
+                  title="Team member"
+                />
+                <CardContent>
+                  <Typography gutterBottom variant="h5" component="div">
+                    Lisa Druxler
+                  </Typography>
+                  <Typography variant="h6" color="text.secondary">
+                    Lizards are a widespread group of squamate reptiles, with
+                    over 6,000 species, ranging across all continents except
+                    Antarctica
+                  </Typography>
+                </CardContent>
+                <CardActions>
+                  <Button size="small">Share</Button>
+                  <Button size="small">Learn More</Button>
+                </CardActions>
+              </Card>
+            </Grid>
+            <Grid item xs={1} sm={2} md={3}>
+              <Card sx={{ maxWidth: 345 }}>
+                <CardMedia
+                  sx={{ height: 250 }}
+                  image="https://images.unsplash.com/photo-1552058544-f2b08422138a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1398&q=80"
+                  title="team member"
+                />
+                <CardContent>
+                  <Typography gutterBottom variant="h5" component="div">
+                    Crage Druxla
+                  </Typography>
+                  <Typography variant="h6" color="text.secondary">
+                    Lizards are a widespread group of squamate reptiles, with
+                    over 6,000 species, ranging across all continents except
+                    Antarctica
+                  </Typography>
+                </CardContent>
+                <CardActions>
+                  <Button size="small">Share</Button>
+                  <Button size="small">Learn More</Button>
+                </CardActions>
+              </Card>
+            </Grid>
+            <Grid
+              item
+              xs={1}
+              sm={2}
+              md={3}
+              sx={{
+                marginBottom: "30px",
+              }}
+            >
+              <Card sx={{ maxWidth: 345 }}>
+                <CardMedia
+                  sx={{ height: 250 }}
+                  image="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=388&q=80"
+                  title="Team member"
+                />
+                <CardContent>
+                  <Typography gutterBottom variant="h5" component="div">
+                    Loraine Britney
+                  </Typography>
+                  <Typography variant="h6" color="text.secondary">
+                    Lizards are a widespread group of squamate reptiles, with
+                    over 6,000 species, ranging across all continents except
+                    Antarctica
+                  </Typography>
+                </CardContent>
+                <CardActions>
+                  <Button size="small">Share</Button>
+                  <Button size="small">Learn More</Button>
+                </CardActions>
+              </Card>
+            </Grid>
+          </Grid>
+        </Box>
+      </TeamBox>
     </StyledContainer>
   );
 };
-const itemData = [
-  {
-    img: "https://images.unsplash.com/photo-1607681034540-2c46cc71896d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
-    title: "Breakfast",
-  },
-  {
-    img: "https://images.unsplash.com/photo-1524350876685-274059332603?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=871&q=80",
-    title: "Burger",
-  },
-  {
-    img: "https://images.unsplash.com/photo-1628236876894-dbde8ff5a944?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=442&q=80",
-    title: "Camera",
-  },
-  {
-    img: "https://images.unsplash.com/photo-1634467524884-897d0af5e104?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
-    title: "Coffee",
-  },
-  {
-    img: "https://images.unsplash.com/photo-1554402100-8d1d9f3dff80?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80",
-    title: "Hats",
-  },
-  {
-    img: "https://images.unsplash.com/photo-1559631526-5716df3cfacd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1032&q=80",
-    title: "Honey",
-  },
-  {
-    img: "https://images.unsplash.com/photo-1629008642899-178df6fc5f2f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
-    title: "Basketball",
-  },
-  {
-    img: "https://images.unsplash.com/photo-1576266448917-992547cdaa2e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=435&q=80",
-    title: "Fern",
-  },
-  {
-    img: "https://images.unsplash.com/photo-1633281122614-49d2304d57a4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80",
-    title: "Mushrooms",
-  },
-  {
-    img: "https://images.unsplash.com/photo-1598303080484-8db04d10c787?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80",
-    title: "Tomato basil",
-  },
-  {
-    img: "https://images.unsplash.com/photo-1602867741746-6df80f40b3f6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=435&q=80",
-    title: "Sea star",
-  },
-  {
-    img: "https://images.unsplash.com/photo-1551810080-3eb3be72d3f4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
-    title: "Bike",
-  },
-];
+
 export default Content;

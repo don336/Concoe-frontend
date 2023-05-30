@@ -54,6 +54,7 @@ const RegistrationForm = ({ handleSumbit, handleChange }) => {
             onClick={handleSumbit}
             width="100%"
             margin={theme.spacing(3, 0, 2, 0)}
+            hoverbackground={COLORS.YELLOW_GREEN}
           >
             Sign In
           </CustomButton>

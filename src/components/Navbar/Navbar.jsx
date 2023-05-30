@@ -1,4 +1,5 @@
 import * as React from "react";
+import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import {
   Box,
@@ -10,26 +11,21 @@ import {
   Button,
   Tooltip,
   MenuItem,
-  Link,
 } from "@mui/material";
 import {
   StyledTypography,
   StyledAppBar,
   StyledBox,
   StyledLink,
+  CustomLink,
 } from "./Navbar.style";
 
 import MenuIcon from "@mui/icons-material/Menu";
 import SpaOutlinedIcon from "@mui/icons-material/SpaOutlined";
+import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 
-const pages = [
-  "Solutions",
-  "Departments",
-  "Farming Methods",
-  "Company",
-  "About",
-];
-const settings = ["Profile", "Account", "Dashboard", "Logout"];
+const pages = ["Crops", "Departments", "Farming Methods", "Company", "About"];
+const settings = ["Account", "Logout"];
 
 const Navbar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -100,7 +96,9 @@ const Navbar = () => {
           >
             {pages.map((page) => (
               <MenuItem key={page} onClick={handleCloseNavMenu}>
-                <Typography textAlign="center">{page}</Typography>
+                <CustomLink to={`/${page}`}>
+                  <MenuItem textalign="center">{page}</MenuItem>
+                </CustomLink>
               </MenuItem>
             ))}
           </Menu>
@@ -130,7 +128,7 @@ const Navbar = () => {
           }}
         >
           {pages.map((page) => (
-            <Button
+            <StyledLink
               key={page}
               onClick={handleCloseNavMenu}
               sx={{
@@ -140,16 +138,21 @@ const Navbar = () => {
                 marginRight: "7px",
                 fontSize: "small",
               }}
+              to={`/${page}`}
             >
               {page}
-            </Button>
+            </StyledLink>
           ))}
         </Box>
         {isAuthenticated ? (
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+                <AccountCircleIcon
+                  sx={{
+                    color: "#fff",
+                  }}
+                />
               </IconButton>
             </Tooltip>
             <Menu
@@ -170,32 +173,19 @@ const Navbar = () => {
             >
               {settings.map((setting) => (
                 <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
+                  <CustomLink to={`/${setting}`}>
+                    <Typography textAlign="center" variant="h4">
+                      {setting}
+                    </Typography>
+                  </CustomLink>
                 </MenuItem>
               ))}
             </Menu>
           </Box>
         ) : (
           <Box>
-            <StyledLink
-              href="/signup"
-              variant="body2"
-              sx={{
-                color: "#fff",
-              }}
-            >
-              Sign Up
-            </StyledLink>
-            <StyledLink
-              href="/Login"
-              variant="body2"
-              sx={{
-                backgroundColor: "#D3E298",
-                color: "#333",
-              }}
-            >
-              Login
-            </StyledLink>
+            <StyledLink to="/signup">Sign Up</StyledLink>
+            <StyledLink to="/Login">Login</StyledLink>
           </Box>
         )}
       </Toolbar>

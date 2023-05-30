@@ -18,6 +18,6 @@ export const StyledButton = styled(Button)`
     background: ${({ hoverbackground }) => hoverbackground || COLORS.WHITE};
     box-shadow: ${({ boxshadow }) =>
       boxshadow ? "0rem 0.375rem 0.375rem rgba(0, 0, 0, 0.32)" : "auto"};
-    color: ${({ hovercolor }) => (hovercolor || COLORS.WHITE)};
+    color: ${({ hovercolor }) => hovercolor || COLORS.WHITE};
   }
 `;

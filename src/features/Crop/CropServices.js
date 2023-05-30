@@ -1,20 +1,24 @@
-import axios, { AxiosHeaders } from "axios";
+import axios from "axios";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import jwt_decode from "jwt-decode";
 import { baseUrl } from "../../config/client";
 
-export const register = createAsyncThunk("register", async (data, thunkAPI) => {
-  try {
-    const response = await axios.post(`${baseUrl}auth/signup`, data);
-    const { accessToken } = response.data;
-    localStorage.setItem("jwtToken", accessToken);
-    const decoded = jwt_decode(accessToken);
-    decoded.token = token;
-    return decoded.user;
-  } catch (error) {
-    return thunkAPI.rejectWithValue("register");
+const config = {
+  Headers: {
+    Authentication: `Bearer ${localStorage.getItem("access_token")}`,
+  },
+};
+export const getAllCrops = createAsyncThunk(
+  "getAllCrops",
+  async (thunkAPI) => {
+    try {
+      const response = await axios.get(`${baseUrl}/crop/`, config);
+      return response.data.crops;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(response.message);
+    }
   }
-});
+);
 export const login = createAsyncThunk("login", async (data, thunkAPI) => {
   try {
     const response = await axios.post(`${baseUrl}auth/signin`, data);
