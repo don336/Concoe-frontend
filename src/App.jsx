@@ -10,7 +10,10 @@ import { store } from "./redux/store";
 import Home from "./features/Home/Home";
 import Crops from "./features/Crop/Layout/Crops";
 import getWeather from "./utils/weather";
-import Account from "./components/Account/Account";
+import Account from "./features/Account/Account";
+import EditProfile from "./features/EditProfile/Edit";
+import AddCrop from "./features/Add_Crop/AddCrop";
+
 function App() {
   getWeather();
   return (
@@ -24,6 +27,12 @@ function App() {
             <Route path="/" exact element={<Home />} />
             <Route path="/Crops" exact element={<Crops />} />
             <Route path="/Account" exact element={<Account />} />
+            <Route
+              path="/Account/Edit-profile"
+              exact
+              element={<EditProfile />}
+            />
+            <Route path="/Crops/add-crop" exact element={<AddCrop />} />
           </Routes>
         </Router>
       </Provider>

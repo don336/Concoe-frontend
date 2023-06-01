@@ -26,6 +26,16 @@
   color: #a2d729;
 }
 
+.css-du8xsi-MuiStack-root {
+  color: #fff;
+}
+
+.css-axafay-MuiDataGrid-virtualScroller {
+  overflow: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
 /* @media screen and (max-width: 500px) {
   #root {
     height: 500vh;
@@ -37,7 +47,9 @@
     height: 350px;
   }
 } */
-
+.css-axafay-MuiDataGrid-virtualScroller::-webkit-scrollbar {
+  display: none;
+}
 .MuiImageList-root::-webkit-scrollbar {
   display: none;
 }

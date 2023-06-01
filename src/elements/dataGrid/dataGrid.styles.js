@@ -6,15 +6,17 @@ import StraightIcon from "@mui/icons-material/Straight";
 export const MUIDataGrid = styled(DataGrid)`
   border: 0;
   .MuiDataGrid-columnHeaders {
-    background-color: ${COLORS.LIGHT_RED};
+    background-color: ${COLORS.YELLOW_GREEN};
+    color: ${COLORS.BLACK};
     font-size: 1rem;
-    font-weight: 300;
+    font-weight: 700;
     border-radius: 0;
   }
 
   .MuiDataGrid-columnSeparator {
     display: none;
   }
+
   .MuiDataGrid-columnHeader {
     border-right: 0.063rem solid ${COLORS.DARK_GREY};
     margin-left: ${({ theme }) => theme.spacing(1)};
@@ -33,6 +35,7 @@ export const MUIDataGrid = styled(DataGrid)`
     border: none;
   }
   .MuiDataGrid-row {
+    color: ${COLORS.LIGHT};
     border: 0.063rem solid ${COLORS.MEDIUM_GREY};
     border-radius: 0.125rem;
     width: 99%;
@@ -42,8 +45,11 @@ export const MUIDataGrid = styled(DataGrid)`
     font-weight: 700;
     height: 10rem;
   }
-`;
 
+  .css-du8xsi-MuiStack-root {
+    color: #fff;
+  }
+`;
 export const DownIcon = styled(StraightIcon)`
   transform: rotateX(180deg);
 `;
