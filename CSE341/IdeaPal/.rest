@@ -1,0 +1,64 @@
+# Local Requests
+
+### GET: <http://localhost:8000/api/v1/articles/:id>
+
+### GET: <http://localhost:8000/api/v1/articles>
+
+### POST: <http://localhost:8000/api/v1/articles>
+
+### PUT: <http://localhost:8000/api/v1/articles/:id>
+
+### DELETE: <http://localhost:8000/api/v1/articles/:id>
+# User Auth
+
+### SignUp: <http://localhost:8000/api/v1/auth/signup>
+- {
+  name: "",
+  username: "",
+  email: "",
+  password: ""
+},
+
+### SignIn: <http://localhost:8000/api/v1/auth/signin>
+- {
+  email: "",
+  password: ""
+}
+
+### Render Requests
+
+### GET: <https://ideapal.onrender.com/api/v1/articles>
+
+### GET: <https://ideapal.onrender.com/api/v1/articles/:id>
+
+### POST: <https://ideapal.onrender.com/api/v1/articles>
+
+- {
+  title: "",
+  description: ""
+  }
+
+### PUT: <https://ideapal.onrender.com/api/v1/articles/:id>
+
+- {
+  title: "",
+  description: ""
+  }
+
+### DELETE: <https://ideapal.onrender.com/api/v1/articles/:id>
+
+#User OAuth
+
+### SignUp: <https://ideapal.onrender.com/api/v1/auth/signup>
+- {
+  name: "",
+  username: "",
+  email: "",
+  password: ""
+},
+
+### SignIn: <https://ideapal.onrender.coms/api/v1/auth/signin>
+- {
+  email: "",
+  password: ""
+}
