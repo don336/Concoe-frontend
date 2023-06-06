@@ -78,7 +78,7 @@ const Account = () => {
               <StyledTypography>smgmartinez92@gmail.com</StyledTypography>
 
               <ActionBox direction={"row"} spacing={2}>
-                <StyledLink to="/Account/Edit-profile">
+                <StyledLink to="/Account/update-account">
                   <CustomButton
                     background={COLORS.DARK_GREY}
                     hoverbackground={COLORS.YELLOW_GREEN}

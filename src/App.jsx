@@ -11,7 +11,7 @@ import Home from "./features/Home/Home";
 import Crops from "./features/Crop/Layout/Crops";
 import getWeather from "./utils/weather";
 import Account from "./features/Account/Account";
-import EditProfile from "./features/EditProfile/Edit";
+import UpdateProfile from "./features/Auth/UpdateProfile/UpdateProfile";
 import AddCrop from "./features/Add_Crop/AddCrop";
 
 function App() {
@@ -28,9 +28,9 @@ function App() {
             <Route path="/Crops" exact element={<Crops />} />
             <Route path="/Account" exact element={<Account />} />
             <Route
-              path="/Account/Edit-profile"
+              path="/Account/update-account"
               exact
-              element={<EditProfile />}
+              element={<UpdateProfile />}
             />
             <Route path="/Crops/add-crop" exact element={<AddCrop />} />
           </Routes>

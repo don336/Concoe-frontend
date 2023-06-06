@@ -2,6 +2,7 @@ import * as React from "react";
 import Box from "@mui/material/Box";
 import { getAllCrops } from "../CropServices";
 import { useSelector, useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import { DataGridContainer } from "../../../components/dataGridContainer/index.js";
 import { DataGrid } from "../../../elements/dataGrid";
@@ -49,8 +50,14 @@ const columns = [
 
 export default function CropDataGrid() {
   const cropState = useSelector((state) => state.crops.crops);
+  const Authenticated = useSelector((state) => state.auth.isAuthenticated);
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   useEffect(() => {
+    if (!Authenticated) {
+      navigate("/Login");
+    }
+    console.log(cropState);
     dispatch(getAllCrops());
   }, []);
   const heading = [

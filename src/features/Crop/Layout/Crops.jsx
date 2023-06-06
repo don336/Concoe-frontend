@@ -10,8 +10,6 @@ import {
 import CustomButton from "../../../elements/customButton/customButton";
 import { COLORS } from "../../../Styles/theme";
 import CropDataGrid from "./CropDataGrid";
-// import Footer from "../../../components/Footer/Footer";
-// import pics from "../../../assets/icons/"
 
 const Crops = () => {
   return (

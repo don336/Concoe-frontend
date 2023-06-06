@@ -12,20 +12,22 @@ const CustomButton = ({
   variant,
   dataTestId, // Used when writing tests
   ...props
-}) => (
-  <StyledButton
-    width={width}
-    background={background}
-    hovercolor={hovercolor}
-    hoverbackground={hoverbackground}
-    fontcolor={fontcolor}
-    border={border}
-    variant={variant}
-    data-testid={dataTestId}
-    {...props}
-  >
-    {children}
-  </StyledButton>
-);
+}) => {
+  return (
+    <StyledButton
+      width={width}
+      background={background}
+      hovercolor={hovercolor}
+      hoverbackground={hoverbackground}
+      fontcolor={fontcolor}
+      border={border}
+      variant={variant}
+      data-testid={dataTestId}
+      {...props}
+    >
+      {children}
+    </StyledButton>
+  );
+};
 
 export default CustomButton;
