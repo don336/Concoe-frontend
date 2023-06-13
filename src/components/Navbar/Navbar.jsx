@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {
   Box,
   Toolbar,
@@ -31,6 +31,7 @@ const Navbar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
   const authState = useSelector((state) => state.auth);
+  const dispatch = useDispatch();
 
   const { isAuthenticated } = authState;
 
@@ -47,6 +48,10 @@ const Navbar = () => {
 
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
+  };
+
+  const handleLogOut = () => {
+    dispatch(logoutUser);
   };
 
   return (
@@ -173,7 +178,7 @@ const Navbar = () => {
             >
               {settings.map((setting) => (
                 <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <CustomLink to={`/${setting}`}>
+                  <CustomLink to={`/Account`}>
                     <Typography textAlign="center" variant="h4">
                       {setting}
                     </Typography>

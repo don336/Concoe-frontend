@@ -9,6 +9,16 @@ import * as Yup from "yup";
 import { useNavigate } from "react-router-dom";
 
 const Registration = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const [userInput, setUserInput] = useState({
+    name: "",
+    username: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+  });
+  const { name, username, email, password, confirmPassword } = userInput;
   const defaultValues = {
     name: "",
     username: "",
@@ -25,8 +35,6 @@ const Registration = () => {
     password: Yup.string().required(),
     confirmPassword: Yup.string().required(),
   });
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
 
   const authState = useSelector((state) => state.auth);
   useEffect(() => {
@@ -34,9 +42,15 @@ const Registration = () => {
       navigate("/");
     }
   }, [authState]);
-
-  const handleSubmit = (values) => {
-    const { name, username, email, password, confirmPassword } = values;
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setUserInput((prevState) => ({
+      ...prevState,
+      [name]: value,
+    }));
+  };
+  const handleSubmit = (e) => {
+    e.preventDefault();
     if (password !== confirmPassword) {
       toast.error("Passwords do not match");
     } else {
@@ -46,18 +60,21 @@ const Registration = () => {
         email,
         password,
       };
+      console.log(UserData);
       dispatch(register(UserData));
     }
   };
 
   return (
     <StyledContainer maxWidth="1200px">
-      <Formik
-        initialValues={defaultValues}
-        validationSchema={yupObject}
-        onSubmit={handleSubmit}
-      >
-        {(formik) => <RegistrationForm formik={formik} />}
+      <Formik initialValues={defaultValues} validationSchema={yupObject}>
+        {(formik) => (
+          <RegistrationForm
+            formik={formik}
+            handleSumbit={handleSubmit}
+            handleChange={handleChange}
+          />
+        )}
       </Formik>
     </StyledContainer>
   );

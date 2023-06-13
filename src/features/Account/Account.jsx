@@ -12,7 +12,7 @@ import {
   Avatar,
 } from "@mui/material";
 
-// import {useNavigation} from "react-router-dom";
+import { useNavigation } from "react-router-dom";
 
 import {
   ActionBox,
@@ -27,37 +27,21 @@ import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import Navbar from "../../components/Navbar/Navbar";
 import CustomButton from "../../elements/customButton/customButton";
 import { COLORS } from "../../Styles/theme";
-import { useTheme } from "@emotion/react";
-
+import { useDispatch, useSelector } from "react-redux";
+// import { reset } from "../Auth/authSlice";
+import { useNavigate } from "react-router-dom";
 const Account = () => {
-  const [value, setValue] = useState(0);
-  const [disabled, setDisabled] = useState(false);
-  const [farmerDetails, setFarmerDetails] = useState({
-    name: "",
-    email: "",
-  });
-
-  const theme = useTheme();
-  // const navigate = useNavigation()
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFarmerDetails((prevState) => ({
-      ...prevState,
-      [name]: value,
-    }));
-  };
-  const handleSubmit = () => {
-    console.log(farmerDetails, "the farmer details ============>");
-
-    // navigate('/') TODO Navigate to View profile page
-  };
-  const handleStateChange = () => {
-    // e.preventdefault();
-    setDisabled(true);
-    console.log(disabled);
-  };
-
+  const navigate = useNavigate();
+  const authState = useSelector((state) => state.auth);
+  useEffect(() => {
+    if (!authState?.isAuthenticated) {
+      navigate("/");
+    }
+  }, [authState]);
+  const { name, email, username } = authState.currentUser;
+  // const handleLogOut = () => {
+  //   dispatch(reset);
+  // };
   return (
     <Container maxWidth="xl">
       <Navbar />
@@ -74,8 +58,9 @@ const Account = () => {
               <StyledAvatar>
                 <AccountCircleIcon />
               </StyledAvatar>
-              <StyledTypography>Ssemugabi Martin</StyledTypography>
-              <StyledTypography>smgmartinez92@gmail.com</StyledTypography>
+              <StyledTypography>Full Name: {name}</StyledTypography>
+              <StyledTypography>Username: {username}</StyledTypography>
+              <StyledTypography>Email: {email}</StyledTypography>
 
               <ActionBox direction={"row"} spacing={2}>
                 <StyledLink to="/Account/update-account">
@@ -97,6 +82,7 @@ const Account = () => {
               </ActionBox>
               <Box>
                 <CustomButton
+                  // onClick={handleLogOut}
                   background={COLORS.LIGHT_GREEN}
                   hoverbackground={COLORS.YELLOW_GREEN}
                   fontcolor={COLORS.DARK_GREY}

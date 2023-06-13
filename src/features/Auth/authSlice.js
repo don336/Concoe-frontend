@@ -11,6 +11,13 @@ const initialState = {
 const authSlice = createSlice({
   name: "auth",
   initialState,
+  reducer: {
+    reset: async (state) => {
+      {
+        await localStorage.removeItem("jwtToken");
+      }
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(register.fulfilled, (state, action) => ({
@@ -51,5 +58,5 @@ const authSlice = createSlice({
       }));
   },
 });
-
+export const { reset } = authSlice.actions;
 export default authSlice.reducer;

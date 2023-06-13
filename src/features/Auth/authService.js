@@ -1,7 +1,8 @@
 import axios from "axios";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import jwt_decode from "jwt-decode";
-import { baseUrl, instance } from "../../config/client";
+
+import { baseUrl } from "../../config/client";
 
 export const register = createAsyncThunk("register", async (data, thunkAPI) => {
   try {
@@ -9,10 +10,9 @@ export const register = createAsyncThunk("register", async (data, thunkAPI) => {
     const { accessToken } = response.data;
     localStorage.setItem("jwtToken", accessToken);
     const decoded = jwt_decode(accessToken);
-    decoded.token = token;
-    return decoded.user;
+    return decoded;
   } catch (error) {
-    return thunkAPI.rejectWithValue("register");
+    return thunkAPI.rejectWithValue(error.message);
   }
 });
 export const login = createAsyncThunk("login", async (data, thunkAPI) => {
@@ -29,19 +29,22 @@ export const login = createAsyncThunk("login", async (data, thunkAPI) => {
 
 export const update = createAsyncThunk("update", async (data, thunkAPI) => {
   try {
-    const config = {
-      Headers: {
-        Authentication: `Bearer ${
-          accessToken || localStorage.getItem("accessToken")
-        }`,
-      },
-    };
+    axios.defaults.headers.common["Authorization"] = ` ${localStorage.getItem(
+      "jwtToken"
+    )}`;
 
-    console.log(config);
+    // const config = axios.create({
+    //   headers: {
+    //     Authorization: `Bearer ${token}`,
+    //   },
+    // });
+
+    // console.log(token);
     const response = await axios.put(`${baseUrl}auth/user/${data.id}`, data);
     const { accessToken } = response.data;
     localStorage.setItem("jwtToken", accessToken);
     const decoded = jwt_decode(accessToken);
+
     return decoded;
   } catch (error) {
     return thunkAPI.rejectWithValue(error.message);
