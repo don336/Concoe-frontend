@@ -1,8 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { getAllCrops } from "./CropServices";
+import { getAllCrops, AddCrop } from "./CropServices";
 
 const initialState = {
   crops: [],
+  crop: [],
   isError: false,
   isSuccess: false,
 };
@@ -17,6 +18,20 @@ const CropSlice = createSlice({
       error: "",
     }));
     builder.addCase(getAllCrops.rejected, (state, action) => ({
+      ...state,
+      isError: true,
+      crops: [],
+      crop: [],
+      error: action.payload,
+    }));
+    builder.addCase(AddCrop.fulfilled, (state, action) => ({
+      ...state,
+      isError: false,
+      crops: state.crops,
+      crop: action.payload,
+      error: "",
+    }));
+    builder.addCase(AddCrop.rejected, (state, action) => ({
       ...state,
       isError: true,
       crops: [],

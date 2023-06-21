@@ -1,12 +1,48 @@
 import * as React from "react";
-import Box from "@mui/material/Box";
+import { Stack, Button } from "@mui/material/";
 import { getAllCrops } from "../CropServices";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import { DataGridContainer } from "../../../components/dataGridContainer/index.js";
 import { DataGrid } from "../../../elements/dataGrid";
+import CreateIcon from "@mui/icons-material/Create";
+import DeleteIcon from "@mui/icons-material/Delete";
+import { COLORS } from "../../../Styles/theme";
 
+const rendercell = (params) => {
+  const onClick = (e) => {
+    const currentRow = params.row;
+    return alert(JSON.stringify(currentRow, null, 4));
+  };
+
+  return (
+    <Stack direction="row" spacing={2}>
+      <Button
+        variant="outlined"
+        color="primary"
+        size="small"
+        onClick={onClick}
+        sx={{
+          border: "none",
+        }}
+      >
+        <CreateIcon />
+      </Button>
+      <Button
+        variant="outlined"
+        size="small"
+        onClick={onClick}
+        sx={{
+          border: "none",
+          color: COLORS.LIGHT_RED,
+        }}
+      >
+        <DeleteIcon />
+      </Button>
+    </Stack>
+  );
+};
 const columns = [
   {
     field: "cropType",
@@ -21,18 +57,24 @@ const columns = [
     editable: true,
   },
   {
-    field: "Acreage",
+    field: "acreage",
     headerName: "Acreage",
     type: "number",
     width: 112,
     editable: true,
   },
   {
-    field: "expectedYield",
+    field: "expectedYields",
     headerName: "Expected Yields",
     type: "number",
     width: 140,
     editable: true,
+  },
+  {
+    field: "Erasure",
+    width: 170,
+    editable: false,
+    renderCell: rendercell,
   },
 ];
 

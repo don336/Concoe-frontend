@@ -33,19 +33,26 @@ export const update = createAsyncThunk("update", async (data, thunkAPI) => {
       "jwtToken"
     )}`;
 
-    // const config = axios.create({
-    //   headers: {
-    //     Authorization: `Bearer ${token}`,
-    //   },
-    // });
-
-    // console.log(token);
     const response = await axios.put(`${baseUrl}auth/user/${data.id}`, data);
     const { accessToken } = response.data;
     localStorage.setItem("jwtToken", accessToken);
     const decoded = jwt_decode(accessToken);
 
     return decoded;
+  } catch (error) {
+    return thunkAPI.rejectWithValue(error.message);
+  }
+});
+
+export const Delete = createAsyncThunk("delete", async (id, thunkAPI) => {
+  try {
+    axios.defaults.headers.common["Authorization"] = ` ${localStorage.getItem(
+      "jwtToken"
+    )}`;
+
+    const response = await axios.delete(`${baseUrl}auth/user/${id}`);
+
+    return response;
   } catch (error) {
     return thunkAPI.rejectWithValue(error.message);
   }

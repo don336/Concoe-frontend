@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { register, login, update } from "./authService";
+import { register, login, update, Delete } from "./authService";
 
 const isAuthenticated = localStorage.getItem("isAuthenticated");
 const initialState = {
@@ -54,6 +54,17 @@ const authSlice = createSlice({
         ...state,
         isAuthenticated: false,
         currentUser: {},
+        error: action.payload,
+      }))
+      .addCase(Delete.fulfilled, (state, action) => ({
+        ...state,
+        isAuthenticated: false,
+        message: action.payload,
+        error: "",
+      }))
+      .addCase(Delete.rejected, (state, action) => ({
+        ...state,
+        isAuthenticated: false,
         error: action.payload,
       }));
   },

@@ -60,15 +60,24 @@ const Navbar = () => {
         <SpaOutlinedIcon
           sx={{ display: { xs: "none", md: "flex" }, mr: 1, color: "#A2D729" }}
         />
-        <StyledTypography
-          variant="h6"
-          noWrap
-          component="a"
-          href="/"
-          sx={{ display: { xs: "none", md: "flex" }, mr: 1, color: "#A2D729" }}
+        <Link
+          to="/"
+          style={{
+            textDecoration: "none",
+          }}
         >
-          Concoe Farm
-        </StyledTypography>
+          <StyledTypography
+            variant="h6"
+            noWrap
+            sx={{
+              display: { xs: "none", md: "flex" },
+              mr: 1,
+              color: "#A2D729",
+            }}
+          >
+            Concoe Farm
+          </StyledTypography>
+        </Link>
 
         <StyledBox sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
           <IconButton
@@ -111,19 +120,24 @@ const Navbar = () => {
         <SpaOutlinedIcon
           sx={{ display: { xs: "flex", md: "none" }, mr: 1, color: "#A2D729" }}
         />
-        <StyledTypography
-          variant="h5"
-          noWrap
-          component="a"
-          href=""
-          sx={{
-            mr: 2,
-            display: { xs: "flex", md: "none" },
-            flexGrow: 1,
+        <Link
+          to="/"
+          style={{
+            textDecoration: "none",
           }}
         >
-          Concoe
-        </StyledTypography>
+          <StyledTypography
+            variant="h5"
+            noWrap
+            sx={{
+              mr: 2,
+              display: { xs: "flex", md: "none" },
+              flexGrow: 1,
+            }}
+          >
+            Concoe
+          </StyledTypography>
+        </Link>
         <Box
           sx={{
             flexGrow: 1,

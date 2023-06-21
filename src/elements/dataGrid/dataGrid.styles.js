@@ -6,8 +6,7 @@ import StraightIcon from "@mui/icons-material/Straight";
 export const MUIDataGrid = styled(DataGrid)`
   border: 0;
   .MuiDataGrid-columnHeaders {
-    background-color: ${COLORS.YELLOW_GREEN};
-    color: ${COLORS.BLACK};
+    color: ${COLORS.LIGHT};
     font-size: 1rem;
     font-weight: 700;
     border-radius: 0;
@@ -35,8 +34,8 @@ export const MUIDataGrid = styled(DataGrid)`
     border: none;
   }
   .MuiDataGrid-row {
-    color: ${COLORS.LIGHT};
-    border: 0.063rem solid ${COLORS.MEDIUM_GREY};
+    color: #000;
+    border: none;
     border-radius: 0.125rem;
     width: 99%;
     margin: ${({ theme }) => theme.spacing(1.5)} auto

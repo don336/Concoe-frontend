@@ -28,10 +28,11 @@ import Navbar from "../../components/Navbar/Navbar";
 import CustomButton from "../../elements/customButton/customButton";
 import { COLORS } from "../../Styles/theme";
 import { useDispatch, useSelector } from "react-redux";
-// import { reset } from "../Auth/authSlice";
+import { Delete } from "../Auth/authService";
 import { useNavigate } from "react-router-dom";
 const Account = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const authState = useSelector((state) => state.auth);
   useEffect(() => {
     if (!authState?.isAuthenticated) {
@@ -39,9 +40,10 @@ const Account = () => {
     }
   }, [authState]);
   const { name, email, username } = authState.currentUser;
-  // const handleLogOut = () => {
-  //   dispatch(reset);
-  // };
+  const handleDelete = () => {
+    const id = authState.currentUser._id;
+    dispatch(Delete(id));
+  };
   return (
     <Container maxWidth="xl">
       <Navbar />
@@ -74,6 +76,7 @@ const Account = () => {
                   </CustomButton>
                 </StyledLink>
                 <CustomButton
+                  onClick={handleDelete}
                   background={COLORS.DANGER}
                   hoverbackground={COLORS.RED}
                 >

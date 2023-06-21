@@ -8,27 +8,12 @@ import {
   CssBaseline,
 } from "@mui/material";
 import { Form } from "formik";
-import CustomButton from "../../elements/customButton/customButton";
+import CustomButton from "../../../elements/customButton/customButton";
 
-import { COLORS } from "../../Styles/theme";
+import { COLORS } from "../../../Styles/theme";
 
 const AddCrop_form = ({ handleChange, formik, handleSubmit }) => {
   const theme = useTheme();
-  // const handleSubmit = (values, e) => {
-  //   // const { CropType, Season, Acreage, ExpectedYields } = values;
-  //   // if (!CropType || !Season || !Acreage || !ExpectedYields) {
-  //   //   toast.error("Please fill all required Field");
-  //   // } else {
-  //   //   const CropData = {
-  //   //     CropType,
-  //   //     Season,
-  //   //     Acreage,
-  //   //     ExpectedYields,
-  //   //   };
-  //   //   dispatch(register(UserData));
-  //   // }
-  //   console.log("1232323232323", "===================================>");
-  // };
   return (
     <Form
       onSubmit={handleSubmit}
@@ -46,10 +31,10 @@ const AddCrop_form = ({ handleChange, formik, handleSubmit }) => {
         <Grid item xs={12} sm={12}>
           <TextField
             autoComplete="plant-name"
-            name={formik.values.CropType}
+            name="cropType"
             required
             fullWidth
-            id={formik.values.CropType}
+            id="cropType"
             error={formik.touched.CropType && Boolean(formik.errors.CropType)}
             helperText={formik.touched.CropType && formik.errors.CropType}
             label="Crop Type"
@@ -61,9 +46,9 @@ const AddCrop_form = ({ handleChange, formik, handleSubmit }) => {
           <TextField
             required
             fullWidth
-            id={formik.values.Season}
+            id="season"
             label="Season"
-            name={formik.values.Season}
+            name="season"
             autoComplete="Season"
             onChange={handleChange}
             error={formik.touched.Season && Boolean(formik.errors.Season)}
@@ -74,9 +59,9 @@ const AddCrop_form = ({ handleChange, formik, handleSubmit }) => {
           <TextField
             required
             fullWidth
-            id={formik.values.Acreage}
+            id="acreage"
             label="Acreage"
-            name={formik.values.Acreage}
+            name="acreage"
             autoComplete="Acreage"
             onChange={handleChange}
             error={formik.touched.Acreage && Boolean(formik.errors.Acreage)}
@@ -87,10 +72,10 @@ const AddCrop_form = ({ handleChange, formik, handleSubmit }) => {
           <TextField
             required
             fullWidth
-            name={formik.values.ExpectedYields}
+            name="expectedYields"
             label="Expected Yields"
             type="text"
-            id={formik.values.ExpectedYields}
+            id="expectedYields"
             autoComplete="ExpectedYields"
             onChange={handleChange}
             error={
