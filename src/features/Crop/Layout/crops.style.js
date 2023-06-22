@@ -4,6 +4,9 @@ import styled from "@emotion/styled";
 import { COLORS } from "../../../Styles/theme";
 
 export const StyledBox = styled(muiBox)`
+  displa: flex;
+  justify-content: center;
+  align-item: center;
   padding: 10px;
   margin: auto;
 `;

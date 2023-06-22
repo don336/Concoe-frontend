@@ -15,7 +15,7 @@ const Footer = () => {
         <Box>
           <Typography variant="w1" color={COLORS.YELLOW_GREEN}>
             {" "}
-            <SpaOutlinedIcon/>
+            <SpaOutlinedIcon />
             CONCOE FARM
           </Typography>
         </Box>

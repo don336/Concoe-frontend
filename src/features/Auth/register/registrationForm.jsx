@@ -14,6 +14,7 @@ import SpaOutlinedIcon from "@mui/icons-material/SpaOutlined";
 import { StyledBox } from "./registrationStyles";
 import CustomButton from "../../../elements/customButton/customButton";
 import { COLORS } from "../../../Styles/theme";
+import { Form } from "formik";
 
 const RegistrationForm = ({ handleSumbit, handleChange, formik }) => {
   const theme = useTheme();
@@ -24,15 +25,15 @@ const RegistrationForm = ({ handleSumbit, handleChange, formik }) => {
         <Typography component="h1" variant="h5" sx={{ color: "#A2D729" }}>
           <SpaOutlinedIcon /> Concoe | Coffee
         </Typography>
-        <Box sx={{ mt: 3 }}>
+        <Form sx={{ mt: 3 }} component="form" onSubmit={handleSumbit}>
           <Grid container spacing={2}>
             <Grid item xs={12} sm={12}>
               <TextField
                 autoComplete="given-name"
-                name={formik.values.name}
+                name="name"
                 required
                 fullWidth
-                id={formik.values.name}
+                id="name"
                 label="Full Name"
                 autoFocus
                 onChange={handleChange}
@@ -52,9 +53,9 @@ const RegistrationForm = ({ handleSumbit, handleChange, formik }) => {
               <TextField
                 required
                 fullWidth
-                id={formik.values.username}
+                id="username"
                 label="Username"
-                name={formik.values.username}
+                name="username"
                 autoComplete="family-name"
                 onChange={handleChange}
               />
@@ -73,9 +74,9 @@ const RegistrationForm = ({ handleSumbit, handleChange, formik }) => {
               <TextField
                 required
                 fullWidth
-                id={formik.values.email}
+                id="email"
                 label="Email Address"
-                name={formik.values.email}
+                name="email"
                 autoComplete="email"
                 onChange={handleChange}
               />
@@ -84,10 +85,10 @@ const RegistrationForm = ({ handleSumbit, handleChange, formik }) => {
               <TextField
                 required
                 fullWidth
-                name={formik.values.password}
+                name="password"
                 label="Password"
                 type="password"
-                id={formik.values.password}
+                id="password"
                 autoComplete="new-password"
                 onChange={handleChange}
               />
@@ -96,10 +97,10 @@ const RegistrationForm = ({ handleSumbit, handleChange, formik }) => {
               <TextField
                 required
                 fullWidth
-                name={formik.values.confirmPassword}
+                name="confirmPassword"
                 label="Confirm Password"
                 type="password"
-                id={formik.values.confirmPassword}
+                id="newpassword"
                 autoComplete="new-password"
                 onChange={handleChange}
               />
@@ -108,7 +109,7 @@ const RegistrationForm = ({ handleSumbit, handleChange, formik }) => {
           <CustomButton
             background={COLORS.ERIE_BLACK}
             variant="contained"
-            onClick={handleSumbit}
+            type="submit"
             width="100%"
             margin={theme.spacing(3, 0, 2, 0)}
             hoverbackground={COLORS.YELLOW_GREEN}
@@ -122,7 +123,7 @@ const RegistrationForm = ({ handleSumbit, handleChange, formik }) => {
               </Link>
             </Grid>
           </Grid>
-        </Box>
+        </Form>
       </StyledBox>
     </Container>
   );

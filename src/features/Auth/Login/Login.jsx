@@ -17,7 +17,6 @@ const Registration = () => {
   const authState = useSelector((state) => state.auth);
   useEffect(() => {
     if (authState?.isAuthenticated) {
-      localStorage.setItem("isAuthenticated", true);
       navigate("/");
     }
   }, [authState]);

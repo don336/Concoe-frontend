@@ -14,7 +14,7 @@ import { StyledBox } from "./Login.style";
 import CustomButton from "../../../elements/customButton/customButton";
 import { COLORS } from "../../../Styles/theme";
 
-const RegistrationForm = ({ handleSumbit, handleChange }) => {
+const RegistrationForm = ({ handleSumbit, handleChange, formik }) => {
   const theme = useTheme();
   return (
     <Container component="main" maxWidth="xs">

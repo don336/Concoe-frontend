@@ -24,7 +24,16 @@
 
 .primary {
   color: #a2d729;
-  
+}
+
+.css-du8xsi-MuiStack-root {
+  color: #fff;
+}
+
+.css-axafay-MuiDataGrid-virtualScroller {
+  overflow: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
 /* @media screen and (max-width: 500px) {
@@ -38,9 +47,20 @@
     height: 350px;
   }
 } */
-
+.css-axafay-MuiDataGrid-virtualScroller::-webkit-scrollbar {
+  display: none;
+}
 .MuiImageList-root::-webkit-scrollbar {
   display: none;
+}
+
+.Planting {
+  display: flex;
+  margin: auto;
+  align-items: center;
+  justify-content: center;
+  width: 500px;
+  height: 500px;
 }
 
 @media screen and (max-width: 500px) {

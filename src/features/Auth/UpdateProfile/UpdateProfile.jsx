@@ -1,31 +1,13 @@
 import React, { useState, useEffect } from "react";
-import { StyledContainer } from "./registrationStyles";
-import RegistrationForm from "./registrationForm";
+import { StyledContainer } from "./Update.style";
+import UpdateProfileForm from "./UpdateProfileForm";
 import { useDispatch, useSelector } from "react-redux";
-import { register } from "../authService";
-import { toast } from "react-toastify";
+import { update } from "../authService";
 import { Formik } from "formik";
 import * as Yup from "yup";
 import { useNavigate } from "react-router-dom";
 
-const Registration = () => {
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
-  const [userInput, setUserInput] = useState({
-    name: "",
-    username: "",
-    email: "",
-    password: "",
-    confirmPassword: "",
-  });
-  const { name, username, email, password, confirmPassword } = userInput;
-  const defaultValues = {
-    name: "",
-    username: "",
-    email: "",
-    password: "",
-    confirmPassword: "",
-  };
+const EditProfile = () => {
   const yupObject = Yup.object({
     name: Yup.string()
       .max(15, "Must not be more than 15 characters")
@@ -35,13 +17,27 @@ const Registration = () => {
     password: Yup.string().required(),
     confirmPassword: Yup.string().required(),
   });
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const authState = useSelector((state) => state.auth);
   useEffect(() => {
-    if (authState?.isAuthenticated) {
+    if (!authState?.isAuthenticated) {
       navigate("/");
     }
   }, [authState]);
+
+  const defaultValues = {
+    name: authState.currentUser.name || "",
+    username: authState.currentUser.username || "",
+    email: authState.currentUser.email || "",
+  };
+  const [userInput, setUserInput] = useState({
+    name: "",
+    username: "",
+    email: "",
+  });
+
   const handleChange = (event) => {
     const { name, value } = event.target;
     setUserInput((prevState) => ({
@@ -49,27 +45,31 @@ const Registration = () => {
       [name]: value,
     }));
   };
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (password !== confirmPassword) {
-      toast.error("Passwords do not match");
-    } else {
-      const UserData = {
-        name,
-        username,
-        email,
-        password,
-      };
-      console.log(UserData);
-      dispatch(register(UserData));
-    }
+    const { name, username, email } = userInput;
+
+    const UserData = {
+      id: authState.currentUser._id,
+      name,
+      username,
+      email,
+    };
+    dispatch(update(UserData));
+
+    console.log(
+      "Updaated values",
+      "===========================================================>"
+    );
+    // }
   };
 
   return (
     <StyledContainer maxWidth="1200px">
       <Formik initialValues={defaultValues} validationSchema={yupObject}>
         {(formik) => (
-          <RegistrationForm
+          <UpdateProfileForm
             formik={formik}
             handleSumbit={handleSubmit}
             handleChange={handleChange}
@@ -80,4 +80,4 @@ const Registration = () => {
   );
 };
 
-export default Registration;
+export default EditProfile;

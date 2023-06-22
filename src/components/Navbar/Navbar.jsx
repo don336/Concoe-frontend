@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {
   Box,
   Toolbar,
@@ -31,6 +31,7 @@ const Navbar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
   const authState = useSelector((state) => state.auth);
+  const dispatch = useDispatch();
 
   const { isAuthenticated } = authState;
 
@@ -49,21 +50,34 @@ const Navbar = () => {
     setAnchorElUser(null);
   };
 
+  const handleLogOut = () => {
+    dispatch(logoutUser);
+  };
+
   return (
     <StyledAppBar position="static">
       <Toolbar disableGutters>
         <SpaOutlinedIcon
           sx={{ display: { xs: "none", md: "flex" }, mr: 1, color: "#A2D729" }}
         />
-        <StyledTypography
-          variant="h6"
-          noWrap
-          component="a"
-          href="/"
-          sx={{ display: { xs: "none", md: "flex" }, mr: 1, color: "#A2D729" }}
+        <Link
+          to="/"
+          style={{
+            textDecoration: "none",
+          }}
         >
-          Concoe Farm
-        </StyledTypography>
+          <StyledTypography
+            variant="h6"
+            noWrap
+            sx={{
+              display: { xs: "none", md: "flex" },
+              mr: 1,
+              color: "#A2D729",
+            }}
+          >
+            Concoe Farm
+          </StyledTypography>
+        </Link>
 
         <StyledBox sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
           <IconButton
@@ -106,19 +120,24 @@ const Navbar = () => {
         <SpaOutlinedIcon
           sx={{ display: { xs: "flex", md: "none" }, mr: 1, color: "#A2D729" }}
         />
-        <StyledTypography
-          variant="h5"
-          noWrap
-          component="a"
-          href=""
-          sx={{
-            mr: 2,
-            display: { xs: "flex", md: "none" },
-            flexGrow: 1,
+        <Link
+          to="/"
+          style={{
+            textDecoration: "none",
           }}
         >
-          Concoe
-        </StyledTypography>
+          <StyledTypography
+            variant="h5"
+            noWrap
+            sx={{
+              mr: 2,
+              display: { xs: "flex", md: "none" },
+              flexGrow: 1,
+            }}
+          >
+            Concoe
+          </StyledTypography>
+        </Link>
         <Box
           sx={{
             flexGrow: 1,
@@ -173,7 +192,7 @@ const Navbar = () => {
             >
               {settings.map((setting) => (
                 <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <CustomLink to={`/${setting}`}>
+                  <CustomLink to={`/Account`}>
                     <Typography textAlign="center" variant="h4">
                       {setting}
                     </Typography>
