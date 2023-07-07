@@ -1,46 +1,57 @@
 import * as React from "react";
-import { Stack, Button } from "@mui/material/";
+import { Stack, Button, Box } from "@mui/material/";
 import { getAllCrops } from "../CropServices";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { DataGridContainer } from "../../../components/dataGridContainer/index.js";
 import { DataGrid } from "../../../elements/dataGrid";
 import CreateIcon from "@mui/icons-material/Create";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { COLORS } from "../../../Styles/theme";
+import UpdateModal from "../../../components/Models/UpdateModels/UpdateModels";
 
 const rendercell = (params) => {
-  const onClick = (e) => {
+  const [open, setOpen] = useState(false);
+  const [rowData, setRowData] = useState({});
+
+  const handleOpen = (e) => {
+    setOpen(true);
     const currentRow = params.row;
-    return alert(JSON.stringify(currentRow, null, 4));
+    const data = JSON.stringify(currentRow, null, 4);
+    setRowData(data);
   };
 
+  const handleClose = () => setOpen(false);
+
   return (
-    <Stack direction="row" spacing={2}>
-      <Button
-        variant="outlined"
-        color="primary"
-        size="small"
-        onClick={onClick}
-        sx={{
-          border: "none",
-        }}
-      >
-        <CreateIcon />
-      </Button>
-      <Button
-        variant="outlined"
-        size="small"
-        onClick={onClick}
-        sx={{
-          border: "none",
-          color: COLORS.LIGHT_RED,
-        }}
-      >
-        <DeleteIcon />
-      </Button>
-    </Stack>
+    <Box>
+      <Stack direction="row" spacing={2}>
+        <Button
+          variant="outlined"
+          color="primary"
+          size="small"
+          onClick={handleOpen}
+          sx={{
+            border: "none",
+          }}
+        >
+          <CreateIcon />
+        </Button>
+        <Button
+          variant="outlined"
+          size="small"
+          // onClick={onClick}
+          sx={{
+            border: "none",
+            color: COLORS.LIGHT_RED,
+          }}
+        >
+          <DeleteIcon />
+        </Button>
+      </Stack>
+      <UpdateModal open={open} handleClose={handleClose} data={rowData} />
+    </Box>
   );
 };
 const columns = [
