@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Stack, Button, Box } from "@mui/material/";
-import { getAllCrops } from "../CropServices";
+import { deleteCrop, getAllCrops } from "../CropServices";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
@@ -9,24 +9,26 @@ import { DataGrid } from "../../../elements/dataGrid";
 import CreateIcon from "@mui/icons-material/Create";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { COLORS } from "../../../Styles/theme";
-import UpdateModal from "../../../components/Models/UpdateModels/UpdateModels";
+import UpdateModal from "../../../components/updateModal/updateModel";
 import { DeleteModal } from "../../../components/deleteModal/index.js";
 
 const rendercell = (params) => {
   const [open, setOpen] = useState(false);
   const [openDelete, setOpenDelete] = useState(false);
+  const dispatch = useDispatch();
 
   const handleOpen = (e) => {
     setOpen(true);
-    const currentRow = params.row;
-    const data = JSON.stringify(currentRow, null, 4);
-    setRowData(data);
   };
 
   const handleClose = () => setOpen(false);
 
-  const handleDelete = async (id) => {
-    dispatch(deleteClient(id));
+  const handleDelete = async () => {
+    const id = params.row._id;
+    dispatch(deleteCrop(id));
+    if (dispatch) {
+      window.location.reload();
+    }
     setOpenDelete(false);
   };
 
@@ -58,13 +60,19 @@ const rendercell = (params) => {
           <DeleteIcon onClick={() => setOpenDelete(true)} />
         </Button>
       </Stack>
-      <UpdateModal open={open} handleClose={handleClose} rowData={params.row} />
+      <UpdateModal
+        open={open}
+        handleClick={() => {
+          setOpen(false);
+        }}
+        rowData={params.row}
+      />
       {openDelete && (
         <DeleteModal
           open={openDelete}
           handleClick={() => setOpenDelete(false)}
           title={crop}
-          handleRemoveClick={() => handleDelete(id)}
+          handleRemoveClick={() => handleDelete()}
           subtitle={crop}
         />
       )}
@@ -113,7 +121,6 @@ export default function CropDataGrid() {
     if (!Authenticated) {
       navigate("/Login");
     }
-    console.log(cropState);
     dispatch(getAllCrops());
   }, []);
   const heading = [
