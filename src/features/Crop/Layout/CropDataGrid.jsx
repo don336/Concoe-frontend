@@ -26,9 +26,6 @@ const rendercell = (params) => {
   const handleDelete = async () => {
     const id = params.row._id;
     dispatch(Delete(id));
-    if (dispatch) {
-      window.location.reload();
-    }
     setOpenDelete(false);
   };
 

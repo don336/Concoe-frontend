@@ -24,13 +24,18 @@ const EditProfile = () => {
     password: Yup.string().required(),
     confirmPassword: Yup.string().required(),
   });
+  const { name, username, email } = authState.currentUser;
   const defaultValues = {
-    name: authState.currentUser.name || "",
-    username: authState.currentUser.username || "",
-    email: authState.currentUser.email || "",
+    name: name || "",
+    username: username || "",
+    email: email || "",
   };
 
   const handleSubmit = (values) => {
+    console.log(
+      "Got here",
+      "===========================================================>"
+    );
     const { name, username, email } = values;
     const { _id } = authState.currentUser;
     const userData = {
@@ -40,11 +45,6 @@ const EditProfile = () => {
       email,
     };
     dispatch(update(userData));
-
-    console.log(
-      userData,
-      "===========================================================>"
-    );
   };
 
   return (

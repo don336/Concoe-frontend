@@ -21,6 +21,7 @@ import { Link as BackLink } from "react-router-dom";
 const UpdateForm = ({ formik }) => {
   const theme = useTheme();
   const { handleChange, handleSubmit, errors, touched, values } = formik;
+  const { name, username, email } = values;
   return (
     <Container maxWidth="xs">
       <StyledBox>
@@ -44,7 +45,7 @@ const UpdateForm = ({ formik }) => {
               <TextField
                 autoComplete="given-name"
                 name="name"
-                defaultValue={values.name}
+                defaultValue={name || ""}
                 error={touched.name && Boolean(errors.name)}
                 helperText={touched.name && errors.name}
                 fullWidth
@@ -60,7 +61,7 @@ const UpdateForm = ({ formik }) => {
                 id="username"
                 label="Username"
                 name="username"
-                defaultValue={values.username}
+                defaultValue={username || ""}
                 autoComplete="family-name"
                 onChange={handleChange}
                 error={touched.username && Boolean(errors.username)}
@@ -74,7 +75,7 @@ const UpdateForm = ({ formik }) => {
                 id="email"
                 label="Email Address"
                 name="email"
-                defaultValue={values.email}
+                defaultValue={email || ""}
                 autoComplete="email"
                 onChange={handleChange}
                 autoFocus

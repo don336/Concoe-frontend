@@ -3,15 +3,13 @@ import * as Yup from "yup";
 import { Formik } from "formik";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { Modal } from '../../../elements/modal'
+import { Modal } from "../../../elements/modal";
 import CropUpdate from "./CropUpdate.jsx";
 import { UpdateCrop } from "../CropServices.js";
 
-
 export const UpdateModal = ({ open, handleClick, rowData, setOpen }) => {
-  const {cropType, season, acreage, expectedYields, _id} = rowData
+  const { cropType, season, acreage, expectedYields, _id } = rowData;
   const dispatch = useDispatch();
-  const navigate = useNavigate();
 
   const yupObject = Yup.object({
     cropType: Yup.string().required(),
@@ -28,17 +26,16 @@ export const UpdateModal = ({ open, handleClick, rowData, setOpen }) => {
   };
 
   const handleSubmit = (values) => {
-    console.log(_id, 'got here ===============================>');
     const { cropType, season, acreage, expectedYields } = values;
     const CropData = {
       cropType,
       season,
       acreage,
       expectedYields,
-      cropId: _id
+      cropId: _id,
     };
     dispatch(UpdateCrop(CropData));
-    setOpen(false)
+    setOpen(false);
   };
 
   return (
