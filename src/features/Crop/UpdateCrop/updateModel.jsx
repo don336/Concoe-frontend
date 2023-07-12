@@ -1,11 +1,18 @@
 import React from "react";
 import * as Yup from "yup";
 import { Formik } from "formik";
-import { Modal } from "../../elements/modal";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { Modal } from '../../../elements/modal'
 import CropUpdate from "./CropUpdate.jsx";
-import { UpdateCrop } from "../../features/Crop/CropServices";
+import { UpdateCrop } from "../CropServices.js";
 
-export const UpdateModal = ({ open, handleClick, rowData }) => {
+
+export const UpdateModal = ({ open, handleClick, rowData, setOpen }) => {
+  const {cropType, season, acreage, expectedYields, _id} = rowData
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   const yupObject = Yup.object({
     cropType: Yup.string().required(),
     season: Yup.string().required(),
@@ -14,26 +21,26 @@ export const UpdateModal = ({ open, handleClick, rowData }) => {
   });
 
   const defaultValues = {
-    cropType: "",
-    season: "",
-    acreage: "",
-    expectedYields: "",
+    cropType: cropType || "",
+    season: season || "",
+    acreage: acreage || "",
+    expectedYields: expectedYields || "",
   };
 
   const handleSubmit = (values) => {
+    console.log(_id, 'got here ===============================>');
     const { cropType, season, acreage, expectedYields } = values;
-    const id = rowData._id;
     const CropData = {
       cropType,
       season,
       acreage,
       expectedYields,
+      cropId: _id
     };
-    dispatch(UpdateCrop(CropData, id));
-    if (dispatch) {
-      navigate("/Crops");
-    }
+    dispatch(UpdateCrop(CropData));
+    setOpen(false)
   };
+
   return (
     <Modal
       open={open}

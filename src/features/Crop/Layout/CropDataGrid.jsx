@@ -9,7 +9,7 @@ import { DataGrid } from "../../../elements/dataGrid";
 import CreateIcon from "@mui/icons-material/Create";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { COLORS } from "../../../Styles/theme";
-import UpdateModal from "../../../components/updateModal/updateModel";
+import UpdateModal from "../UpdateCrop/updateModel.jsx";
 import { DeleteModal } from "../../../components/deleteModal/index.js";
 
 const rendercell = (params) => {
@@ -66,6 +66,7 @@ const rendercell = (params) => {
           setOpen(false);
         }}
         rowData={params.row}
+        setOpen={setOpen}
       />
       {openDelete && (
         <DeleteModal
@@ -122,7 +123,7 @@ export default function CropDataGrid() {
       navigate("/Login");
     }
     dispatch(getAllCrops());
-  }, []);
+  }, [cropState]);
   const heading = [
     {
       title1: "Crops",

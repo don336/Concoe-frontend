@@ -12,7 +12,7 @@ import Crops from "./features/Crop/Layout/Crops";
 import getWeather from "./utils/weather";
 import Account from "./features/Account/Account";
 import UpdateProfile from "./features/Auth/UpdateProfile/UpdateProfile";
-import AddCrop from "./features/Crop/Add_Crop/AddCrop";
+import AddCrop from "./features/Crop/AddCrop/AddCrop";
 
 function App() {
   getWeather();
