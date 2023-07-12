@@ -27,3 +27,33 @@ export const AddCrop = createAsyncThunk("AddCrop", async (data, thunkAPI) => {
     return thunkAPI.rejectWithValue(error.message);
   }
 });
+
+export const UpdateCrop = createAsyncThunk(
+  "deleteClient",
+  async (data, id, thunkAPI) => {
+    axios.defaults.headers.common["Authorization"] = ` ${localStorage.getItem(
+      "jwtToken"
+    )}`;
+    try {
+      const response = await axios.put(`${baseUrl}crop/${id}`, data);
+      return response.data.crop;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const deleteCrop = createAsyncThunk(
+  "deleteClient",
+  async (id, thunkAPI) => {
+    axios.defaults.headers.common["Authorization"] = ` ${localStorage.getItem(
+      "jwtToken"
+    )}`;
+    try {
+      const response = await axios.delete(`${baseUrl}crop/${id}`);
+      return response.data.crop;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);

@@ -8,13 +8,14 @@ import {
   CssBaseline,
 } from "@mui/material";
 import { Form } from "formik";
-import CustomButton from "../../../elements/customButton/customButton";
+import { Stack } from "@mui/material";
+import { COLORS } from "../../Styles/theme.jsx";
+import { StyledStack, StyledTypography } from "./updateModel.style.js";
+import CustomButton from "../../elements/customButton/customButton.jsx";
 
-import { COLORS } from "../../../Styles/theme";
-
-const AddCrop_form = ({ formik }) => {
-  const theme = useTheme();
-  const { handleSubmit, handleChange, errors, touched, values } = formik;
+const CropUpdate = ({ formik, rowData, handleClick }) => {
+  const { handleSubmit, handleChange, errors, touched } = formik;
+  const { cropType, season, acreage, expectedYields } = rowData;
   return (
     <Form
       onSubmit={handleSubmit}
@@ -26,14 +27,14 @@ const AddCrop_form = ({ formik }) => {
     >
       <CssBaseline />
       <Typography textAlign={"center"} variant="h4" color={COLORS.YELLOW_GREEN}>
-        Add Crop
+        Update Crop
       </Typography>
       <Grid container spacing={2}>
         <Grid item xs={12} sm={12}>
           <TextField
             autoComplete="plant-name"
             name="cropType"
-            value={values.cropType}
+            defaultValue={cropType || ""}
             fullWidth
             id="cropType"
             error={touched.CropType && Boolean(errors.CropType)}
@@ -48,7 +49,7 @@ const AddCrop_form = ({ formik }) => {
             fullWidth
             id="season"
             label="Season"
-            value={values.season}
+            defaultValue={season || ""}
             name="season"
             autoComplete="Season"
             onChange={handleChange}
@@ -61,7 +62,7 @@ const AddCrop_form = ({ formik }) => {
             fullWidth
             id="acreage"
             label="Acreage"
-            value={values.acreage}
+            defaultValue={acreage || ""}
             name="acreage"
             autoComplete="Acreage"
             onChange={handleChange}
@@ -74,7 +75,7 @@ const AddCrop_form = ({ formik }) => {
             fullWidth
             name="expectedYields"
             label="Expected Yields"
-            value={values.expectedYields}
+            defaultValue={expectedYields || ""}
             type="text"
             id="expectedYields"
             autoComplete="ExpectedYields"
@@ -83,19 +84,41 @@ const AddCrop_form = ({ formik }) => {
             helperText={touched.ExpectedYields && errors.ExpectedYields}
           />
         </Grid>
+        <Grid item xs={12}>
+          <StyledStack>
+            <Stack
+              spacing={2.5}
+              direction="row"
+              mt={3.3}
+              mb={4}
+              justifyContent="space-evenly"
+            >
+              <CustomButton
+                width="4.37rem"
+                onClick={() => handleClick()}
+                border="none"
+              >
+                <Typography variant="w11" color={COLORS.LIGHT_RED}>
+                  Cancel
+                </Typography>
+              </CustomButton>
+              <CustomButton
+                type="submit"
+                width="6.62rem"
+                background={COLORS.YELLOW_GREEN}
+                hoverbackground={COLORS.LIGHT_GREEN}
+                border={`0.063 solid ${COLORS.YELLOW_GREEN}`}
+              >
+                <StyledTypography variant="w11" color={COLORS.WHITE}>
+                  Save
+                </StyledTypography>
+              </CustomButton>
+            </Stack>
+          </StyledStack>
+        </Grid>
       </Grid>
-      <CustomButton
-        type="submit"
-        background={COLORS.ERIE_BLACK}
-        variant="contained"
-        width="100%"
-        margin={theme.spacing(3, 0, 2, 0)}
-        hoverbackground={COLORS.YELLOW_GREEN}
-      >
-        Add Crop
-      </CustomButton>
     </Form>
   );
 };
 
-export default AddCrop_form;
+export default CropUpdate;
