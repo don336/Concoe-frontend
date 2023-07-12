@@ -25,6 +25,8 @@ export const COLORS = {
 
 export const ONE_REM_TO_PX = 16;
 
+export const CUSTOM_MODAL_MARGIN_IN_REM = 4;
+
 export const FONT = {
   // Define available font-families to be used throughout the app
   // font-family: 'Montserrat', sans-serif;

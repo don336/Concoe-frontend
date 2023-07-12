@@ -10,10 +10,11 @@ import CreateIcon from "@mui/icons-material/Create";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { COLORS } from "../../../Styles/theme";
 import UpdateModal from "../../../components/Models/UpdateModels/UpdateModels";
+import { DeleteModal } from "../../../components/deleteModal/index.js";
 
 const rendercell = (params) => {
   const [open, setOpen] = useState(false);
-  const [rowData, setRowData] = useState({});
+  const [openDelete, setOpenDelete] = useState(false);
 
   const handleOpen = (e) => {
     setOpen(true);
@@ -23,6 +24,13 @@ const rendercell = (params) => {
   };
 
   const handleClose = () => setOpen(false);
+
+  const handleDelete = async (id) => {
+    dispatch(deleteClient(id));
+    setOpenDelete(false);
+  };
+
+  const crop = params.row.cropType;
 
   return (
     <Box>
@@ -47,10 +55,19 @@ const rendercell = (params) => {
             color: COLORS.LIGHT_RED,
           }}
         >
-          <DeleteIcon />
+          <DeleteIcon onClick={() => setOpenDelete(true)} />
         </Button>
       </Stack>
-      <UpdateModal open={open} handleClose={handleClose} data={rowData} />
+      <UpdateModal open={open} handleClose={handleClose} rowData={params.row} />
+      {openDelete && (
+        <DeleteModal
+          open={openDelete}
+          handleClick={() => setOpenDelete(false)}
+          title={crop}
+          handleRemoveClick={() => handleDelete(id)}
+          subtitle={crop}
+        />
+      )}
     </Box>
   );
 };
@@ -58,48 +75,34 @@ const columns = [
   {
     field: "cropType",
     headerName: "Crop Type",
-    width: 150,
+    minWidth: 200,
     editable: true,
   },
   {
     field: "season",
     headerName: "Season",
-    width: 150,
+    minWidth: 200,
     editable: true,
   },
   {
     field: "acreage",
     headerName: "Acreage",
-    type: "number",
-    width: 112,
+    minWidth: 200,
     editable: true,
   },
   {
     field: "expectedYields",
     headerName: "Expected Yields",
-    type: "number",
-    width: 140,
+    minWidth: 200,
     editable: true,
   },
   {
-    field: "Erasure",
-    width: 170,
+    field: "Action",
+    minWidth: 200,
     editable: false,
     renderCell: rendercell,
   },
 ];
-
-// const rows = [
-//   { id: 1, cropType: "Coffee", acreage: 3400, yields: 35000 },
-//   { id: 2, cropType: "Lannister", season: "Cersei", yields: 42 },
-//   { id: 3, lastName: "Lannister", firstName: "Jaime", age: 45 },
-//   { id: 4, lastName: "Stark", firstName: "Arya", age: 16 },
-//   { id: 5, lastName: "Targaryen", firstName: "Daenerys", age: null },
-//   { id: 6, lastName: "Melisandre", firstName: null, age: 150 },
-//   { id: 7, lastName: "Clifford", firstName: "Ferrara", age: 44 },
-//   { id: 8, lastName: "Frances", firstName: "Rossini", age: 36 },
-//   { id: 9, lastName: "Roxie", firstName: "Harvey", age: 65 },
-// ];
 
 export default function CropDataGrid() {
   const cropState = useSelector((state) => state.crops.crops);
