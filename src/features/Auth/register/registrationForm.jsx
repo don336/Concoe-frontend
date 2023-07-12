@@ -16,64 +16,50 @@ import CustomButton from "../../../elements/customButton/customButton";
 import { COLORS } from "../../../Styles/theme";
 import { Form } from "formik";
 
-const RegistrationForm = ({ handleSumbit, handleChange, formik }) => {
+const RegistrationForm = ({ formik }) => {
   const theme = useTheme();
-
+  const { handleSubmit, handleChange, errors, touched, values } = formik;
   return (
     <Container component="main" maxWidth="xs">
       <StyledBox>
         <Typography component="h1" variant="h5" sx={{ color: "#A2D729" }}>
           <SpaOutlinedIcon /> Concoe | Coffee
         </Typography>
-        <Form sx={{ mt: 3 }} component="form" onSubmit={handleSumbit}>
+        <Form sx={{ mt: 3 }} component="form" onSubmit={handleSubmit}>
           <Grid container spacing={2}>
             <Grid item xs={12} sm={12}>
               <TextField
                 autoComplete="given-name"
                 name="name"
-                required
+                value={values.name}
+                error={touched.name && Boolean(errors.name)}
+                helperText={touched.name && errors.name}
                 fullWidth
                 id="name"
                 label="Full Name"
                 autoFocus
                 onChange={handleChange}
               />
-              {formik.errors.name ? (
-                <Typography
-                  variant="body2"
-                  sx={{
-                    color: "red",
-                  }}
-                >
-                  {formik.errors.name}
-                </Typography>
-              ) : null}
             </Grid>
             <Grid item xs={12} sm={12}>
               <TextField
-                required
                 fullWidth
+                value={values.username}
+                error={touched.username && Boolean(errors.username)}
+                helperText={touched.username && errors.username}
                 id="username"
                 label="Username"
                 name="username"
                 autoComplete="family-name"
                 onChange={handleChange}
               />
-              {formik.errors.name ? (
-                <Typography
-                  variant="body2"
-                  sx={{
-                    color: "red",
-                  }}
-                >
-                  {formik.errors.name}
-                </Typography>
-              ) : null}
             </Grid>
             <Grid item xs={12}>
               <TextField
-                required
                 fullWidth
+                value={values.email}
+                error={touched.email && Boolean(errors.email)}
+                helperText={touched.email && errors.email}
                 id="email"
                 label="Email Address"
                 name="email"
@@ -83,8 +69,10 @@ const RegistrationForm = ({ handleSumbit, handleChange, formik }) => {
             </Grid>
             <Grid item xs={12}>
               <TextField
-                required
                 fullWidth
+                value={values.password}
+                error={touched.password && Boolean(errors.password)}
+                helperText={touched.password && errors.password}
                 name="password"
                 label="Password"
                 type="password"
@@ -95,8 +83,12 @@ const RegistrationForm = ({ handleSumbit, handleChange, formik }) => {
             </Grid>
             <Grid item xs={12}>
               <TextField
-                required
                 fullWidth
+                value={values.confirmPassword}
+                error={
+                  touched.confirmPassword && Boolean(errors.confirmPassword)
+                }
+                helperText={touched.confirmPassword && errors.confirmPassword}
                 name="confirmPassword"
                 label="Confirm Password"
                 type="password"

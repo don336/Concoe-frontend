@@ -3,7 +3,6 @@ import { StyledContainer } from "./registrationStyles";
 import RegistrationForm from "./registrationForm";
 import { useDispatch, useSelector } from "react-redux";
 import { register } from "../authService";
-import { toast } from "react-toastify";
 import { Formik } from "formik";
 import * as Yup from "yup";
 import { useNavigate } from "react-router-dom";
@@ -11,14 +10,6 @@ import { useNavigate } from "react-router-dom";
 const Registration = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const [userInput, setUserInput] = useState({
-    name: "",
-    username: "",
-    email: "",
-    password: "",
-    confirmPassword: "",
-  });
-  const { name, username, email, password, confirmPassword } = userInput;
   const defaultValues = {
     name: "",
     username: "",
@@ -27,9 +18,7 @@ const Registration = () => {
     confirmPassword: "",
   };
   const yupObject = Yup.object({
-    name: Yup.string()
-      .max(15, "Must not be more than 15 characters")
-      .required(),
+    name: Yup.string().required(),
     username: Yup.string().required(),
     email: Yup.string().email().required(),
     password: Yup.string().required(),
@@ -42,17 +31,11 @@ const Registration = () => {
       navigate("/");
     }
   }, [authState]);
-  const handleChange = (event) => {
-    const { name, value } = event.target;
-    setUserInput((prevState) => ({
-      ...prevState,
-      [name]: value,
-    }));
-  };
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const handleSubmit = (values) => {
+    const { name, username, email, password, confirmPassword } = values;
+
     if (password !== confirmPassword) {
-      toast.error("Passwords do not match");
+      alert("Passwords do not match");
     } else {
       const UserData = {
         name,
@@ -67,14 +50,13 @@ const Registration = () => {
 
   return (
     <StyledContainer maxWidth="1200px">
-      <Formik initialValues={defaultValues} validationSchema={yupObject}>
-        {(formik) => (
-          <RegistrationForm
-            formik={formik}
-            handleSumbit={handleSubmit}
-            handleChange={handleChange}
-          />
-        )}
+      <Formik
+        enableReinitialize
+        initialValues={defaultValues}
+        validationSchema={yupObject}
+        onSubmit={handleSubmit}
+      >
+        {(formik) => <RegistrationForm formik={formik} />}
       </Formik>
     </StyledContainer>
   );

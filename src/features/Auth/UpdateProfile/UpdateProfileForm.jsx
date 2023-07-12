@@ -18,9 +18,9 @@ import { COLORS } from "../../../Styles/theme";
 import { Form } from "formik";
 import { Link as BackLink } from "react-router-dom";
 
-const UpdateForm = ({ handleSumbit, handleChange, formik }) => {
+const UpdateForm = ({ formik }) => {
   const theme = useTheme();
-
+  const { handleChange, handleSubmit, errors, touched, values } = formik;
   return (
     <Container maxWidth="xs">
       <StyledBox>
@@ -38,60 +38,55 @@ const UpdateForm = ({ handleSumbit, handleChange, formik }) => {
             <SpaOutlinedIcon /> Concoe | Coffee
           </Typography>
         </HomeLink>
-        <Form sx={{ mt: 3 }} onSubmit={handleSumbit}>
+        <Form sx={{ mt: 3 }} onSubmit={handleSubmit}>
           <Grid container spacing={2}>
             <Grid item xs={12} sm={12}>
               <TextField
                 autoComplete="given-name"
                 name="name"
-                defaultValue={formik.values.name}
-                required
+                defaultValue={values.name}
+                error={touched.name && Boolean(errors.name)}
+                helperText={touched.name && errors.name}
                 fullWidth
-                id="firstname"
+                id="name"
                 label="Full Name"
                 autoFocus
                 onChange={handleChange}
-                error={formik.touched.name && Boolean(formik.errors.name)}
-                helperText={formik.touched.name && formik.errors.name}
               />
             </Grid>
             <Grid item xs={12} sm={12}>
               <TextField
-                required
                 fullWidth
                 id="username"
                 label="Username"
                 name="username"
-                defaultValue={formik.values.username}
+                defaultValue={values.username}
                 autoComplete="family-name"
                 onChange={handleChange}
-                error={
-                  formik.touched.username && Boolean(formik.errors.username)
-                }
-                helperText={formik.touched.username && formik.errors.username}
+                error={touched.username && Boolean(errors.username)}
+                helperText={touched.username && errors.username}
                 autoFocus
               />
             </Grid>
             <Grid item xs={12}>
               <TextField
-                required
                 fullWidth
                 id="email"
                 label="Email Address"
                 name="email"
-                defaultValue={formik.values.email}
+                defaultValue={values.email}
                 autoComplete="email"
                 onChange={handleChange}
                 autoFocus
-                error={formik.touched.email && Boolean(formik.errors.email)}
-                helperText={formik.touched.email && formik.errors.email}
+                error={touched.email && Boolean(errors.email)}
+                helperText={touched.email && errors.email}
               />
             </Grid>
           </Grid>
           <CustomButton
+            type="submit"
             background={COLORS.ERIE_BLACK}
             variant="contained"
-            type="submit"
             width="100%"
             margin={theme.spacing(3, 0, 2, 0)}
             hoverbackground={COLORS.YELLOW_GREEN}

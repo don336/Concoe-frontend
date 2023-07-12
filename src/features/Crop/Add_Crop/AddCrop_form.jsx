@@ -12,8 +12,9 @@ import CustomButton from "../../../elements/customButton/customButton";
 
 import { COLORS } from "../../../Styles/theme";
 
-const AddCrop_form = ({ handleChange, formik, handleSubmit }) => {
+const AddCrop_form = ({ formik }) => {
   const theme = useTheme();
+  const { handleSubmit, handleChange, errors, touched, values } = formik;
   return (
     <Form
       onSubmit={handleSubmit}
@@ -32,11 +33,11 @@ const AddCrop_form = ({ handleChange, formik, handleSubmit }) => {
           <TextField
             autoComplete="plant-name"
             name="cropType"
-            required
+            value={values.cropType}
             fullWidth
             id="cropType"
-            error={formik.touched.CropType && Boolean(formik.errors.CropType)}
-            helperText={formik.touched.CropType && formik.errors.CropType}
+            error={touched.CropType && Boolean(errors.CropType)}
+            helperText={touched.CropType && errors.CropType}
             label="Crop Type"
             autoFocus
             onChange={handleChange}
@@ -44,47 +45,42 @@ const AddCrop_form = ({ handleChange, formik, handleSubmit }) => {
         </Grid>
         <Grid item xs={12} sm={12}>
           <TextField
-            required
             fullWidth
             id="season"
             label="Season"
+            value={values.season}
             name="season"
             autoComplete="Season"
             onChange={handleChange}
-            error={formik.touched.Season && Boolean(formik.errors.Season)}
-            helperText={formik.touched.Season && formik.errors.Season}
+            error={touched.Season && Boolean(errors.Season)}
+            helperText={touched.Season && errors.Season}
           />
         </Grid>
         <Grid item xs={12}>
           <TextField
-            required
             fullWidth
             id="acreage"
             label="Acreage"
+            value={values.acreage}
             name="acreage"
             autoComplete="Acreage"
             onChange={handleChange}
-            error={formik.touched.Acreage && Boolean(formik.errors.Acreage)}
-            helperText={formik.touched.Acreage && formik.errors.Acreage}
+            error={touched.Acreage && Boolean(errors.Acreage)}
+            helperText={touched.Acreage && errors.Acreage}
           />
         </Grid>
         <Grid item xs={12}>
           <TextField
-            required
             fullWidth
             name="expectedYields"
             label="Expected Yields"
+            value={values.expectedYields}
             type="text"
             id="expectedYields"
             autoComplete="ExpectedYields"
             onChange={handleChange}
-            error={
-              formik.touched.ExpectedYields &&
-              Boolean(formik.errors.ExpectedYields)
-            }
-            helperText={
-              formik.touched.ExpectedYields && formik.errors.ExpectedYields
-            }
+            error={touched.ExpectedYields && Boolean(errors.ExpectedYields)}
+            helperText={touched.ExpectedYields && errors.ExpectedYields}
           />
         </Grid>
       </Grid>

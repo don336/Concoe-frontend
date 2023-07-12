@@ -35,23 +35,14 @@ const addCrop = () => {
     expectedYields: "",
   };
   const yupObject = Yup.object({
-    cropType: Yup.string()
-      .max(15, "Must not be more than 15 characters")
-      .required(),
+    cropType: Yup.string().required(),
     season: Yup.string().required(),
     acreage: Yup.string().required(),
     expectedYields: Yup.string().required(),
   });
-  const handleChange = (event) => {
-    const { name, value } = event.target;
-    setCrop((prevState) => ({
-      ...prevState,
-      [name]: value,
-    }));
-  };
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const { cropType, season, acreage, expectedYields } = crop;
+
+  const handleSubmit = (values) => {
+    const { cropType, season, acreage, expectedYields } = values;
 
     const CropData = {
       cropType,
@@ -73,16 +64,12 @@ const addCrop = () => {
           <Stack direction={"row"}>
             <Box>
               <Formik
+                enableReinitialize
                 initialValues={defaultValues}
                 validationSchema={yupObject}
+                onSubmit={handleSubmit}
               >
-                {(formik) => (
-                  <AddCrop_form
-                    formik={formik}
-                    handleSubmit={handleSubmit}
-                    handleChange={handleChange}
-                  />
-                )}
+                {(formik) => <AddCrop_form formik={formik} />}
               </Formik>
             </Box>
             <Box>

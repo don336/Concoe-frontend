@@ -3,14 +3,11 @@ import { StyledContainer } from "./Login.style";
 import LoginForm from "./loginForm";
 import { useDispatch, useSelector } from "react-redux";
 import { login } from "../authService";
+import { Formik } from "formik";
+import * as Yup from "yup";
 import { useNavigate } from "react-router-dom";
 
 const Registration = () => {
-  const [userInput, setUserInput] = useState({
-    email: "",
-    password: "",
-  });
-  const { email, password } = userInput;
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -20,15 +17,13 @@ const Registration = () => {
       navigate("/");
     }
   }, [authState]);
-  const handleChange = (event) => {
-    const { name, value } = event.target;
-    setUserInput((prevState) => ({
-      ...prevState,
-      [name]: value,
-    }));
-  };
-
-  const handleSubmit = () => {
+  const defaultValues = { email: "", password: "" };
+  const yupObject = Yup.object({
+    email: Yup.string().email().required(),
+    password: Yup.string().required(),
+  });
+  const handleSubmit = (values) => {
+    const { email, password } = values;
     const UserData = {
       email,
       password,
@@ -39,7 +34,14 @@ const Registration = () => {
 
   return (
     <StyledContainer maxWidth="1200px">
-      <LoginForm handleSumbit={handleSubmit} handleChange={handleChange} />
+      <Formik
+        initialValues={defaultValues}
+        enableReinitialize
+        validationSchema={yupObject}
+        onSubmit={handleSubmit}
+      >
+        {(formik) => <LoginForm formik={formik} />}
+      </Formik>
     </StyledContainer>
   );
 };
