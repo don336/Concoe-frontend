@@ -30,12 +30,13 @@ export const AddCrop = createAsyncThunk("AddCrop", async (data, thunkAPI) => {
 
 export const UpdateCrop = createAsyncThunk(
   "updateCrop",
-  async (data, id, thunkAPI) => {
+  async (data, thunkAPI) => {
     axios.defaults.headers.common["Authorization"] = ` ${localStorage.getItem(
       "jwtToken"
     )}`;
     try {
-      const response = await axios.put(`${baseUrl}crop/${id}`, data);
+      const {cropId} = data
+      const response = await axios.put(`${baseUrl}crop/${cropId}`, data);
       return response.data.crop;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
