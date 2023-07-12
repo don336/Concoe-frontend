@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Stack, Button, Box } from "@mui/material/";
-import { deleteCrop, getAllCrops } from "../CropServices";
+import { Delete, getAllCrops } from "../CropServices";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
@@ -25,7 +25,7 @@ const rendercell = (params) => {
 
   const handleDelete = async () => {
     const id = params.row._id;
-    dispatch(deleteCrop(id));
+    dispatch(Delete(id));
     if (dispatch) {
       window.location.reload();
     }
