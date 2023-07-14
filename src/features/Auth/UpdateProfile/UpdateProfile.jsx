@@ -21,8 +21,6 @@ const EditProfile = () => {
     name: Yup.string().required(),
     username: Yup.string().required(),
     email: Yup.string().email().required(),
-    password: Yup.string().required(),
-    confirmPassword: Yup.string().required(),
   });
   const { name, username, email } = authState.currentUser;
   const defaultValues = {
