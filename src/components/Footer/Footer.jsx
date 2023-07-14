@@ -4,7 +4,7 @@ import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import { Box, Stack, Typography } from "@mui/material";
 import SpaOutlinedIcon from "@mui/icons-material/SpaOutlined";
-import { COLORS } from "../../Styles/theme";
+import { COLORS } from "../../styles/theme";
 const Footer = () => {
   return (
     <StyledFooterBar maxWidth="xl">

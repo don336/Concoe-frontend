@@ -1,10 +1,5 @@
-import {
-  Typography,
-  Box as muiBox,
-  Container as muiContainer,
-} from "@mui/material";
+import { Box as muiBox, Container as muiContainer } from "@mui/material";
 import styled from "@emotion/styled";
-import { COLORS } from "../../../Styles/theme";
 
 export const StyledContainer = styled(muiContainer)`
   display: flex;

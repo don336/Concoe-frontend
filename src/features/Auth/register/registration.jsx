@@ -15,23 +15,23 @@ const Registration = () => {
     username: "",
     email: "",
     password: "",
-    confirmPassword: "",
+    confirmPassword: ""
   };
   const yupObject = Yup.object({
     name: Yup.string().required(),
     username: Yup.string().required(),
     email: Yup.string().email().required(),
     password: Yup.string().required(),
-    confirmPassword: Yup.string().required(),
+    confirmPassword: Yup.string().required()
   });
 
-  const authState = useSelector((state) => state.auth);
+  const authState = useSelector(state => state.auth);
   useEffect(() => {
     if (authState?.isAuthenticated) {
       navigate("/");
     }
   }, [authState]);
-  const handleSubmit = (values) => {
+  const handleSubmit = values => {
     const { name, username, email, password, confirmPassword } = values;
 
     if (password !== confirmPassword) {
@@ -41,7 +41,7 @@ const Registration = () => {
         name,
         username,
         email,
-        password,
+        password
       };
       console.log(UserData);
       dispatch(register(UserData));
@@ -50,13 +50,8 @@ const Registration = () => {
 
   return (
     <StyledContainer maxWidth="1200px">
-      <Formik
-        enableReinitialize
-        initialValues={defaultValues}
-        validationSchema={yupObject}
-        onSubmit={handleSubmit}
-      >
-        {(formik) => <RegistrationForm formik={formik} />}
+      <Formik enableReinitialize initialValues={defaultValues} validationSchema={yupObject} onSubmit={handleSubmit}>
+        {formik => <RegistrationForm formik={formik} />}
       </Formik>
     </StyledContainer>
   );

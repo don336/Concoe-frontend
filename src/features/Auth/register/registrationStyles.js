@@ -1,6 +1,6 @@
 import { Box, Container } from "@mui/material";
 import { styled } from "@mui/material/styles";
-import { COLORS } from "../../../Styles/theme";
+import { COLORS } from "../../../styles/theme";
 
 export const StyledBox = styled(Box)`
   margin-top: 1rem;

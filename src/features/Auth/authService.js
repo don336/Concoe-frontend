@@ -29,9 +29,7 @@ export const login = createAsyncThunk("login", async (data, thunkAPI) => {
 
 export const update = createAsyncThunk("update", async (data, thunkAPI) => {
   try {
-    axios.defaults.headers.common["Authorization"] = ` ${localStorage.getItem(
-      "jwtToken"
-    )}`;
+    axios.defaults.headers.common.Authorization = ` ${localStorage.getItem("jwtToken")}`;
 
     const response = await axios.put(`${baseUrl}auth/user/${data.id}`, data);
     const { accessToken } = response.data;
@@ -46,9 +44,7 @@ export const update = createAsyncThunk("update", async (data, thunkAPI) => {
 
 export const Delete = createAsyncThunk("delete", async (id, thunkAPI) => {
   try {
-    axios.defaults.headers.common["Authorization"] = ` ${localStorage.getItem(
-      "jwtToken"
-    )}`;
+    axios.defaults.headers.common.Authorization = ` ${localStorage.getItem("jwtToken")}`;
 
     const response = await axios.delete(`${baseUrl}auth/user/${id}`);
 
