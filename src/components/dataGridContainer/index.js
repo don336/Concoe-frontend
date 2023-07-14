@@ -1,1 +1,1 @@
-export { default as DataGridContainer } from "./dataGridContainer.jsx";
+export { default as DataGridContainer } from "./dataGridContainer";

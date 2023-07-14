@@ -16,6 +16,8 @@ import CustomButton from "../../../elements/customButton/customButton.jsx";
 const CropUpdate = ({ formik, handleClick }) => {
   const { handleSubmit, handleChange, errors, touched, values } = formik;
   const { cropType, season, acreage, expectedYields } = values;
+
+  console.log(formik.values, 'the formik values =================================>');
   return (
     <Form
       onSubmit={handleSubmit}

@@ -2,9 +2,7 @@ import styled from "@emotion/styled";
 import {
   Box as muiBox,
   Stack as muiStack,
-  Link as muiLink,
   Typography as muiTypography,
-  Grid as muiGrid,
   Avatar as muiAvatar,
 } from "@mui/material";
 import { Link } from "react-router-dom";

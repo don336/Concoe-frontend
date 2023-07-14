@@ -1,1 +1,1 @@
-export { default as DataGrid } from "./dataGrid.jsx";
+export { default as DataGrid } from "./dataGrid";

@@ -1,6 +1,5 @@
 import { Stack } from "@mui/material";
 import { styled } from "@mui/material/styles";
-import { COLORS } from "../../Styles/theme.jsx";
 
 export const Container = styled("div")`
   width: 100%;

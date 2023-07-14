@@ -110,8 +110,10 @@ const columns = [
   },
 ];
 
+
 export default function CropDataGrid() {
   const cropState = useSelector((state) => state.crops.crops);
+  const editCrop = useSelector((state) => state.crops.editCrop);
   const Authenticated = useSelector((state) => state.auth.isAuthenticated);
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -119,8 +121,11 @@ export default function CropDataGrid() {
     if (!Authenticated) {
       navigate("/Login");
     }
+    if(editCrop){
+      dispatch(getAllCrops());
+    }
     dispatch(getAllCrops());
-  }, [cropState]);
+  }, [editCrop]);
   const heading = [
     {
       title1: "Crops",
@@ -131,6 +136,7 @@ export default function CropDataGrid() {
       title2: 0,
     },
   ];
+
   return (
     <DataGridContainer headings={heading}>
       <DataGrid

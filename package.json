@@ -7,7 +7,8 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "lint": "npx prettier --write ."
+    "lint-fix": "eslint src --fix",
+    "lint:check-js": "eslint src"
   },
   "dependencies": {
     "@emotion/react": "^11.10.6",
@@ -17,10 +18,12 @@
     "@mui/styled-engine-sc": "^5.11.11",
     "@mui/x-data-grid-generator": "^6.2.0",
     "@mui/x-data-grid-pro": "^6.2.0",
+    "@mui/x-data-grid": "5.17.26",
     "@reduxjs/toolkit": "^1.9.3",
     "axios": "^1.3.4",
     "formik": "^2.2.9",
     "jwt-decode": "^3.1.2",
+    "prettier": "^3.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-redux": "^8.0.5",
@@ -33,7 +36,34 @@
     "@types/react": "^18.0.28",
     "@types/react-dom": "^18.0.11",
     "@vitejs/plugin-react": "^3.1.0",
-    "prettier": "2.8.7",
+    "eslint": "^8.44.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-jest": "^27.2.3",
+    "eslint-plugin-prettier": "^5.0.0",
+    "eslint-plugin-react": "^7.32.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
     "vite": "^4.2.0"
+  },
+  "jest": {
+    "moduleNameMapper": {
+      "axios": "axios/dist/node/axios.cjs"
+    },
+    "coverageThreshold": {
+      "global": {
+        "branches": 50,
+        "functions": 50,
+        "lines": 50,
+        "statements": 50
+      }
+    },
+    "coveragePathIgnorePatterns": [
+      "/src/App.js",
+      "/src/index.js",
+      "/src/pages",
+      "/src/reportWebVitals.js",
+      "./src/__tests__/__fixtures__/*"
+    ]
   }
 }

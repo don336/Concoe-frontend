@@ -9,13 +9,11 @@ import Login from "./features/Auth/Login/Login";
 import { store } from "./redux/store";
 import Home from "./features/Home/Home";
 import Crops from "./features/Crop/Layout/Crops";
-import getWeather from "./utils/weather";
 import Account from "./features/Account/Account";
 import UpdateProfile from "./features/Auth/UpdateProfile/UpdateProfile";
 import AddCrop from "./features/Crop/AddCrop/AddCrop";
 
 function App() {
-  getWeather();
   return (
     <ThemeProvider theme={theme}>
       <Provider store={store}>

@@ -9,7 +9,7 @@ const initialState = {
 };
 const CropSlice = createSlice({
   name: "Crop",
-  initialState: initialState,
+  initialState,
   extraReducers: (builder) => {
     builder
       .addCase(getAllCrops.fulfilled, (state, action) => ({
@@ -17,6 +17,7 @@ const CropSlice = createSlice({
         isSuccess: true,
         crops: action.payload,
         error: "",
+        editCrop: false,
       }))
       .addCase(getAllCrops.rejected, (state, action) => ({
         ...state,
@@ -24,6 +25,7 @@ const CropSlice = createSlice({
         crops: [],
         crop: [],
         error: action.payload,
+        editCrop: false,
       }))
       .addCase(AddCrop.fulfilled, (state, action) => ({
         ...state,
@@ -31,12 +33,14 @@ const CropSlice = createSlice({
         crops: state.crops,
         crop: action.payload,
         error: "",
+        editCrop: false,
       }))
       .addCase(AddCrop.rejected, (state, action) => ({
         ...state,
         isError: true,
         crops: [],
         error: action.payload,
+        editCrop: false,
       }))
       .addCase(UpdateCrop.fulfilled, (state, action) => ({
         ...state,
@@ -44,24 +48,28 @@ const CropSlice = createSlice({
         crops: state.crops,
         crop: action.payload,
         error: "",
+        editCrop: true,
       }))
       .addCase(UpdateCrop.rejected, (state, action) => ({
         ...state,
         isError: true,
         crops: [],
         error: action.payload,
+        editCrop: false,
       }))
       .addCase(Delete.fulfilled, (state) => ({
         ...state,
         isError: false,
         isSuccess: true,
         error: "",
+        editCrop: false,
       }))
       .addCase(Delete.rejected, (state, action) => ({
         ...state,
         isSuccess: false,
         isError: true,
         error: action.payload,
+        editCrop: false,
       }));
   },
 });

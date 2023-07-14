@@ -3,7 +3,7 @@ import { register, login, update, Delete } from "./authService";
 
 const isAuthenticated = localStorage.getItem("isAuthenticated");
 const initialState = {
-  isAuthenticated: isAuthenticated ? isAuthenticated : false,
+  isAuthenticated: isAuthenticated || false,
   error: "",
   currentUser: {},
 };
@@ -12,10 +12,8 @@ const authSlice = createSlice({
   name: "auth",
   initialState,
   reducer: {
-    reset: async (state) => {
-      {
-        await localStorage.removeItem("jwtToken");
-      }
+    reset: async () => {
+      await localStorage.removeItem("jwtToken");
     },
   },
   extraReducers: (builder) => {

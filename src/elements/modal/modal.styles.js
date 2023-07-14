@@ -1,6 +1,6 @@
 import { Stack } from "@mui/material";
 import { styled } from "@mui/material/styles";
-import {COLORS, CUSTOM_MODAL_MARGIN_IN_REM} from "../../Styles/theme.jsx";
+import { COLORS, CUSTOM_MODAL_MARGIN_IN_REM } from "../../Styles/theme";
 
 export const ModalContainer = styled(Stack)`
   flex-direction: ${({ direction }) => direction || "column"};

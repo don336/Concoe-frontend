@@ -1,7 +1,7 @@
 import { DataGrid } from "@mui/x-data-grid";
 import { styled } from "@mui/material/styles";
-import { COLORS } from "../../Styles/theme.jsx";
 import StraightIcon from "@mui/icons-material/Straight";
+import { COLORS } from "../../Styles/theme";
 
 export const MUIDataGrid = styled(DataGrid)`
   border: 0;
