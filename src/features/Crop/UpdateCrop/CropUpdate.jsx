@@ -1,28 +1,23 @@
 import React from "react";
-import {
-  Box,
-  Grid,
-  TextField,
-  useTheme,
-  Typography,
-  CssBaseline,
-} from "@mui/material";
+import { Box, Grid, TextField, useTheme, Typography, CssBaseline } from "@mui/material";
 import { Form } from "formik";
 import { Stack } from "@mui/material";
-import { COLORS } from "../../../Styles/theme.jsx";
+import { COLORS } from "../../../styles/theme.jsx";
 import { StyledStack, StyledTypography } from "./updateModel.style.js";
-import CustomButton from "../../../elements/customButton/customButton.jsx";
+import CustomButton from "../../../elements/CustomButton/customButton.jsx";
 
 const CropUpdate = ({ formik, handleClick }) => {
   const { handleSubmit, handleChange, errors, touched, values } = formik;
   const { cropType, season, acreage, expectedYields } = values;
+
+  console.log(formik.values, "the formik values =================================>");
   return (
     <Form
       onSubmit={handleSubmit}
       style={{
         backgroundColor: "#fff",
         padding: "20px",
-        height: "100%",
+        height: "100%"
       }}
     >
       <CssBaseline />
@@ -86,18 +81,8 @@ const CropUpdate = ({ formik, handleClick }) => {
         </Grid>
         <Grid item xs={12}>
           <StyledStack>
-            <Stack
-              spacing={2.5}
-              direction="row"
-              mt={3.3}
-              mb={4}
-              justifyContent="space-evenly"
-            >
-              <CustomButton
-                width="4.37rem"
-                onClick={() => handleClick()}
-                border="none"
-              >
+            <Stack spacing={2.5} direction="row" mt={3.3} mb={4} justifyContent="space-evenly">
+              <CustomButton width="4.37rem" onClick={() => handleClick()} border="none">
                 <Typography variant="w11" color={COLORS.LIGHT_RED}>
                   Cancel
                 </Typography>

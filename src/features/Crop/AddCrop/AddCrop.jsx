@@ -8,7 +8,7 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { Container, Stack, Box } from "@mui/material";
 import { StyledBox, StyledContainer } from "./AddCrop.style";
-import Navbar from "../../../components/Navbar/Navbar";
+import Navbar from "../../../layouts/Navbar/Navbar";
 import Planting from "./Img/planting.jpg";
 import { AddCrop } from "../CropServices";
 
@@ -17,12 +17,12 @@ const addCrop = () => {
     cropType: "",
     season: "",
     acreage: "",
-    expectedYields: "",
+    expectedYields: ""
   });
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const authState = useSelector((state) => state.auth);
+  const authState = useSelector(state => state.auth);
   useEffect(() => {
     if (!authState?.isAuthenticated) {
       navigate("/");
@@ -32,16 +32,16 @@ const addCrop = () => {
     cropType: "",
     season: "",
     acreage: "",
-    expectedYields: "",
+    expectedYields: ""
   };
   const yupObject = Yup.object({
     cropType: Yup.string().required(),
     season: Yup.string().required(),
     acreage: Yup.string().required(),
-    expectedYields: Yup.string().required(),
+    expectedYields: Yup.string().required()
   });
 
-  const handleSubmit = (values) => {
+  const handleSubmit = values => {
     console.log("1232323232323", "===================================>");
     const { cropType, season, acreage, expectedYields } = values;
 
@@ -49,7 +49,7 @@ const addCrop = () => {
       cropType,
       season,
       acreage,
-      expectedYields,
+      expectedYields
     };
     dispatch(AddCrop(CropData));
     if (dispatch) {
@@ -69,16 +69,11 @@ const addCrop = () => {
                 validationSchema={yupObject}
                 onSubmit={handleSubmit}
               >
-                {(formik) => <AddCrop_form formik={formik} />}
+                {formik => <AddCrop_form formik={formik} />}
               </Formik>
             </Box>
             <Box>
-              <img
-                src={Planting}
-                alt="planting process"
-                width={100}
-                className="Planting"
-              />
+              <img src={Planting} alt="planting process" width={100} className="Planting" />
             </Box>
           </Stack>
         </StyledBox>

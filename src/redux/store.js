@@ -5,6 +5,6 @@ import cropReducer from "../features/Crop/CropSlice";
 export const store = configureStore({
   reducer: {
     auth: authReducer,
-    crops: cropReducer,
-  },
+    crops: cropReducer
+  }
 });

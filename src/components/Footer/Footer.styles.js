@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 import { Box, Stack } from "@mui/material";
-import { COLORS } from "../../Styles/theme";
+import { COLORS } from "../../styles/theme";
 
 export const StyledFooterBar = styled(Box)`
   bottom: 0;

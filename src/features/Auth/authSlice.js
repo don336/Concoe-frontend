@@ -3,71 +3,69 @@ import { register, login, update, Delete } from "./authService";
 
 const isAuthenticated = localStorage.getItem("isAuthenticated");
 const initialState = {
-  isAuthenticated: isAuthenticated ? isAuthenticated : false,
+  isAuthenticated: isAuthenticated || false,
   error: "",
-  currentUser: {},
+  currentUser: {}
 };
 
 const authSlice = createSlice({
   name: "auth",
   initialState,
   reducer: {
-    reset: async (state) => {
-      {
-        await localStorage.removeItem("jwtToken");
-      }
-    },
+    reset: async () => {
+      await localStorage.removeItem("jwtToken");
+    }
   },
-  extraReducers: (builder) => {
+  extraReducers: builder => {
     builder
       .addCase(register.fulfilled, (state, action) => ({
         ...state,
         isAuthenticated: true,
         currentUser: action.payload,
-        error: "",
+        error: ""
       }))
       .addCase(register.rejected, (state, action) => ({
         ...state,
         isAuthenticated: false,
         currentUser: {},
-        error: action.payload,
+        error: action.payload
       }))
       .addCase(login.fulfilled, (state, action) => ({
         ...state,
         isAuthenticated: true,
         currentUser: action.payload,
-        error: "",
+        error: ""
       }))
       .addCase(login.rejected, (state, action) => ({
         ...state,
         isAuthenticated: false,
         currentUser: {},
-        error: action.payload,
+        error: action.payload
       }))
       .addCase(update.fulfilled, (state, action) => ({
         ...state,
         isAuthenticated: true,
         currentUser: action.payload,
-        error: "",
+        error: ""
       }))
       .addCase(update.rejected, (state, action) => ({
         ...state,
         isAuthenticated: false,
         currentUser: {},
-        error: action.payload,
+        error: action.payload
       }))
       .addCase(Delete.fulfilled, (state, action) => ({
         ...state,
         isAuthenticated: false,
         message: action.payload,
-        error: "",
+        error: ""
       }))
       .addCase(Delete.rejected, (state, action) => ({
         ...state,
         isAuthenticated: false,
-        error: action.payload,
+        error: action.payload
       }));
-  },
+  }
 });
 export const { reset } = authSlice.actions;
 export default authSlice.reducer;

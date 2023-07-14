@@ -1,18 +1,9 @@
 import * as React from "react";
-import {
-  Button,
-  Container,
-  TextField,
-  Link,
-  Grid,
-  Box,
-  Typography,
-  useTheme,
-} from "@mui/material";
+import { Button, Container, TextField, Link, Grid, Box, Typography, useTheme } from "@mui/material";
 import SpaOutlinedIcon from "@mui/icons-material/SpaOutlined";
 import { StyledBox } from "./Login.style";
-import CustomButton from "../../../elements/customButton/customButton";
-import { COLORS } from "../../../Styles/theme";
+import CustomButton from "../../../elements/CustomButton/customButton";
+import { COLORS } from "../../../styles/theme";
 import { Form } from "formik";
 
 const RegistrationForm = ({ formik }) => {
