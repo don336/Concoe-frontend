@@ -1,14 +1,5 @@
 import * as React from "react";
-import {
-  Button,
-  Container,
-  TextField,
-  Link,
-  Grid,
-  Box,
-  Typography,
-  useTheme,
-} from "@mui/material";
+import { Button, Container, TextField, Link, Grid, Box, Typography, useTheme } from "@mui/material";
 
 import SpaOutlinedIcon from "@mui/icons-material/SpaOutlined";
 import ArrowBack from "@mui/icons-material/ArrowBack";
@@ -22,7 +13,7 @@ const UpdateForm = ({ formik }) => {
   const theme = useTheme();
   const { handleChange, handleSubmit, errors, touched, values } = formik;
   const { name, username, email } = values;
-  console.log(errors, 'the formik errors ========>');
+  console.log(errors, "the formik errors ========>");
   return (
     <Container maxWidth="xs">
       <StyledBox>
@@ -30,7 +21,7 @@ const UpdateForm = ({ formik }) => {
           to="/ViewProfile"
           style={{
             textDecoration: "none",
-            color: COLORS.YELLOW_GREEN,
+            color: COLORS.YELLOW_GREEN
           }}
         >
           <ArrowBack />

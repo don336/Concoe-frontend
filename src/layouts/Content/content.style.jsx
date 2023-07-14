@@ -5,7 +5,7 @@ import {
   Button as muiButton,
   Stack as muiStack,
   Typography,
-  Stack,
+  Stack
 } from "@mui/material";
 import { Link } from "react-router-dom";
 import { COLORS } from "../../styles/theme.jsx";

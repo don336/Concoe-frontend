@@ -1,12 +1,5 @@
 import React from "react";
-import {
-  Box,
-  Grid,
-  TextField,
-  useTheme,
-  Typography,
-  CssBaseline,
-} from "@mui/material";
+import { Box, Grid, TextField, useTheme, Typography, CssBaseline } from "@mui/material";
 import { Form } from "formik";
 import CustomButton from "../../../elements/CustomButton/customButton";
 
@@ -21,7 +14,7 @@ const AddCrop_form = ({ formik }) => {
       style={{
         backgroundColor: "#fff",
         padding: "20px",
-        height: "100%",
+        height: "100%"
       }}
     >
       <CssBaseline />

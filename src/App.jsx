@@ -26,11 +26,7 @@ function App() {
             <Route path="/" exact element={<Home />} />
             <Route path="/Crops" exact element={<Crops />} />
             <Route path="/ViewProfile" exact element={<ViewProfile />} />
-            <Route
-              path="/ViewProfile/update-account"
-              exact
-              element={<UpdateProfile />}
-            />
+            <Route path="/ViewProfile/update-account" exact element={<UpdateProfile />} />
             <Route path="/Crops/add-crop" exact element={<AddCrop />} />
             <Route path="/About" exact element={<About />} />
           </Routes>

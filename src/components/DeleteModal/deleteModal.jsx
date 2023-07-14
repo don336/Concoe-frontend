@@ -2,23 +2,12 @@ import React from "react";
 import { Stack, Typography } from "@mui/material";
 import { COLORS } from "../../styles/theme.jsx";
 import { Modal } from "../../elements/Modal";
-import CustomButton from '../../elements/CustomButton/customButton.jsx'
+import CustomButton from "../../elements/CustomButton/customButton.jsx";
 
 import { StyledStack, StyledTypography } from "./deleteModal.styles";
 
-export const DeleteModal = ({
-  open,
-  title,
-  handleClick,
-  handleRemoveClick,
-  subtitle,
-}) => (
-  <Modal
-    open={open}
-    onClose={() => handleClick()}
-    width="28.1rem"
-    height="10.9rem"
-  >
+export const DeleteModal = ({ open, title, handleClick, handleRemoveClick, subtitle }) => (
+  <Modal open={open} onClose={() => handleClick()} width="28.1rem" height="10.9rem">
     <StyledStack>
       <Stack direction="row">
         <Typography component="p" variant="h3">
@@ -32,18 +21,8 @@ export const DeleteModal = ({
           </Typography>
         )}
       </Stack>
-      <Stack
-        spacing={2.5}
-        direction="row"
-        mt={3.3}
-        mb={4}
-        justifyContent="space-evenly"
-      >
-        <CustomButton
-          width="4.37rem"
-          onClick={() => handleClick()}
-          border="none"
-        >
+      <Stack spacing={2.5} direction="row" mt={3.3} mb={4} justifyContent="space-evenly">
+        <CustomButton width="4.37rem" onClick={() => handleClick()} border="none">
           <Typography variant="w11" color={COLORS.LIGHT_RED}>
             Keep
           </Typography>

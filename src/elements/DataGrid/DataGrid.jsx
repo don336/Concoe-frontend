@@ -4,14 +4,7 @@ import StraightIcon from "@mui/icons-material/Straight";
 import { ONE_REM_TO_PX } from "../../styles/theme.jsx";
 import { MUIDataGrid, DownIcon } from "./DataGrid.styles.js";
 
-export const DataGrid = ({
-  columns,
-  rows,
-  height,
-  headerHeight = 2.5,
-  hideColumn,
-  getRowId,
-}) => {
+export const DataGrid = ({ columns, rows, height, headerHeight = 2.5, hideColumn, getRowId }) => {
   const [pageSize, setPageSize] = useState(5);
   /**
    * borderRadius is found on the .MuiDataGrid-root class but cant seem to target in in
@@ -25,7 +18,7 @@ export const DataGrid = ({
         columns={columns}
         pageSize={pageSize}
         getRowId={getRowId}
-        onPageSizeChange={(newPageSize) => setPageSize(newPageSize)}
+        onPageSizeChange={newPageSize => setPageSize(newPageSize)}
         rowsPerPageOptions={[2, 5, 10, 20]}
         disableSelectionOnClick
         experimentalFeatures={{ newEditingApi: true }}
@@ -34,11 +27,11 @@ export const DataGrid = ({
         disableColumnMenu={false}
         columnVisibilityModel={{
           status: false,
-          [hideColumn]: false,
+          [hideColumn]: false
         }}
         components={{
           ColumnSortedDescendingIcon: DownIcon,
-          ColumnSortedAscendingIcon: StraightIcon,
+          ColumnSortedAscendingIcon: StraightIcon
         }}
       />
     </Box>

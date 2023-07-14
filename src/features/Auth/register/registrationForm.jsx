@@ -1,14 +1,5 @@
 import * as React from "react";
-import {
-  Button,
-  Container,
-  TextField,
-  Link,
-  Grid,
-  Box,
-  Typography,
-  useTheme,
-} from "@mui/material";
+import { Button, Container, TextField, Link, Grid, Box, Typography, useTheme } from "@mui/material";
 
 import SpaOutlinedIcon from "@mui/icons-material/SpaOutlined";
 import { StyledBox } from "./registrationStyles";
@@ -85,9 +76,7 @@ const RegistrationForm = ({ formik }) => {
               <TextField
                 fullWidth
                 value={values.confirmPassword}
-                error={
-                  touched.confirmPassword && Boolean(errors.confirmPassword)
-                }
+                error={touched.confirmPassword && Boolean(errors.confirmPassword)}
                 helperText={touched.confirmPassword && errors.confirmPassword}
                 name="confirmPassword"
                 label="Confirm Password"

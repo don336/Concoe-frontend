@@ -12,12 +12,12 @@ import { COLORS } from "../../../styles/theme";
 import UpdateModal from "../UpdateCrop/updateModel.jsx";
 import { DeleteModal } from "../../../components/DeleteModal/index.js";
 
-const rendercell = (params) => {
+const rendercell = params => {
   const [open, setOpen] = useState(false);
   const [openDelete, setOpenDelete] = useState(false);
   const dispatch = useDispatch();
 
-  const handleOpen = (e) => {
+  const handleOpen = e => {
     setOpen(true);
   };
 
@@ -40,7 +40,7 @@ const rendercell = (params) => {
           size="small"
           onClick={handleOpen}
           sx={{
-            border: "none",
+            border: "none"
           }}
         >
           <CreateIcon />
@@ -51,7 +51,7 @@ const rendercell = (params) => {
           // onClick={onClick}
           sx={{
             border: "none",
-            color: COLORS.LIGHT_RED,
+            color: COLORS.LIGHT_RED
           }}
         >
           <DeleteIcon onClick={() => setOpenDelete(true)} />
@@ -82,46 +82,45 @@ const columns = [
     field: "cropType",
     headerName: "Crop Type",
     minWidth: 200,
-    editable: true,
+    editable: true
   },
   {
     field: "season",
     headerName: "Season",
     minWidth: 200,
-    editable: true,
+    editable: true
   },
   {
     field: "acreage",
     headerName: "Acreage",
     minWidth: 200,
-    editable: true,
+    editable: true
   },
   {
     field: "expectedYields",
     headerName: "Expected Yields",
     minWidth: 200,
-    editable: true,
+    editable: true
   },
   {
     field: "Action",
     minWidth: 200,
     editable: false,
-    renderCell: rendercell,
-  },
+    renderCell: rendercell
+  }
 ];
 
-
 export default function CropDataGrid() {
-  const cropState = useSelector((state) => state.crops.crops);
-  const editCrop = useSelector((state) => state.crops.editCrop);
-  const Authenticated = useSelector((state) => state.auth.isAuthenticated);
+  const cropState = useSelector(state => state.crops.crops);
+  const editCrop = useSelector(state => state.crops.editCrop);
+  const Authenticated = useSelector(state => state.auth.isAuthenticated);
   const navigate = useNavigate();
   const dispatch = useDispatch();
   useEffect(() => {
     if (!Authenticated) {
       navigate("/Login");
     }
-    if(editCrop){
+    if (editCrop) {
       dispatch(getAllCrops());
     }
     dispatch(getAllCrops());
@@ -129,29 +128,29 @@ export default function CropDataGrid() {
   const heading = [
     {
       title1: "Crops",
-      title2: null,
+      title2: null
     },
     {
       title1: "Total Acreage",
-      title2: 0,
-    },
+      title2: 0
+    }
   ];
 
   return (
     <DataGridContainer headings={heading}>
       <DataGrid
         sx={{
-          color: "#fff",
+          color: "#fff"
         }}
         rows={cropState}
-        getRowId={(cropState) => cropState._id}
+        getRowId={cropState => cropState._id}
         columns={columns}
         initialState={{
           pagination: {
             paginationModel: {
-              pageSize: 5,
-            },
-          },
+              pageSize: 5
+            }
+          }
         }}
         rowHeight={2.7}
         height="27rem"

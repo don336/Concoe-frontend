@@ -15,49 +15,33 @@ export const UpdateModal = ({ open, handleClick, rowData, setOpen }) => {
     cropType: Yup.string().required(),
     season: Yup.string().required(),
     acreage: Yup.string().required(),
-    expectedYields: Yup.string().required(),
+    expectedYields: Yup.string().required()
   });
 
   const defaultValues = {
     cropType: cropType || "",
     season: season || "",
     acreage: acreage || "",
-    expectedYields: expectedYields || "",
+    expectedYields: expectedYields || ""
   };
 
-  const handleSubmit = (values) => {
+  const handleSubmit = values => {
     const { cropType, season, acreage, expectedYields } = values;
     const CropData = {
       cropType,
       season,
       acreage,
       expectedYields,
-      cropId: _id,
+      cropId: _id
     };
     dispatch(UpdateCrop(CropData));
     setOpen(false);
   };
 
   return (
-    <Modal
-      open={open}
-      onClose={() => handleClick()}
-      width="28.1rem"
-      height="30rem"
-    >
-      <Formik
-        enableReinitialize
-        validationSchema={yupObject}
-        initialValues={defaultValues}
-        onSubmit={handleSubmit}
-      >
-        {(formik) => (
-          <CropUpdate
-            formik={formik}
-            rowData={rowData}
-            handleClick={handleClick}
-          />
-        )}
+    <Modal open={open} onClose={() => handleClick()} width="28.1rem" height="30rem">
+      <Formik enableReinitialize validationSchema={yupObject} initialValues={defaultValues} onSubmit={handleSubmit}>
+        {formik => <CropUpdate formik={formik} rowData={rowData} handleClick={handleClick} />}
       </Formik>
     </Modal>
   );

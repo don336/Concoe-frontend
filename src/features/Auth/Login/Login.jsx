@@ -11,7 +11,7 @@ const Registration = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const authState = useSelector((state) => state.auth);
+  const authState = useSelector(state => state.auth);
   useEffect(() => {
     if (authState?.isAuthenticated) {
       navigate("/");
@@ -20,13 +20,13 @@ const Registration = () => {
   const defaultValues = { email: "", password: "" };
   const yupObject = Yup.object({
     email: Yup.string().email().required(),
-    password: Yup.string().required(),
+    password: Yup.string().required()
   });
-  const handleSubmit = (values) => {
+  const handleSubmit = values => {
     const { email, password } = values;
     const UserData = {
       email,
-      password,
+      password
     };
 
     dispatch(login(UserData));
@@ -34,13 +34,8 @@ const Registration = () => {
 
   return (
     <StyledContainer maxWidth="1200px">
-      <Formik
-        initialValues={defaultValues}
-        enableReinitialize
-        validationSchema={yupObject}
-        onSubmit={handleSubmit}
-      >
-        {(formik) => <LoginForm formik={formik} />}
+      <Formik initialValues={defaultValues} enableReinitialize validationSchema={yupObject} onSubmit={handleSubmit}>
+        {formik => <LoginForm formik={formik} />}
       </Formik>
     </StyledContainer>
   );

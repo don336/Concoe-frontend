@@ -1,12 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Container, Box, Grid } from "@mui/material";
 import Navbar from "../../../layouts/Navbar/Navbar";
-import {
-  StyledBox,
-  WeatherBox,
-  StyledTypography,
-  CropLink,
-} from "./crops.style";
+import { StyledBox, WeatherBox, StyledTypography, CropLink } from "./crops.style";
 import CustomButton from "../../../elements/CustomButton/customButton";
 import { COLORS } from "../../../styles/theme";
 import CropDataGrid from "./CropDataGrid";

@@ -1,14 +1,4 @@
-import {
-  Grid,
-  Box,
-  Card,
-  Typography,
-  CardMedia,
-  useTheme,
-  CardActions,
-  CardContent,
-  Button,
-} from "@mui/material";
+import { Grid, Box, Card, Typography, CardMedia, useTheme, CardActions, CardContent, Button } from "@mui/material";
 import ArrowOutwardIcon from "@mui/icons-material/ArrowOutward";
 import {
   StyledContainer,
@@ -19,7 +9,7 @@ import {
   MissionTypography,
   TeamBox,
   TeamTypography,
-  CustomLink,
+  CustomLink
 } from "./content.style.jsx";
 import CustomButton from "../../elements/CustomButton/customButton.jsx";
 import Images from "../../components/ImageList/Images.jsx";
@@ -28,7 +18,7 @@ import { useSelector } from "react-redux";
 
 const Content = () => {
   const theme = useTheme();
-  const authState = useSelector((state) => state.auth);
+  const authState = useSelector(state => state.auth);
 
   const { isAuthenticated } = authState;
   return (
@@ -38,7 +28,7 @@ const Content = () => {
         spacing={{ xs: 2, md: 3 }}
         columns={{ xs: 1, sm: 2, md: 4 }}
         sx={{
-          justifyContent: "space-between",
+          justifyContent: "space-between"
         }}
       >
         <Grid
@@ -47,27 +37,24 @@ const Content = () => {
           sm={2}
           md={2}
           sx={{
-            marginBottom: "30px",
+            marginBottom: "30px"
           }}
         >
           <Box>
             <Typography
               variant="h1"
               sx={{
-                color: `${COLORS.WHITE}`,
+                color: `${COLORS.WHITE}`
               }}
             >
-              Fresh, Sustainable, Coffee and Corn Grown in{" "}
-              <span className="primary-color">Bukuya Uganda.</span>
+              Fresh, Sustainable, Coffee and Corn Grown in <span className="primary-color">Bukuya Uganda.</span>
             </Typography>
           </Box>
           <StyledBox>
             <Typography variant="w1">
-              Our farming startup brings sustainable, locally grown produce to
-              Uganda and the whole of east africa. With innovative technology,
-              we're revolutionizing the way we grow and consume fresh coffee &
-              food. Apart from plant Growing, Concoe takes part in Live Stock
-              Farming and has a variety of Breeds both exotic and Local.
+              Our farming startup brings sustainable, locally grown produce to Uganda and the whole of east africa. With
+              innovative technology, we're revolutionizing the way we grow and consume fresh coffee & food. Apart from
+              plant Growing, Concoe takes part in Live Stock Farming and has a variety of Breeds both exotic and Local.
             </Typography>
           </StyledBox>
           <Box>
@@ -104,17 +91,13 @@ const Content = () => {
             Vision <span className="primary-color">Statement</span>
           </StyledTypography>
           <MissionTypography variant="body2">
-            Our coffee farm strives to be a sustainable and innovative leader in
-            the industry, providing exceptional quality coffee beans while
-            prioritizing the well-being of our environment, community, and
-            employees.
+            Our coffee farm strives to be a sustainable and innovative leader in the industry, providing exceptional
+            quality coffee beans while prioritizing the well-being of our environment, community, and employees.
           </MissionTypography>
           <MissionTypography variant="body2">
             {" "}
-            We envision a future where every cup of our coffee tells the story
-            of our commitment to responsible farming practices, social
-            responsibility, and the art of producing a truly exceptional cup of
-            coffee.
+            We envision a future where every cup of our coffee tells the story of our commitment to responsible farming
+            practices, social responsibility, and the art of producing a truly exceptional cup of coffee.
           </MissionTypography>
         </Box>
         <Box>
@@ -122,15 +105,12 @@ const Content = () => {
             Mission <span className="primary-color">Statement</span>{" "}
           </StyledTypography>
           <MissionTypography variant="body2">
-            Our mission is to produce the finest quality coffee beans while
-            maintaining the highest standards of environmental stewardship,
-            social responsibility, and ethical business practices.
+            Our mission is to produce the finest quality coffee beans while maintaining the highest standards of
+            environmental stewardship, social responsibility, and ethical business practices.
           </MissionTypography>{" "}
           <MissionTypography variant="body2">
-            Through sustainable farming methods, community engagement, and
-            investment in our employees, we are dedicated to delivering
-            exceptional coffee to our customers, while leaving a positive impact
-            on the world around us.
+            Through sustainable farming methods, community engagement, and investment in our employees, we are dedicated
+            to delivering exceptional coffee to our customers, while leaving a positive impact on the world around us.
           </MissionTypography>
         </Box>
       </MissionBox>
@@ -143,14 +123,10 @@ const Content = () => {
             marginLeft: "1rem",
             marginTop: "1rem",
 
-            padding: "1rem",
+            padding: "1rem"
           }}
         >
-          <Grid
-            container
-            spacing={{ xs: 2, md: 3 }}
-            columns={{ xs: 1, sm: 2, md: 9 }}
-          >
+          <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 1, sm: 2, md: 9 }}>
             <Grid item xs={2} sm={2} md={3}>
               <Card sx={{ maxWidth: 345 }}>
                 <CardMedia
@@ -163,9 +139,8 @@ const Content = () => {
                     Lisa Druxler
                   </Typography>
                   <Typography variant="h6" color="text.secondary">
-                    Lizards are a widespread group of squamate reptiles, with
-                    over 6,000 species, ranging across all continents except
-                    Antarctica
+                    Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all
+                    continents except Antarctica
                   </Typography>
                 </CardContent>
                 <CardActions>
@@ -186,9 +161,8 @@ const Content = () => {
                     Crage Druxla
                   </Typography>
                   <Typography variant="h6" color="text.secondary">
-                    Lizards are a widespread group of squamate reptiles, with
-                    over 6,000 species, ranging across all continents except
-                    Antarctica
+                    Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all
+                    continents except Antarctica
                   </Typography>
                 </CardContent>
                 <CardActions>
@@ -203,7 +177,7 @@ const Content = () => {
               sm={2}
               md={3}
               sx={{
-                marginBottom: "30px",
+                marginBottom: "30px"
               }}
             >
               <Card sx={{ maxWidth: 345 }}>
@@ -217,9 +191,8 @@ const Content = () => {
                     Loraine Britney
                   </Typography>
                   <Typography variant="h6" color="text.secondary">
-                    Lizards are a widespread group of squamate reptiles, with
-                    over 6,000 species, ranging across all continents except
-                    Antarctica
+                    Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all
+                    continents except Antarctica
                   </Typography>
                 </CardContent>
                 <CardActions>

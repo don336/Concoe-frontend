@@ -1,24 +1,8 @@
 import * as React from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  Box,
-  Toolbar,
-  IconButton,
-  Typography,
-  Menu,
-  Avatar,
-  Button,
-  Tooltip,
-  MenuItem,
-} from "@mui/material";
-import {
-  StyledTypography,
-  StyledAppBar,
-  StyledBox,
-  StyledLink,
-  CustomLink,
-} from "./Navbar.style.js";
+import { Box, Toolbar, IconButton, Typography, Menu, Avatar, Button, Tooltip, MenuItem } from "@mui/material";
+import { StyledTypography, StyledAppBar, StyledBox, StyledLink, CustomLink } from "./Navbar.style.js";
 
 import MenuIcon from "@mui/icons-material/Menu";
 import SpaOutlinedIcon from "@mui/icons-material/SpaOutlined";
@@ -30,15 +14,15 @@ const settings = ["Account", "Logout"];
 const Navbar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
-  const authState = useSelector((state) => state.auth);
+  const authState = useSelector(state => state.auth);
   const dispatch = useDispatch();
 
   const { isAuthenticated } = authState;
 
-  const handleOpenNavMenu = (event) => {
+  const handleOpenNavMenu = event => {
     setAnchorElNav(event.currentTarget);
   };
-  const handleOpenUserMenu = (event) => {
+  const handleOpenUserMenu = event => {
     setAnchorElUser(event.currentTarget);
   };
 
@@ -57,13 +41,11 @@ const Navbar = () => {
   return (
     <StyledAppBar position="static">
       <Toolbar disableGutters>
-        <SpaOutlinedIcon
-          sx={{ display: { xs: "none", md: "flex" }, mr: 1, color: "#A2D729" }}
-        />
+        <SpaOutlinedIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1, color: "#A2D729" }} />
         <Link
           to="/"
           style={{
-            textDecoration: "none",
+            textDecoration: "none"
           }}
         >
           <StyledTypography
@@ -72,7 +54,7 @@ const Navbar = () => {
             sx={{
               display: { xs: "none", md: "flex" },
               mr: 1,
-              color: "#A2D729",
+              color: "#A2D729"
             }}
           >
             Concoe Farm
@@ -95,20 +77,20 @@ const Navbar = () => {
             anchorEl={anchorElNav}
             anchorOrigin={{
               vertical: "bottom",
-              horizontal: "left",
+              horizontal: "left"
             }}
             keepMounted
             transformOrigin={{
               vertical: "top",
-              horizontal: "left",
+              horizontal: "left"
             }}
             open={Boolean(anchorElNav)}
             onClose={handleCloseNavMenu}
             sx={{
-              display: { xs: "block", md: "none" },
+              display: { xs: "block", md: "none" }
             }}
           >
-            {pages.map((page) => (
+            {pages.map(page => (
               <MenuItem key={page} onClick={handleCloseNavMenu}>
                 <CustomLink to={`/${page}`}>
                   <MenuItem textalign="center">{page}</MenuItem>
@@ -117,13 +99,11 @@ const Navbar = () => {
             ))}
           </Menu>
         </StyledBox>
-        <SpaOutlinedIcon
-          sx={{ display: { xs: "flex", md: "none" }, mr: 1, color: "#A2D729" }}
-        />
+        <SpaOutlinedIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1, color: "#A2D729" }} />
         <Link
           to="/"
           style={{
-            textDecoration: "none",
+            textDecoration: "none"
           }}
         >
           <StyledTypography
@@ -132,7 +112,7 @@ const Navbar = () => {
             sx={{
               mr: 2,
               display: { xs: "flex", md: "none" },
-              flexGrow: 1,
+              flexGrow: 1
             }}
           >
             Concoe
@@ -143,10 +123,10 @@ const Navbar = () => {
             flexGrow: 1,
             display: { xs: "none", md: "flex" },
             margin: "auto",
-            justifyContent: "center",
+            justifyContent: "center"
           }}
         >
-          {pages.map((page) => (
+          {pages.map(page => (
             <StyledLink
               key={page}
               onClick={handleCloseNavMenu}
@@ -155,7 +135,7 @@ const Navbar = () => {
                 color: "white",
                 display: "block",
                 marginRight: "7px",
-                fontSize: "small",
+                fontSize: "small"
               }}
               to={`/${page}`}
             >
@@ -169,7 +149,7 @@ const Navbar = () => {
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                 <AccountCircleIcon
                   sx={{
-                    color: "#fff",
+                    color: "#fff"
                   }}
                 />
               </IconButton>
@@ -180,17 +160,17 @@ const Navbar = () => {
               anchorEl={anchorElUser}
               anchorOrigin={{
                 vertical: "top",
-                horizontal: "right",
+                horizontal: "right"
               }}
               keepMounted
               transformOrigin={{
                 vertical: "top",
-                horizontal: "right",
+                horizontal: "right"
               }}
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
             >
-              {settings.map((setting) => (
+              {settings.map(setting => (
                 <MenuItem key={setting} onClick={handleCloseUserMenu}>
                   <CustomLink to={`/ViewProfile`}>
                     <Typography textAlign="center" variant="h4">

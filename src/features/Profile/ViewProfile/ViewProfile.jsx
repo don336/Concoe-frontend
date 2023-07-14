@@ -1,28 +1,9 @@
 import React, { useState, useEffect } from "react";
-import {
-  Container,
-  Box,
-  Typography,
-  Tabs,
-  Tab,
-  FormLabel,
-  TextField,
-  Grid,
-  Stack,
-  Avatar,
-} from "@mui/material";
+import { Container, Box, Typography, Tabs, Tab, FormLabel, TextField, Grid, Stack, Avatar } from "@mui/material";
 
 import { useNavigation } from "react-router-dom";
 
-import {
-  ActionBox,
-  Profbox,
-  ProfileBox,
-  StyledAvatar,
-  StyledLink,
-  StyledTypography,
-  Styledbox,
-} from "./View.style.js";
+import { ActionBox, Profbox, ProfileBox, StyledAvatar, StyledLink, StyledTypography, Styledbox } from "./View.style.js";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import Navbar from "../../../layouts/Navbar/Navbar.jsx";
 import CustomButton from "../../../elements/CustomButton/customButton.jsx";
@@ -33,7 +14,7 @@ import { useNavigate } from "react-router-dom";
 const ViewProfile = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const authState = useSelector((state) => state.auth);
+  const authState = useSelector(state => state.auth);
   useEffect(() => {
     if (!authState?.isAuthenticated) {
       navigate("/");
@@ -75,11 +56,7 @@ const ViewProfile = () => {
                     Edit ViewProfile
                   </CustomButton>
                 </StyledLink>
-                <CustomButton
-                  onClick={handleDelete}
-                  background={COLORS.DANGER}
-                  hoverbackground={COLORS.RED}
-                >
+                <CustomButton onClick={handleDelete} background={COLORS.DANGER} hoverbackground={COLORS.RED}>
                   Delete ViewProfile
                 </CustomButton>
               </ActionBox>

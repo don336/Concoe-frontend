@@ -11,7 +11,7 @@ const EditProfile = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const authState = useSelector((state) => state.auth);
+  const authState = useSelector(state => state.auth);
   useEffect(() => {
     if (!authState?.isAuthenticated) {
       navigate("/");
@@ -20,40 +20,32 @@ const EditProfile = () => {
   const yupObject = Yup.object({
     name: Yup.string().required(),
     username: Yup.string().required(),
-    email: Yup.string().email().required(),
+    email: Yup.string().email().required()
   });
   const { name, username, email } = authState.currentUser;
   const defaultValues = {
     name: name || "",
     username: username || "",
-    email: email || "",
+    email: email || ""
   };
 
-  const handleSubmit = (values) => {
-    console.log(
-      "Got here",
-      "===========================================================>"
-    );
+  const handleSubmit = values => {
+    console.log("Got here", "===========================================================>");
     const { name, username, email } = values;
     const { _id } = authState.currentUser;
     const userData = {
       id: _id,
       name,
       username,
-      email,
+      email
     };
     dispatch(update(userData));
   };
 
   return (
     <StyledContainer maxWidth="1200px">
-      <Formik
-        initialValues={defaultValues}
-        enableReinitialize
-        validationSchema={yupObject}
-        onSubmit={handleSubmit}
-      >
-        {(formik) => <UpdateProfileForm formik={formik} />}
+      <Formik initialValues={defaultValues} enableReinitialize validationSchema={yupObject} onSubmit={handleSubmit}>
+        {formik => <UpdateProfileForm formik={formik} />}
       </Formik>
     </StyledContainer>
   );

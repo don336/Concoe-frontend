@@ -8,7 +8,7 @@ export const DataGridContainer = ({
   border,
   headings,
   // setOpenAdd,
-  buttonTitle,
+  buttonTitle
 }) => (
   <Container width="53.125rem" margin={margin} border={border}>
     <Stack direction="row" justifyContent="space-between" mb={1.5}></Stack>
