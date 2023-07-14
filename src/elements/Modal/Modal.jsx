@@ -4,7 +4,7 @@ import {
     ModalContainer,
     ModalMainPanel,
     ModalMainPanelContent,
-} from "./modal.styles";
+} from "./Modal.styles.js";
 
 export const Modal = ({ children, open, onClose, width, height, ...props }) => (
     <MuiModal open={open} onClose={onClose} {...props}>

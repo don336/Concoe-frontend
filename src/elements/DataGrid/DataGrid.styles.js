@@ -1,7 +1,7 @@
 import { DataGrid } from "@mui/x-data-grid";
 import { styled } from "@mui/material/styles";
 import StraightIcon from "@mui/icons-material/Straight";
-import { COLORS } from "../../Styles/theme";
+import { COLORS } from "../../styles/theme";
 
 export const MUIDataGrid = styled(DataGrid)`
   border: 0;
@@ -38,8 +38,7 @@ export const MUIDataGrid = styled(DataGrid)`
     border: none;
     border-radius: 0.125rem;
     width: 99%;
-    margin: ${({ theme }) => theme.spacing(1.5)} auto
-      ${({ theme }) => theme.spacing(0.313)} auto;
+    margin: ${({ theme }) => theme.spacing(1.5)} auto ${({ theme }) => theme.spacing(0.313)} auto;
     cursor: pointer;
     font-weight: 700;
     height: 10rem;

@@ -8,7 +8,7 @@ import {
   Stack,
 } from "@mui/material";
 import { Link } from "react-router-dom";
-import { COLORS } from "../../Styles/theme";
+import { COLORS } from "../../styles/theme.jsx";
 
 export const StyledContainer = styled(muiContainer)`
   padding: 30px 15px 20px 20px;

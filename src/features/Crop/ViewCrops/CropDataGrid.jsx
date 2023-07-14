@@ -4,13 +4,13 @@ import { Delete, getAllCrops } from "../CropServices";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { DataGridContainer } from "../../../components/dataGridContainer/index.js";
-import { DataGrid } from "../../../elements/dataGrid";
+import { DataGridContainer } from "../../../components/DataGridContainer/index.js";
+import { DataGrid } from "../../../elements/DataGrid";
 import CreateIcon from "@mui/icons-material/Create";
 import DeleteIcon from "@mui/icons-material/Delete";
-import { COLORS } from "../../../Styles/theme";
+import { COLORS } from "../../../styles/theme";
 import UpdateModal from "../UpdateCrop/updateModel.jsx";
-import { DeleteModal } from "../../../components/deleteModal/index.js";
+import { DeleteModal } from "../../../components/DeleteModal/index.js";
 
 const rendercell = (params) => {
   const [open, setOpen] = useState(false);

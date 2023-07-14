@@ -20,10 +20,10 @@ import {
   TeamBox,
   TeamTypography,
   CustomLink,
-} from "./content.style";
-import CustomButton from "../../elements/customButton/customButton";
-import Images from "../ImageList/Images";
-import { COLORS } from "../../Styles/theme";
+} from "./content.style.jsx";
+import CustomButton from "../../elements/CustomButton/customButton.jsx";
+import Images from "../../components/ImageList/Images.jsx";
+import { COLORS } from "../../styles/theme.jsx";
 import { useSelector } from "react-redux";
 
 const Content = () => {

@@ -1,12 +1,7 @@
 import styled from "@emotion/styled";
-import {
-  Box as muiBox,
-  Stack as muiStack,
-  Typography as muiTypography,
-  Avatar as muiAvatar,
-} from "@mui/material";
+import { Box as muiBox, Stack as muiStack, Typography as muiTypography, Avatar as muiAvatar } from "@mui/material";
 import { Link } from "react-router-dom";
-import { COLORS } from "../../Styles/theme";
+import { COLORS } from "../../../styles/theme";
 
 export const SideBar = styled(muiStack)`
   display: flex;

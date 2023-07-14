@@ -1,11 +1,7 @@
-import {
-  Typography as muiTypography,
-  AppBar as muiAppbar,
-  Box as muiBox,
-} from "@mui/material";
+import { Typography as muiTypography, AppBar as muiAppbar, Box as muiBox } from "@mui/material";
 import { Link } from "react-router-dom";
 import styled from "@emotion/styled";
-import { COLORS } from "../../Styles/theme";
+import { COLORS } from "../../styles/theme";
 
 export const StyledTypography = styled(muiTypography)`
   font-family: monospace;
@@ -33,10 +29,8 @@ export const StyledLink = styled(Link)`
   color: #fff;
   &:hover {
     cursor: pointer;
-    background: ${({ hoverbackground }) =>
-      hoverbackground || COLORS.ERIE_BLACK};
-    box-shadow: ${({ boxshadow }) =>
-      boxshadow ? "0rem 0.375rem 0.375rem rgba(0, 0, 0, 0.32)" : "auto"};
+    background: ${({ hoverbackground }) => hoverbackground || COLORS.ERIE_BLACK};
+    box-shadow: ${({ boxshadow }) => (boxshadow ? "0rem 0.375rem 0.375rem rgba(0, 0, 0, 0.32)" : "auto")};
     color: ${({ hovercolor }) => hovercolor || COLORS.LIGHT_GREEN};
   }
 `;

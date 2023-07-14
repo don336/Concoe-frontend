@@ -18,7 +18,7 @@ import {
   StyledBox,
   StyledLink,
   CustomLink,
-} from "./Navbar.style";
+} from "./Navbar.style.js";
 
 import MenuIcon from "@mui/icons-material/Menu";
 import SpaOutlinedIcon from "@mui/icons-material/SpaOutlined";
@@ -192,7 +192,7 @@ const Navbar = () => {
             >
               {settings.map((setting) => (
                 <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <CustomLink to={`/Account`}>
+                  <CustomLink to={`/ViewProfile`}>
                     <Typography textAlign="center" variant="h4">
                       {setting}
                     </Typography>

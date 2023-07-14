@@ -22,15 +22,15 @@ import {
   StyledLink,
   StyledTypography,
   Styledbox,
-} from "./account.style";
+} from "./View.style.js";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
-import Navbar from "../../components/Navbar/Navbar";
-import CustomButton from "../../elements/customButton/customButton";
-import { COLORS } from "../../Styles/theme";
+import Navbar from "../../../layouts/Navbar/Navbar.jsx";
+import CustomButton from "../../../elements/CustomButton/customButton.jsx";
+import { COLORS } from "../../../styles/theme.jsx";
 import { useDispatch, useSelector } from "react-redux";
-import { Delete } from "../Auth/authService";
+import { Delete } from "../../Auth/authService.js";
 import { useNavigate } from "react-router-dom";
-const Account = () => {
+const ViewProfile = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const authState = useSelector((state) => state.auth);
@@ -65,14 +65,14 @@ const Account = () => {
               <StyledTypography>Email: {email}</StyledTypography>
 
               <ActionBox direction={"row"} spacing={2}>
-                <StyledLink to="/Account/update-account">
+                <StyledLink to="/ViewProfile/update-account">
                   <CustomButton
                     background={COLORS.DARK_GREY}
                     hoverbackground={COLORS.YELLOW_GREEN}
                     fontcolor={COLORS.LIGHT}
                     hovercolor={COLORS.DARK_GREY}
                   >
-                    Edit Profile
+                    Edit ViewProfile
                   </CustomButton>
                 </StyledLink>
                 <CustomButton
@@ -80,7 +80,7 @@ const Account = () => {
                   background={COLORS.DANGER}
                   hoverbackground={COLORS.RED}
                 >
-                  Delete Account
+                  Delete ViewProfile
                 </CustomButton>
               </ActionBox>
               <Box>
@@ -102,4 +102,4 @@ const Account = () => {
   );
 };
 
-export default Account;
+export default ViewProfile;

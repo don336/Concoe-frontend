@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import Box from "@mui/material/Box";
 import StraightIcon from "@mui/icons-material/Straight";
-import { ONE_REM_TO_PX } from "../../Styles/theme.jsx";
-import { MUIDataGrid, DownIcon } from "./dataGrid.styles";
+import { ONE_REM_TO_PX } from "../../styles/theme.jsx";
+import { MUIDataGrid, DownIcon } from "./DataGrid.styles.js";
 
 export const DataGrid = ({
   columns,

@@ -3,7 +3,7 @@ import * as Yup from "yup";
 import { Formik } from "formik";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { Modal } from "../../../elements/modal";
+import { Modal } from "../../../elements/Modal";
 import CropUpdate from "./CropUpdate.jsx";
 import { UpdateCrop } from "../CropServices.js";
 

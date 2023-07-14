@@ -12,9 +12,9 @@ import {
 
 import SpaOutlinedIcon from "@mui/icons-material/SpaOutlined";
 import ArrowBack from "@mui/icons-material/ArrowBack";
-import { HomeLink, StyledBox } from "./Update.style";
-import CustomButton from "../../../elements/customButton/customButton";
-import { COLORS } from "../../../Styles/theme";
+import { HomeLink, StyledBox } from "./UpdateProfile.style.js";
+import CustomButton from "../../../elements/CustomButton/customButton.jsx";
+import { COLORS } from "../../../styles/theme.jsx";
 import { Form } from "formik";
 import { Link as BackLink } from "react-router-dom";
 
@@ -27,7 +27,7 @@ const UpdateForm = ({ formik }) => {
     <Container maxWidth="xs">
       <StyledBox>
         <BackLink
-          to="/Account"
+          to="/ViewProfile"
           style={{
             textDecoration: "none",
             color: COLORS.YELLOW_GREEN,

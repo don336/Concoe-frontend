@@ -1,6 +1,6 @@
 import { styled } from "@mui/material/styles";
 import { Button } from "@mui/material";
-import { COLORS } from "../../Styles/theme";
+import { COLORS } from "../../styles/theme";
 
 export const StyledButton = styled(Button)`
   background-color: ${({ background }) => background || COLORS.WHITE};
@@ -16,8 +16,7 @@ export const StyledButton = styled(Button)`
   &:hover {
     cursor: pointer;
     background: ${({ hoverbackground }) => hoverbackground || COLORS.WHITE};
-    box-shadow: ${({ boxshadow }) =>
-      boxshadow ? "0rem 0.375rem 0.375rem rgba(0, 0, 0, 0.32)" : "auto"};
+    box-shadow: ${({ boxshadow }) => (boxshadow ? "0rem 0.375rem 0.375rem rgba(0, 0, 0, 0.32)" : "auto")};
     color: ${({ hovercolor }) => hovercolor || COLORS.WHITE};
   }
 `;

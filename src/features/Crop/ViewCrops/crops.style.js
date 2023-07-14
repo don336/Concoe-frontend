@@ -1,7 +1,7 @@
 import { Typography, Box as muiBox } from "@mui/material";
 import { Link } from "react-router-dom";
 import styled from "@emotion/styled";
-import { COLORS } from "../../../Styles/theme";
+import { COLORS } from "../../../styles/theme";
 
 export const StyledBox = styled(muiBox)`
   displa: flex;

@@ -1,5 +1,5 @@
-import Navbar from "../../components/Navbar/Navbar";
-import Content from "../../components/Content/Content";
+import Navbar from "../../layouts/Navbar/Navbar";
+import Content from "../../layouts/Content/Content";
 import { StyledContainer } from "./Home.styles";
 import Footer from "../../components/Footer/Footer";
 

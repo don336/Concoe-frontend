@@ -12,8 +12,8 @@ import {
 
 import SpaOutlinedIcon from "@mui/icons-material/SpaOutlined";
 import { StyledBox } from "./registrationStyles";
-import CustomButton from "../../../elements/customButton/customButton";
-import { COLORS } from "../../../Styles/theme";
+import CustomButton from "../../../elements/CustomButton/customButton";
+import { COLORS } from "../../../styles/theme";
 import { Form } from "formik";
 
 const RegistrationForm = ({ formik }) => {

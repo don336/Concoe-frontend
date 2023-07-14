@@ -9,9 +9,9 @@ import {
 } from "@mui/material";
 import { Form } from "formik";
 import { Stack } from "@mui/material";
-import { COLORS } from "../../../Styles/theme.jsx";
+import { COLORS } from "../../../styles/theme.jsx";
 import { StyledStack, StyledTypography } from "./updateModel.style.js";
-import CustomButton from "../../../elements/customButton/customButton.jsx";
+import CustomButton from "../../../elements/CustomButton/customButton.jsx";
 
 const CropUpdate = ({ formik, handleClick }) => {
   const { handleSubmit, handleChange, errors, touched, values } = formik;

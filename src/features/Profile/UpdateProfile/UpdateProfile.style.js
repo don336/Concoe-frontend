@@ -1,7 +1,7 @@
 import { Box, Container } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import { Link } from "react-router-dom";
-import { COLORS } from "../../../Styles/theme";
+import { COLORS } from "../../../styles/theme";
 
 export const StyledBox = styled(Box)`
   margin-top: 1rem;

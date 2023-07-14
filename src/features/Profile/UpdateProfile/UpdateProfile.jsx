@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
-import { StyledContainer } from "./Update.style";
-import UpdateProfileForm from "./UpdateProfileForm";
+import { StyledContainer } from "./UpdateProfile.style.js";
+import UpdateProfileForm from "./UpdateProfileForm.jsx";
 import { useDispatch, useSelector } from "react-redux";
-import { update } from "../authService";
+import { update } from "../../Auth/authService.js";
 import { Formik } from "formik";
 import * as Yup from "yup";
 import { useNavigate } from "react-router-dom";

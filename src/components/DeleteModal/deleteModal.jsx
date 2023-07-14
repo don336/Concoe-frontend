@@ -1,8 +1,8 @@
 import React from "react";
 import { Stack, Typography } from "@mui/material";
-import { COLORS } from "../../Styles/theme.jsx";
-import { Modal } from "../../elements/modal";
-import CustomButton from '../../elements/customButton/customButton.jsx'
+import { COLORS } from "../../styles/theme.jsx";
+import { Modal } from "../../elements/Modal";
+import CustomButton from '../../elements/CustomButton/customButton.jsx'
 
 import { StyledStack, StyledTypography } from "./deleteModal.styles";
 

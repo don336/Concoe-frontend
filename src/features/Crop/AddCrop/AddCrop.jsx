@@ -8,7 +8,7 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { Container, Stack, Box } from "@mui/material";
 import { StyledBox, StyledContainer } from "./AddCrop.style";
-import Navbar from "../../../components/Navbar/Navbar";
+import Navbar from "../../../layouts/Navbar/Navbar";
 import Planting from "./Img/planting.jpg";
 import { AddCrop } from "../CropServices";
 

@@ -8,9 +8,9 @@ import {
   CssBaseline,
 } from "@mui/material";
 import { Form } from "formik";
-import CustomButton from "../../../elements/customButton/customButton";
+import CustomButton from "../../../elements/CustomButton/customButton";
 
-import { COLORS } from "../../../Styles/theme";
+import { COLORS } from "../../../styles/theme";
 
 const AddCrop_form = ({ formik }) => {
   const theme = useTheme();
