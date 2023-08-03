@@ -5,7 +5,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { DataGridContainer } from "../../../components/DataGridContainer/index.js";
-import { DataGrid } from "../../../elements/DataGrid";
+import { DataGrid } from "../../../elements/DataGrid/DataGrid";
 import CreateIcon from "@mui/icons-material/Create";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { COLORS } from "../../../styles/theme";
