@@ -13,6 +13,9 @@ import ViewProfile from "./features/Profile/ViewProfile/ViewProfile.jsx";
 import UpdateProfile from "./features/Profile/UpdateProfile/UpdateProfile";
 import AddCrop from "./features/Crop/AddCrop/AddCrop";
 import About from "./features/About/About.jsx";
+import Sales from "./features/Sales/Sales";
+import AddSale from "./features/Sales/Sales Features/AddSale/AddSale";
+import AddCustomer from "./features/Customer/AddCustomer/AddCustomer";
 
 function App() {
   return (
@@ -29,6 +32,9 @@ function App() {
             <Route path="/ViewProfile/update-account" exact element={<UpdateProfile />} />
             <Route path="/Crops/add-crop" exact element={<AddCrop />} />
             <Route path="/About" exact element={<About />} />
+            <Route path="/Sales" exact element={<Sales />} />
+            <Route path="/Sales/add-sale" exact element={<AddSale />} />
+            <Route path="/customer-registration" exact element={<AddCustomer />} />
           </Routes>
         </Router>
       </Provider>

@@ -46,17 +46,16 @@ export const StyledButton = styled(muiButton)`
   background-color: #d3e298;
   color: #333;
   font-size: 10px;
-  width: 30%;
+  width: 50%;
 `;
 export const SecondButton = styled(muiButton)`
   padding: 7px;
-  margin-left: 30px;
   border-radius: 18px;
   background-color: transparent;
   color: #fff;
   border: 0.3px solid #333;
   font-size: 10px;
-  width: 30%;
+  width: 50%;
 `;
 
 export const MissionBox = styled(Stack)`
