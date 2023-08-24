@@ -40,7 +40,8 @@ const rendercell = params => {
           size="small"
           onClick={handleOpen}
           sx={{
-            border: "none"
+            border: "none",
+            color: COLORS.YELLOW_GREEN
           }}
         >
           <CreateIcon />

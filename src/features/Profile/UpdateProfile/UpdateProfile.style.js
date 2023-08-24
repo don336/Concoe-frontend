@@ -15,7 +15,7 @@ export const StyledBox = styled(Box)`
 export const StyledContainer = styled(Container)`
   height: 100vh;
   padding: 50px;
-  background: ${COLORS.ERIE_BLACK};
+  background: #2a3d39;
 `;
 
 export const HomeLink = styled(Link)`
