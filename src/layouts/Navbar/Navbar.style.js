@@ -7,8 +7,7 @@ export const StyledTypography = styled(muiTypography)`
   font-family: monospace;
   font-weighteight: 700;
   letter-spacing: 0.3rem;
-  color: inherit;
-  text-decoration: none;
+  margin: auto;
   color: ${COLORS.YELLOW_GREEN};
 `;
 

@@ -6,7 +6,7 @@ import { COLORS } from "../../styles/theme";
 export const MUIDataGrid = styled(DataGrid)`
   border: 0;
   .MuiDataGrid-columnHeaders {
-    color: ${COLORS.LIGHT};
+    color: ${COLORS.DARK_GREY};
     font-size: 1rem;
     font-weight: 700;
     border-radius: 0;
