@@ -57,7 +57,7 @@ const Navbar = () => {
               color: "#A2D729"
             }}
           >
-            Concoe Farm
+            PSYCOSPHERE
           </StyledTypography>
         </Link>
 
@@ -115,7 +115,7 @@ const Navbar = () => {
               flexGrow: 1
             }}
           >
-            Concoe
+            PSYCOSPHERE
           </StyledTypography>
         </Link>
         <Box

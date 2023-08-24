@@ -11,19 +11,6 @@ export const StyledBox = styled(muiBox)`
   margin: auto;
 `;
 
-export const WeatherBox = styled(muiBox)`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  padding: 10px;
-  width: 100%;
-  margin: auto;
-  background: #3a3a3a;
-  border-radius: 15px;
-  height: 400px;
-`;
-
 export const StyledTypography = styled(Typography)`
   color: ${COLORS.WHITE};
   text-align: center;

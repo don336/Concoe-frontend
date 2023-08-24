@@ -59,7 +59,7 @@ export const SecondButton = styled(muiButton)`
 `;
 
 export const MissionBox = styled(Stack)`
-  background: #3a3a3a;
+  background: #4f646f;
   border-radius: 7px;
   width: 100%;
   padding: 10px;
