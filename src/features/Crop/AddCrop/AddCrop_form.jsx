@@ -8,22 +8,32 @@ import { COLORS } from "../../../styles/theme";
 const AddCrop_form = ({ formik }) => {
   const theme = useTheme();
   const { handleSubmit, handleChange, errors, touched, values } = formik;
+  const inputStyles = {
+    color: "white",
+    border: " 1px solid #444",
+    borderRadius: "8px"
+  };
+  const labelStyles = {
+    color: "#fff"
+  };
   return (
     <Form
       onSubmit={handleSubmit}
       style={{
-        backgroundColor: "#fff",
+        backgroundColor: "#2F4550",
         padding: "20px",
         height: "100%"
       }}
     >
       <CssBaseline />
-      <Typography textAlign={"center"} variant="h4" color={COLORS.YELLOW_GREEN}>
-        Add Crop
+      <Typography textAlign={"center"} variant="h4" color={COLORS.WHITE}>
+        <span className="primary">Add</span> Crop
       </Typography>
       <Grid container spacing={2}>
         <Grid item xs={12} sm={12}>
           <TextField
+            inputProps={{ style: inputStyles }}
+            InputLabelProps={{ style: labelStyles }}
             autoComplete="plant-name"
             name="cropType"
             value={values.cropType}
@@ -38,6 +48,8 @@ const AddCrop_form = ({ formik }) => {
         </Grid>
         <Grid item xs={12} sm={12}>
           <TextField
+            inputProps={{ style: inputStyles }}
+            InputLabelProps={{ style: labelStyles }}
             fullWidth
             id="season"
             label="Season"
@@ -51,6 +63,8 @@ const AddCrop_form = ({ formik }) => {
         </Grid>
         <Grid item xs={12}>
           <TextField
+            inputProps={{ style: inputStyles }}
+            InputLabelProps={{ style: labelStyles }}
             fullWidth
             id="acreage"
             label="Acreage"
@@ -64,6 +78,8 @@ const AddCrop_form = ({ formik }) => {
         </Grid>
         <Grid item xs={12}>
           <TextField
+            inputProps={{ style: inputStyles }}
+            InputLabelProps={{ style: labelStyles }}
             fullWidth
             name="expectedYields"
             label="Expected Yields"

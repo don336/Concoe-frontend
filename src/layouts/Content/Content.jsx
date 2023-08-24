@@ -1,4 +1,15 @@
-import { Grid, Box, Card, Typography, CardMedia, useTheme, CardActions, CardContent, Button } from "@mui/material";
+import {
+  Grid,
+  Box,
+  Card,
+  Typography,
+  CardMedia,
+  useTheme,
+  CardActions,
+  CardContent,
+  Button,
+  Stack
+} from "@mui/material";
 import ArrowOutwardIcon from "@mui/icons-material/ArrowOutward";
 import {
   StyledContainer,
@@ -57,7 +68,7 @@ const Content = () => {
               plant Growing, Concoe takes part in Live Stock Farming and has a variety of Breeds both exotic and Local.
             </Typography>
           </StyledBox>
-          <Box>
+          <Stack direction={"row"} spacing={2}>
             {isAuthenticated ? (
               ""
             ) : (
@@ -76,10 +87,20 @@ const Content = () => {
                 </CustomButton>
               </CustomLink>
             )}
-            <CustomLink to="/About">
-              <SecondButton>How it Works</SecondButton>
+            <CustomLink to="/customer-registration">
+              <CustomButton
+                fontcolor={COLORS.WHITE_SMOKE}
+                background={COLORS.DARK_GREY}
+                borderRadius={"1.125rem"}
+                endIcon={<ArrowOutwardIcon />}
+                padding={theme.spacing(1, 3)}
+                hoverbackground={COLORS.DARK_GREY}
+                hovercolor={COLORS.LIGHT_GREEN}
+              >
+                Become a Valid Customer
+              </CustomButton>
             </CustomLink>
-          </Box>
+          </Stack>
         </Grid>
         <Grid item xs={1} sm={2} md={2}>
           <Images />

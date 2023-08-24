@@ -8,7 +8,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import SpaOutlinedIcon from "@mui/icons-material/SpaOutlined";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 
-const pages = ["Crops", "Departments", "Farming Methods", "Company", "About"];
+const pages = ["Crops", "Sales", "Farming Methods", "Company", "About"];
 const settings = ["Account", "Logout"];
 
 const Navbar = () => {
@@ -57,7 +57,7 @@ const Navbar = () => {
               color: "#A2D729"
             }}
           >
-            Concoe Farm
+            PSYCOSPHERE
           </StyledTypography>
         </Link>
 
@@ -115,7 +115,7 @@ const Navbar = () => {
               flexGrow: 1
             }}
           >
-            Concoe
+            PSYCOSPHERE
           </StyledTypography>
         </Link>
         <Box

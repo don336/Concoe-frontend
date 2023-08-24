@@ -1,12 +1,21 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { Container, Box, Grid } from "@mui/material";
 import Navbar from "../../../layouts/Navbar/Navbar";
-import { StyledBox, WeatherBox, StyledTypography, CropLink } from "./crops.style";
+import { StyledBox, CropLink } from "./crops.style";
 import CustomButton from "../../../elements/CustomButton/customButton";
 import { COLORS } from "../../../styles/theme";
 import CropDataGrid from "./CropDataGrid";
+import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const Crops = () => {
+  const Authenticated = useSelector(state => state.auth.isAuthenticated);
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (!Authenticated) {
+      navigate("/login");
+    }
+  }, []);
   return (
     <Container maxWidth="xl">
       <Navbar />

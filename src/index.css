@@ -5,7 +5,8 @@
 }
 
 #root {
-  background: #222;
+  background: #2a3d39;
+  color: #333;
   min-height: 100vh;
 }
 
@@ -17,7 +18,7 @@
 
 .primary-color {
   background: #a2d729;
-  color: #333;
+  color: #384d48;
   padding: 2px;
   border-radius: 5px;
 }

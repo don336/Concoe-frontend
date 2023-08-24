@@ -8,12 +8,8 @@ export const StyledContainer = styled(muiContainer)`
   margin: auto;
   width: 1167px;
   height: 600px;
-  background: #3a3a3a;
 `;
 export const StyledBox = styled(muiBox)`
-  display: flex;
-  justify-content: center;
-  align-items: center;
   margin: auto;
   width: 500;
   height: 400;

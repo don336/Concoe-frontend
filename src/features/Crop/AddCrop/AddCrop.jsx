@@ -13,12 +13,6 @@ import Planting from "./Img/planting.jpg";
 import { AddCrop } from "../CropServices";
 
 const addCrop = () => {
-  const [crop, setCrop] = useState({
-    cropType: "",
-    season: "",
-    acreage: "",
-    expectedYields: ""
-  });
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
