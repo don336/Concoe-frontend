@@ -43,7 +43,6 @@ const Registration = () => {
         email,
         password
       };
-      console.log(UserData);
       dispatch(register(UserData));
     }
   };

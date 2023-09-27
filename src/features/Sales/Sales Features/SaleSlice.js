@@ -1,15 +1,14 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { getAllCustomers, addCustomer } from "./Customerservice";
+import { getAllCustomers, addCustomer } from "./SaleService";
 
 const initialState = {
-  customers: [],
-  customer: {},
-  isCustomer: false,
+  sales: [],
+  sale: {},
   isError: false,
   isSuccess: false
 };
-const CustomerSlice = createSlice({
-  name: "Customer",
+const SaleSlice = createSlice({
+  name: "Sale",
   initialState,
   extraReducers: builder => {
     builder
@@ -73,4 +72,4 @@ const CustomerSlice = createSlice({
   }
 });
 
-export default CustomerSlice.reducer;
+export default SaleSlice.reducer;

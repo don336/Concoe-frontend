@@ -26,3 +26,24 @@ export const addCustomer = createAsyncThunk("addCustomer", async (data, thunkAPI
     return thunkAPI.rejectWithValue(error.message);
   }
 });
+
+// export const UpdateCrop = createAsyncThunk("updateCrop", async (data, thunkAPI) => {
+//   axios.defaults.headers.common.Authorization = ` ${localStorage.getItem("jwtToken")}`;
+//   try {
+//     const { cropId } = data;
+//     const response = await axios.put(`${baseUrl}crop/${cropId}`, data);
+//     return response.data.crop;
+//   } catch (error) {
+//     return thunkAPI.rejectWithValue(error.message);
+//   }
+// });
+
+// export const Delete = createAsyncThunk("deleteCrop", async (id, thunkAPI) => {
+//   axios.defaults.headers.common.Authorization = ` ${localStorage.getItem("jwtToken")}`;
+//   try {
+//     const response = await axios.delete(`${baseUrl}crop/${id}`);
+//     return response.data.crop;
+//   } catch (error) {
+//     return thunkAPI.rejectWithValue(error.message);
+//   }
+// });

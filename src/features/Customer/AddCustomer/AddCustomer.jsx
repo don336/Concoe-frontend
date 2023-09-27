@@ -5,8 +5,10 @@ import { Container, Stack } from "@mui/material";
 import Navbar from "../../../layouts/Navbar/Navbar";
 import CustomerForm from "./CustomerForm";
 import { StyledTypography1, StyledWelcomeBox } from "./AddCustomer.style";
+import { getAllCustomers, addCustomer } from "../CustomerService";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 
 const AddCustomer = () => {
   const defaultValues = {
@@ -23,15 +25,38 @@ const AddCustomer = () => {
     phone: Yup.string().required(),
     dateOfBirth: Yup.string().required()
   });
-  //   const Authenticated = useSelector(state => state.auth.isAuthenticated);
-  //   const navigate = useNavigate();
-  //   useEffect(() => {
-  //     if (!Authenticated) {
-  //       navigate("/login");
-  //     }
-  //   }, []);
+  const Authenticated = useSelector(state => state.auth.isAuthenticated);
+  const userEmail = useSelector(state => state.auth.currentUser.email);
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (!Authenticated) {
+      navigate("/login");
+    }
+  }, []);
 
-  const handleSubmit = () => {};
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getAllCustomers());
+  }, []);
+  const handleSubmit = values => {
+    const { firstname, lastname, email, phone, dateOfBirth } = values;
+    const customerData = {
+      firstname,
+      lastname,
+      email,
+      phone,
+      dateOfBirth
+    };
+    if (userEmail === email) {
+      dispatch(addCustomer(customerData));
+      if (dispatch) {
+        navigate("/Sales");
+      }
+    } else {
+      navigate("/customer-registration");
+    }
+  };
+
   return (
     <Container>
       <Navbar />

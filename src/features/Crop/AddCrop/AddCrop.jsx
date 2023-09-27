@@ -36,7 +36,6 @@ const addCrop = () => {
   });
 
   const handleSubmit = values => {
-    console.log("1232323232323", "===================================>");
     const { cropType, season, acreage, expectedYields } = values;
 
     const CropData = {

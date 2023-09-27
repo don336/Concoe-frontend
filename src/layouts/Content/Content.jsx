@@ -30,7 +30,9 @@ import { useSelector } from "react-redux";
 const Content = () => {
   const theme = useTheme();
   const authState = useSelector(state => state.auth);
-
+  const userEmail = useSelector(state => state.auth.currentUser.email);
+  const Customers = useSelector(state => state.customer.customers);
+   const isUserACustomer = Customers.some(customer => customer.email === userEmail);
   const { isAuthenticated } = authState;
   return (
     <StyledContainer>
@@ -87,19 +89,23 @@ const Content = () => {
                 </CustomButton>
               </CustomLink>
             )}
-            <CustomLink to="/customer-registration">
-              <CustomButton
-                fontcolor={COLORS.WHITE_SMOKE}
-                background={COLORS.DARK_GREY}
-                borderRadius={"1.125rem"}
-                endIcon={<ArrowOutwardIcon />}
-                padding={theme.spacing(1, 3)}
-                hoverbackground={COLORS.DARK_GREY}
-                hovercolor={COLORS.LIGHT_GREEN}
-              >
-                Become a Valid Customer
-              </CustomButton>
-            </CustomLink>
+            {isUserACustomer ? (
+              ""
+            ) : (
+              <CustomLink to="/customer-registration">
+                <CustomButton
+                  fontcolor={COLORS.WHITE_SMOKE}
+                  background={COLORS.DARK_GREY}
+                  borderRadius={"1.125rem"}
+                  endIcon={<ArrowOutwardIcon />}
+                  padding={theme.spacing(1, 3)}
+                  hoverbackground={COLORS.DARK_GREY}
+                  hovercolor={COLORS.LIGHT_GREEN}
+                >
+                  Become a Valid Customer
+                </CustomButton>
+              </CustomLink>
+            )}
           </Stack>
         </Grid>
         <Grid item xs={1} sm={2} md={2}>

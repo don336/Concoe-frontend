@@ -30,7 +30,6 @@ const EditProfile = () => {
   };
 
   const handleSubmit = values => {
-    console.log("Got here", "===========================================================>");
     const { name, username, email } = values;
     const { _id } = authState.currentUser;
     const userData = {
