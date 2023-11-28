@@ -25,13 +25,27 @@ import {
 import CustomButton from "../../elements/CustomButton/customButton.jsx";
 import Images from "../../components/ImageList/Images.jsx";
 import { COLORS } from "../../styles/theme.jsx";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import { getAllCustomers } from "../../features/Customer/Customerservice.js";
 
 const Content = () => {
   const theme = useTheme();
   const authState = useSelector(state => state.auth);
-
+  const userEmail = useSelector(state => state.auth.currentUser.email);
+  const Customers = useSelector(state => state.customer.customers);
+  const isUserACustomer = Customers.map(customer => customer.email === userEmail);
   const { isAuthenticated } = authState;
+  const dispatch = useDispatch();
+  useEffect(() => {
+    const customer = Customers.map(customer => {
+      if (customer.email === userEmail) {
+        return customer.customerId;
+      }
+    });
+    localStorage.setItem("customerId", customer);
+    dispatch(getAllCustomers());
+  }, [Customers]);
   return (
     <StyledContainer>
       <Grid
@@ -87,19 +101,23 @@ const Content = () => {
                 </CustomButton>
               </CustomLink>
             )}
-            <CustomLink to="/customer-registration">
-              <CustomButton
-                fontcolor={COLORS.WHITE_SMOKE}
-                background={COLORS.DARK_GREY}
-                borderRadius={"1.125rem"}
-                endIcon={<ArrowOutwardIcon />}
-                padding={theme.spacing(1, 3)}
-                hoverbackground={COLORS.DARK_GREY}
-                hovercolor={COLORS.LIGHT_GREEN}
-              >
-                Become a Valid Customer
-              </CustomButton>
-            </CustomLink>
+            {isUserACustomer ? (
+              ""
+            ) : (
+              <CustomLink to="/customer-registration">
+                <CustomButton
+                  fontcolor={COLORS.WHITE_SMOKE}
+                  background={COLORS.DARK_GREY}
+                  borderRadius={"1.125rem"}
+                  endIcon={<ArrowOutwardIcon />}
+                  padding={theme.spacing(1, 3)}
+                  hoverbackground={COLORS.DARK_GREY}
+                  hovercolor={COLORS.LIGHT_GREEN}
+                >
+                  Become a Valid Customer
+                </CustomButton>
+              </CustomLink>
+            )}
           </Stack>
         </Grid>
         <Grid item xs={1} sm={2} md={2}>

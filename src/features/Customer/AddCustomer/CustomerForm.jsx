@@ -1,9 +1,9 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Stack, Grid, TextField, useTheme, CssBaseline } from "@mui/material";
-
 import CustomButton from "../../../elements/CustomButton/customButton";
 import { COLORS } from "../../../styles/theme";
 import { StyledForm } from "./AddCustomer.style";
+
 const CustomerForm = ({ formik }) => {
   const theme = useTheme();
   const { handleSubmit, handleChange, errors, touched, values } = formik;

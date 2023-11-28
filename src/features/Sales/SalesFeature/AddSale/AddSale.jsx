@@ -1,18 +1,16 @@
 import React from "react";
 import { useEffect, useState } from "react";
-import { toast } from "react-toastify";
-import AddCrop_form from "./AddCrop_form";
+import SalesForm from "./SalesForm";
 import { Formik } from "formik";
 import * as Yup from "yup";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { Container, Stack, Box } from "@mui/material";
-import { StyledBox, StyledContainer } from "./AddCrop.style";
-import Navbar from "../../../layouts/Navbar/Navbar";
-import Planting from "./Img/planting.jpg";
-import { AddCrop } from "../CropServices";
+import { StyledBox, StyledContainer } from "./sales.style.js";
+import Navbar from "../../../../layouts/Navbar/Navbar";
+import { addSale } from "../SaleService.js";
 
-const addCrop = () => {
+const AddSaleFeature = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -23,30 +21,27 @@ const addCrop = () => {
     }
   }, [authState]);
   const defaultValues = {
-    cropType: "",
-    season: "",
-    acreage: "",
-    expectedYields: ""
+    name: "",
+    quantity: "",
+    price: ""
   };
   const yupObject = Yup.object({
-    cropType: Yup.string().required(),
-    season: Yup.string().required(),
-    acreage: Yup.string().required(),
-    expectedYields: Yup.string().required()
+    name: Yup.string().required(),
+    quantity: Yup.string().required(),
+    price: Yup.string().required()
   });
 
   const handleSubmit = values => {
-    const { cropType, season, acreage, expectedYields } = values;
+    const { name, quantity, price } = values;
 
-    const CropData = {
-      cropType,
-      season,
-      acreage,
-      expectedYields
+    const saleData = {
+      name,
+      quantity,
+      price
     };
-    dispatch(AddCrop(CropData));
+    dispatch(addSale(saleData));
     if (dispatch) {
-      navigate("/Crops");
+      navigate("/Sales");
     }
   };
   return (
@@ -62,11 +57,8 @@ const addCrop = () => {
                 validationSchema={yupObject}
                 onSubmit={handleSubmit}
               >
-                {formik => <AddCrop_form formik={formik} />}
+                {formik => <SalesForm formik={formik} />}
               </Formik>
-            </Box>
-            <Box>
-              <img src={Planting} alt="planting process" width={100} className="Planting" />
             </Box>
           </Stack>
         </StyledBox>
@@ -75,4 +67,4 @@ const addCrop = () => {
   );
 };
 
-export default addCrop;
+export default AddSaleFeature;

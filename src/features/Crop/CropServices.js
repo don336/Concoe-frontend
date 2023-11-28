@@ -2,14 +2,15 @@ import axios from "axios";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { baseUrl } from "../../config/client";
 
-const config = {
-  Headers: {
-    Authentication: `Bearer ${localStorage.getItem("access_token")}`
-  }
-};
+// const config = {
+//   Headers: {
+//     Authorization: `Bearer ${localStorage.getItem("access_token")}`
+//   }
+// };
 export const getAllCrops = createAsyncThunk("getAllCrops", async thunkAPI => {
   try {
-    const response = await axios.get(`${baseUrl}/crop/`, config);
+    axios.defaults.headers.common.Authorization = ` ${localStorage.getItem("jwtToken")}`;
+    const response = await axios.get(`${baseUrl}/crop/`);
     return response.data.crops;
   } catch (error) {
     return thunkAPI.rejectWithValue(error.message);

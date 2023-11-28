@@ -13,7 +13,6 @@ const UpdateForm = ({ formik }) => {
   const theme = useTheme();
   const { handleChange, handleSubmit, errors, touched, values } = formik;
   const { name, username, email } = values;
-  console.log(errors, "the formik errors ========>");
   return (
     <Container maxWidth="xs">
       <StyledBox>

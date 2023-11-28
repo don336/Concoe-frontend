@@ -62,20 +62,6 @@ const Add_Sale = ({ formik }) => {
             helperText={touched.price && errors.price}
           />
         </Grid>
-        <Grid item xs={12}>
-          <TextField
-            fullWidth
-            name="customer"
-            label="Customer"
-            value={values.customer}
-            type="text"
-            id="customer"
-            autoComplete="customer"
-            onChange={handleChange}
-            error={touched.customer && Boolean(errors.customer)}
-            helperText={touched.customer && errors.customer}
-          />
-        </Grid>
       </Grid>
       <CustomButton
         type="submit"
@@ -85,10 +71,10 @@ const Add_Sale = ({ formik }) => {
         margin={theme.spacing(3, 0, 2, 0)}
         hoverbackground={COLORS.YELLOW_GREEN}
       >
-        Add Crop
+        Add Sale
       </CustomButton>
     </Form>
   );
 };
 
-export default AddCrop_form;
+export default Add_Sale;
