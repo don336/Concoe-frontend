@@ -25,15 +25,27 @@ import {
 import CustomButton from "../../elements/CustomButton/customButton.jsx";
 import Images from "../../components/ImageList/Images.jsx";
 import { COLORS } from "../../styles/theme.jsx";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import { getAllCustomers } from "../../features/Customer/Customerservice.js";
 
 const Content = () => {
   const theme = useTheme();
   const authState = useSelector(state => state.auth);
   const userEmail = useSelector(state => state.auth.currentUser.email);
   const Customers = useSelector(state => state.customer.customers);
-   const isUserACustomer = Customers.some(customer => customer.email === userEmail);
+  const isUserACustomer = Customers.map(customer => customer.email === userEmail);
   const { isAuthenticated } = authState;
+  const dispatch = useDispatch();
+  useEffect(() => {
+    const customer = Customers.map(customer => {
+      if (customer.email === userEmail) {
+        return customer.customerId;
+      }
+    });
+    localStorage.setItem("customerId", customer);
+    dispatch(getAllCustomers());
+  }, [Customers]);
   return (
     <StyledContainer>
       <Grid

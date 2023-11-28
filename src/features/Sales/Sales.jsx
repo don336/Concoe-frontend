@@ -5,7 +5,7 @@ import { COLORS } from "../../styles/theme";
 import { useSelector } from "react-redux";
 import Navbar from "../../layouts/Navbar/Navbar";
 import CustomButton from "../../elements/CustomButton/customButton";
-import SalesDataGrid from "./Sales Features/SalesDataTable";
+import SalesDataGrid from "./SalesFeature/SalesDataTable";
 import { NavLink } from "./Sales.style";
 
 const Sales = () => {
