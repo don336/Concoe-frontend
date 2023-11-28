@@ -5,7 +5,7 @@ import { Container, Stack } from "@mui/material";
 import Navbar from "../../../layouts/Navbar/Navbar";
 import CustomerForm from "./CustomerForm";
 import { StyledTypography1, StyledWelcomeBox } from "./AddCustomer.style";
-import { getAllCustomers, addCustomer } from "../CustomerService";
+import { getAllCustomers, addCustomer } from "../Customerservice";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
