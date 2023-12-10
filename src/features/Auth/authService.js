@@ -9,8 +9,7 @@ export const register = createAsyncThunk("register", async (data, thunkAPI) => {
     const response = await axios.post(`${baseUrl}auth/signup`, data);
     const { accessToken } = response.data;
     localStorage.setItem("jwtToken", accessToken);
-    const decoded = jwt_decode(accessToken);
-    return decoded;
+    return jwt_decode(accessToken);
   } catch (error) {
     return thunkAPI.rejectWithValue(error.message);
   }
