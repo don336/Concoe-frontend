@@ -38,6 +38,7 @@ const Content = () => {
   const { isAuthenticated } = authState;
   const dispatch = useDispatch();
 
+  // Fix cyclic network requests with two useEffects
   useEffect(() => {
     if(Customers.length) {
       const customer = Customers.map(customer => {
