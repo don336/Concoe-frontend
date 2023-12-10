@@ -6,7 +6,7 @@ export const StyledButton = styled(Button)`
   background-color: ${({ background }) => background || COLORS.WHITE};
   color: ${({ fontcolor }) => fontcolor || COLORS.WHITE};
   // border: ${({ border }) => border || `0.063rem solid ${COLORS.BLUE}`};
-  border-radius: ${({ borderRadius }) => borderRadius || "0.25rem"};
+  border-radius: ${({ borderradius }) => borderradius || "0.25rem"};
   // text-transform: none;
   width: ${({ width }) => width || "auto"};
   height: ${({ height }) => height || "auto"};
