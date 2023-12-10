@@ -2,11 +2,11 @@ import axios from "axios";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { baseUrl } from "../../config/client";
 
-const config = {
-  Headers: {
-    Authorization: `Bearer ${localStorage.getItem("access_token")}`
-  }
-};
+// const config = {
+//   Headers: {
+//     Authorization: `Bearer ${localStorage.getItem("access_token")}`
+//   }
+// };
 
 export const getAllCustomers = createAsyncThunk("getAllCustomers", async thunkAPI => {
   try {

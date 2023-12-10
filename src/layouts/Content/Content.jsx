@@ -45,7 +45,7 @@ const Content = () => {
     });
     localStorage.setItem("customerId", customer);
     dispatch(getAllCustomers());
-  }, [Customers]);
+  }, []);
   return (
     <StyledContainer>
       <Grid
