@@ -1,3 +1,4 @@
+import {useState} from "react";
 import {
   Grid,
   Box,
@@ -34,15 +35,16 @@ const Content = () => {
   const authState = useSelector(state => state.auth);
   const userEmail = useSelector(state => state.auth.currentUser.email);
   const Customers = useSelector(state => state.customer.customers);
-  const isUserACustomer = Customers.map(customer => customer.email === userEmail);
   const { isAuthenticated } = authState;
   const dispatch = useDispatch();
 
-  // Fix cyclic network requests with two useEffects
+  const [isCustomer, setIsCustomer] = useState(false)
+
   useEffect(() => {
     if(Customers.length) {
       const customer = Customers.map(customer => {
         if (customer.email === userEmail) {
+          setIsCustomer(true)
           return customer.customerId;
         }
       });
@@ -98,7 +100,7 @@ const Content = () => {
                 <CustomButton
                   fontcolor={COLORS.DARK_GREY}
                   background={COLORS.LIGHT_GREEN}
-                  borderRadius={"1.125rem"}
+                  borderradius={"1.125rem"}
                   endIcon={<ArrowOutwardIcon />}
                   padding={theme.spacing(1, 3)}
                   hoverbackground={COLORS.DARK_GREY}
@@ -109,14 +111,12 @@ const Content = () => {
                 </CustomButton>
               </CustomLink>
             )}
-            {isUserACustomer ? (
-              ""
-            ) : (
+            {!isCustomer ? (
               <CustomLink to="/customer-registration">
                 <CustomButton
                   fontcolor={COLORS.WHITE_SMOKE}
                   background={COLORS.DARK_GREY}
-                  borderRadius={"1.125rem"}
+                  borderradius={"1.125rem"}
                   endIcon={<ArrowOutwardIcon />}
                   padding={theme.spacing(1, 3)}
                   hoverbackground={COLORS.DARK_GREY}
@@ -125,6 +125,8 @@ const Content = () => {
                   Become a Valid Customer
                 </CustomButton>
               </CustomLink>
+            ) : (
+              null
             )}
           </Stack>
         </Grid>
