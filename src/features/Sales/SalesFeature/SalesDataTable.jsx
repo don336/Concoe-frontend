@@ -15,11 +15,11 @@ const rendercell = params => {
 
   const handleDelete = async () => {
     const saleId = params.row._id;
-    const custId = params.row.customerId._id;
+    const customerId = params.row.customerId.customerId;
 
     const ids = {
       saleId,
-      custId
+      customerId
     };
     dispatch(deleteSale(ids));
     setOpenDelete(false);

@@ -1,4 +1,4 @@
-import {useState} from "react";
+import { useState } from "react";
 import {
   Grid,
   Box,
@@ -38,22 +38,19 @@ const Content = () => {
   const { isAuthenticated } = authState;
   const dispatch = useDispatch();
 
-  const [isCustomer, setIsCustomer] = useState(false)
-
+  const [isCustomer, setIsCustomer] = useState(false);
   useEffect(() => {
-    if(Customers.length) {
+    if (Customers.length) {
       const customer = Customers.map(customer => {
         if (customer.email === userEmail) {
-          setIsCustomer(true)
-          return customer.customerId;
+          setIsCustomer(true);
+          localStorage.setItem("customerId", customer.customerId);
+          return customer;
         }
       });
-      localStorage.setItem("customerId", customer);
-    }
-  }, [Customers]);
 
-  useEffect(() => {
-    dispatch(getAllCustomers());
+      console.log(customer.customerId);
+    }
   }, []);
 
   return (
@@ -125,9 +122,7 @@ const Content = () => {
                   Become a Valid Customer
                 </CustomButton>
               </CustomLink>
-            ) : (
-              null
-            )}
+            ) : null}
           </Stack>
         </Grid>
         <Grid item xs={1} sm={2} md={2}>

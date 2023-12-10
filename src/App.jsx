@@ -16,10 +16,12 @@ import About from "./features/About/About.jsx";
 import Sales from "./features/Sales/Sales";
 import AddSaleFeature from "./features/Sales/SalesFeature/AddSale/AddSale.jsx";
 import AddCustomer from "./features/Customer/AddCustomer/AddCustomer";
-import {getTokenData} from "./utils/getToken.js";
+import { getTokenData } from "./utils/getToken.js";
+import { getCustomers } from "./utils/validateCustomer.js";
 
 function App() {
-  getTokenData()
+  getTokenData();
+  getCustomers();
   return (
     <ThemeProvider theme={theme}>
       <Provider store={store}>
