@@ -37,15 +37,23 @@ const Content = () => {
   const isUserACustomer = Customers.map(customer => customer.email === userEmail);
   const { isAuthenticated } = authState;
   const dispatch = useDispatch();
+
+  // Fix cyclic network requests with two useEffects
   useEffect(() => {
-    const customer = Customers.map(customer => {
-      if (customer.email === userEmail) {
-        return customer.customerId;
-      }
-    });
-    localStorage.setItem("customerId", customer);
+    if(Customers.length) {
+      const customer = Customers.map(customer => {
+        if (customer.email === userEmail) {
+          return customer.customerId;
+        }
+      });
+      localStorage.setItem("customerId", customer);
+    }
+  }, [Customers]);
+
+  useEffect(() => {
     dispatch(getAllCustomers());
   }, []);
+
   return (
     <StyledContainer>
       <Grid
