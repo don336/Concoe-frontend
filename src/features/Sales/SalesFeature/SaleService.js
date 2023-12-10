@@ -11,9 +11,10 @@ export const getAllSales = createAsyncThunk("getAllSales", async thunkAPI => {
     return thunkAPI.rejectWithValue(error.message);
   }
 });
-export const deleteSale = createAsyncThunk("deleteSale", async (saleId, custId, thunkAPI) => {
+export const deleteSale = createAsyncThunk("deleteSale", async (ids, thunkAPI) => {
   try {
     axios.defaults.headers.common.Authorization = ` ${localStorage.getItem("jwtToken")}`;
+    console.log(`${ids.custId}, ${ids.saleId}, ========================>`);
     const response = await axios.delete(`${baseUrl}sales/${custId}/${saleId}`);
     return response.data;
   } catch (error) {
@@ -31,13 +32,13 @@ export const addSale = createAsyncThunk("addSale", async (data, thunkAPI) => {
   }
 });
 
-export const DeleteSale = createAsyncThunk("deleteSale", async (saleId, custId, thunkAPI) => {
-  axios.defaults.headers.common.Authorization = ` ${localStorage.getItem("jwtToken")}`;
-  try {
-    // const customerId = localStorage.getItem("customerId");
-    const response = await axios.delete(`${baseUrl}sales/${saleId}/${custId}`);
-    return response.data.crop;
-  } catch (error) {
-    return thunkAPI.rejectWithValue(error.message);
-  }
-});
+// export const deleteSale = createAsyncThunk("deleteSale", async (saleId, custId, thunkAPI) => {
+//   axios.defaults.headers.common.Authorization = ` ${localStorage.getItem("jwtToken")}`;
+//   try {
+//     // const customerId = localStorage.getItem("customerId");
+//     const response = await axios.delete(`${baseUrl}sales/${saleId}/${custId}`);
+//     return response.data.crop;
+//   } catch (error) {
+//     return thunkAPI.rejectWithValue(error.message);
+//   }
+// });

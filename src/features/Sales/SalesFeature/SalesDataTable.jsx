@@ -16,8 +16,12 @@ const rendercell = params => {
   const handleDelete = async () => {
     const saleId = params.row._id;
     const custId = params.row.customerId._id;
-    console.log(saleId, custId, "================================>");
-    dispatch(deleteSale(saleId, custId));
+
+    const ids = {
+      saleId,
+      custId
+    };
+    dispatch(deleteSale(ids));
     setOpenDelete(false);
   };
 
