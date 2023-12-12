@@ -32,13 +32,14 @@ const EditProfile = () => {
   const handleSubmit = values => {
     const { name, username, email } = values;
     const { _id } = authState.currentUser;
-    const userData = {
+    console.log(_id);
+    const data = {
       id: _id,
       name,
       username,
       email
     };
-    dispatch(update(userData));
+    dispatch(update(data));
   };
 
   return (

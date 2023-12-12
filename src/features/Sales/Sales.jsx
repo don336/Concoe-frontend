@@ -19,7 +19,7 @@ const Sales = () => {
       navigate("/login");
     } else {
       // Check if the userEmail exists in the Customers array
-      const isUserACustomer = Customers.some(customer => customer.email === userEmail);
+      const isUserACustomer = Customers.map(customer => customer.email === userEmail);
 
       // Set isCustomer based on the result
       setIsCustomer(isUserACustomer);
