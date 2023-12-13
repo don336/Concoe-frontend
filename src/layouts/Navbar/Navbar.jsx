@@ -1,21 +1,20 @@
 import * as React from "react";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { Box, Toolbar, IconButton, Typography, Menu, Avatar, Button, Tooltip, MenuItem } from "@mui/material";
 import { StyledTypography, StyledAppBar, StyledBox, StyledLink, CustomLink } from "./Navbar.style.js";
-
+import CustomButton from "../../elements/CustomButton/customButton.jsx";
 import MenuIcon from "@mui/icons-material/Menu";
 import SpaOutlinedIcon from "@mui/icons-material/SpaOutlined";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import { handleLogOut } from "../../utils/handleLogout.js";
 
 const pages = ["Crops", "Sales", "Farming Methods", "Company", "About"];
-const settings = ["Account", "Logout"];
 
 const Navbar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
   const authState = useSelector(state => state.auth);
-  const dispatch = useDispatch();
 
   const { isAuthenticated } = authState;
 
@@ -32,10 +31,6 @@ const Navbar = () => {
 
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
-  };
-
-  const handleLogOut = () => {
-    dispatch(logoutUser);
   };
 
   return (
@@ -168,15 +163,29 @@ const Navbar = () => {
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
             >
-              {settings.map(setting => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <CustomLink to={`/ViewProfile`}>
-                    <Typography textAlign="center" variant="h4">
-                      {setting}
-                    </Typography>
-                  </CustomLink>
-                </MenuItem>
-              ))}
+              <MenuItem onClick={handleCloseUserMenu}>
+                <CustomLink to={`/ViewProfile`}>
+                  <Typography textAlign="center" variant="h4">
+                    Account
+                  </Typography>
+                </CustomLink>
+              </MenuItem>
+              <MenuItem onClick={handleCloseUserMenu}>
+                <CustomButton
+                  border="none"
+                  variant="h4"
+                  fontcolor="inherit"
+                  hovercolor={"#FF6347"}
+                  width="100%"
+                  background="none"
+                  hoverbackground={"none"}
+                  onClick={() => {
+                    handleLogOut();
+                  }}
+                >
+                  LogOut
+                </CustomButton>
+              </MenuItem>
             </Menu>
           </Box>
         ) : (

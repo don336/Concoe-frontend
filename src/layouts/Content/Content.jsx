@@ -26,32 +26,13 @@ import {
 import CustomButton from "../../elements/CustomButton/customButton.jsx";
 import Images from "../../components/ImageList/Images.jsx";
 import { COLORS } from "../../styles/theme.jsx";
-import { useDispatch, useSelector } from "react-redux";
-import { useEffect } from "react";
-import { getAllCustomers } from "../../features/Customer/Customerservice.js";
+import { useSelector } from "react-redux";
 
-const Content = () => {
+const Content = ({ isCustomer }) => {
   const theme = useTheme();
+
   const authState = useSelector(state => state.auth);
-  const userEmail = useSelector(state => state.auth.currentUser.email);
-  const Customers = useSelector(state => state.customer.customers);
   const { isAuthenticated } = authState;
-  const dispatch = useDispatch();
-
-  const [isCustomer, setIsCustomer] = useState(false);
-  useEffect(() => {
-    if (Customers.length) {
-      const customer = Customers.map(customer => {
-        if (customer.email === userEmail) {
-          setIsCustomer(true);
-          localStorage.setItem("customerId", customer.customerId);
-          return customer;
-        }
-      });
-
-      console.log(customer.customerId);
-    }
-  }, []);
 
   return (
     <StyledContainer>

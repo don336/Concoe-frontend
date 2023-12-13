@@ -17,7 +17,7 @@ export const register = createAsyncThunk("register", async (data, thunkAPI) => {
 export const login = createAsyncThunk("login", async (data, thunkAPI) => {
   try {
     const response = await axios.post(`${baseUrl}auth/signin`, data);
-    const { accessToken, _id } = response.data;
+    const { accessToken } = response.data;
     localStorage.setItem("jwtToken", accessToken);
     const decoded = jwt_decode(accessToken);
 
@@ -30,8 +30,6 @@ export const login = createAsyncThunk("login", async (data, thunkAPI) => {
 export const update = createAsyncThunk("update", async (data, thunkAPI) => {
   try {
     axios.defaults.headers.common.Authorization = ` ${localStorage.getItem("jwtToken")}`;
-
-    console.log(data.id);
     const response = await axios.put(`${baseUrl}auth/user/${data.id}`, data);
     const { accessToken } = response.data;
     localStorage.setItem("jwtToken", accessToken);

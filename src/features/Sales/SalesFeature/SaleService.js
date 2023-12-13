@@ -15,7 +15,7 @@ export const deleteSale = createAsyncThunk("deleteSale", async (ids, thunkAPI) =
   try {
     axios.defaults.headers.common.Authorization = ` ${localStorage.getItem("jwtToken")}`;
     const response = await axios.delete(`${baseUrl}sales/${ids.customerId}/${ids.saleId}`);
-    response.data;
+    return response.data;
   } catch (error) {
     return thunkAPI.rejectWithValue(error.message);
   }

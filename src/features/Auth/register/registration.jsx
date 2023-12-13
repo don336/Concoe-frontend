@@ -26,9 +26,18 @@ const Registration = () => {
   });
 
   const authState = useSelector(state => state.auth);
+  const [block, setBlock] = useState("none");
+  const [errorMessage, setErrorMessage] = useState("");
   useEffect(() => {
     if (authState?.isAuthenticated) {
       navigate("/");
+    }
+    if (authState?.error) {
+      setBlock("block");
+      setErrorMessage(authState?.error);
+
+      window.location.reload();
+      window.location.href = "/login";
     }
   }, [authState]);
   const handleSubmit = values => {
@@ -49,6 +58,7 @@ const Registration = () => {
 
   return (
     <StyledContainer maxWidth="1200px">
+      <ActionAlerts text={errorMessage} display={block} />
       <Formik enableReinitialize initialValues={defaultValues} validationSchema={yupObject} onSubmit={handleSubmit}>
         {formik => <RegistrationForm formik={formik} />}
       </Formik>

@@ -6,15 +6,24 @@ import { login } from "../authService";
 import { Formik } from "formik";
 import * as Yup from "yup";
 import { useNavigate } from "react-router-dom";
+import ActionAlerts from "../../../components/Alert/Alert";
 
 const Registration = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
+  const [block, setBlock] = useState("none");
+  const [errorMessage, setErrorMessage] = useState("");
   const authState = useSelector(state => state.auth);
   useEffect(() => {
     if (authState?.isAuthenticated) {
+      setBlock(false);
+      setErrorMessage("");
       navigate("/");
+    }
+    if (authState?.error) {
+      setBlock("block");
+      setErrorMessage("Invalid Log In Credentials");
+      window.location.reload();
     }
   }, [authState]);
   const defaultValues = { email: "", password: "" };
@@ -34,6 +43,7 @@ const Registration = () => {
 
   return (
     <StyledContainer maxWidth="1200px">
+      <ActionAlerts text={errorMessage} display={block} />
       <Formik initialValues={defaultValues} enableReinitialize validationSchema={yupObject} onSubmit={handleSubmit}>
         {formik => <LoginForm formik={formik} />}
       </Formik>
