@@ -11,6 +11,7 @@ import { COLORS } from "../../../styles/theme.jsx";
 import { useDispatch, useSelector } from "react-redux";
 import { Delete } from "../../Auth/authService.js";
 import { useNavigate } from "react-router-dom";
+import { handleLogOut } from "../../../utils/handleLogout.js";
 const ViewProfile = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -62,7 +63,9 @@ const ViewProfile = () => {
               </ActionBox>
               <Box>
                 <CustomButton
-                  // onClick={handleLogOut}
+                  onClick={() => {
+                    handleLogOut();
+                  }}
                   background={COLORS.LIGHT_GREEN}
                   hoverbackground={COLORS.YELLOW_GREEN}
                   fontcolor={COLORS.DARK_GREY}
