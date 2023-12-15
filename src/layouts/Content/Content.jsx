@@ -28,7 +28,7 @@ import Images from "../../components/ImageList/Images.jsx";
 import { COLORS } from "../../styles/theme.jsx";
 import { useSelector } from "react-redux";
 
-const Content = ({ isCustomer }) => {
+const Content = ({ isCustomer, loading }) => {
   const theme = useTheme();
 
   const authState = useSelector(state => state.auth);
@@ -89,7 +89,7 @@ const Content = ({ isCustomer }) => {
                 </CustomButton>
               </CustomLink>
             )}
-            {!isCustomer ? (
+            {!isCustomer && !loading && (
               <CustomLink to="/customer-registration">
                 <CustomButton
                   fontcolor={COLORS.WHITE_SMOKE}
@@ -103,7 +103,7 @@ const Content = ({ isCustomer }) => {
                   Become a Valid Customer
                 </CustomButton>
               </CustomLink>
-            ) : null}
+            )}
           </Stack>
         </Grid>
         <Grid item xs={1} sm={2} md={2}>
