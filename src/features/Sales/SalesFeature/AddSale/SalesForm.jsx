@@ -14,7 +14,8 @@ const Add_Sale = ({ formik }) => {
       style={{
         backgroundColor: "#fff",
         padding: "20px",
-        height: "100%"
+        height: "100%",
+        borderRadius: " 12px"
       }}
     >
       <CssBaseline />

@@ -30,6 +30,7 @@ function App() {
           <Routes>
             <Route path="/signup" exact element={<Register />} />
             <Route path="/Login" exact element={<Login />} />
+            <Route path="/Home" exact element={<Home />} />
             <Route path="/" exact element={<Home />} />
             <Route path="/Crops" exact element={<Crops />} />
             <Route path="/ViewProfile" exact element={<ViewProfile />} />

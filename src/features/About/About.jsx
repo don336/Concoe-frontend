@@ -4,7 +4,7 @@ import Navbar from "../../layouts/Navbar/Navbar.jsx";
 
 const About = () => {
   return (
-    <Container>
+    <Container maxWidth={"xl"}>
       <Navbar />
       <Typography sx={{ color: "white" }}>About Us</Typography>
     </Container>
