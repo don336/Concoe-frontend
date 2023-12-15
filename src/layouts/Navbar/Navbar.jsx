@@ -9,7 +9,7 @@ import SpaOutlinedIcon from "@mui/icons-material/SpaOutlined";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import { handleLogOut } from "../../utils/handleLogout.js";
 
-const pages = ["Crops", "Sales", "Farming Methods", "Company", "About"];
+const pages = ["Home", "Crops", "Sales"];
 
 const Navbar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
