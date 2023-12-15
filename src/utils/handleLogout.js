@@ -5,6 +5,6 @@ export const handleLogOut = () => {
   if (localStorage.length === 0) {
     window.location.reload();
 
-    window.location.href = "/login";
+    window.location.href = "/";
   }
 };
