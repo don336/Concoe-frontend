@@ -35,7 +35,7 @@ const Registration = () => {
     }
     if (authState?.error) {
       setBlock("block");
-      setErrorMessage(authState?.error);
+      setErrorMessage("User Already Exists");
 
       window.location.reload();
       window.location.href = "/login";
