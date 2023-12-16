@@ -6,6 +6,7 @@ import { register } from "../authService";
 import { Formik } from "formik";
 import * as Yup from "yup";
 import { useNavigate } from "react-router-dom";
+import ActionAlerts from "../../../components/Alert/Alert";
 
 const Registration = () => {
   const dispatch = useDispatch();
