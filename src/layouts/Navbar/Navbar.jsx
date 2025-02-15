@@ -52,7 +52,7 @@ const Navbar = () => {
               color: "#A2D729"
             }}
           >
-            PSYCOSPHERE
+            AGRITRACKER
           </StyledTypography>
         </Link>
 
@@ -108,7 +108,7 @@ const Navbar = () => {
               flexGrow: 1
             }}
           >
-            PSYCOSPHERE
+            AGRITRUCKER
           </StyledTypography>
         </Link>
         <Box

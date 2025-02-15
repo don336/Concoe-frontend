@@ -164,8 +164,8 @@ const Content = ({ isCustomer, loading }) => {
                     Lisa Druxler
                   </Typography>
                   <Typography variant="h6" color="text.secondary">
-                    Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all
-                    continents except Antarctica
+                    Lisa is our lead agronomist, with over 10 years of experience in sustainable farming practices. She
+                    is passionate about improving crop yields and ensuring the health of our soil.
                   </Typography>
                 </CardContent>
                 <CardActions>
@@ -183,11 +183,11 @@ const Content = ({ isCustomer, loading }) => {
                 />
                 <CardContent>
                   <Typography gutterBottom variant="h5" component="div">
-                    Crage Druxla
+                    Craig Druxla
                   </Typography>
                   <Typography variant="h6" color="text.secondary">
-                    Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all
-                    continents except Antarctica
+                    Craig is our operations manager, ensuring that all aspects of our farm run smoothly. His expertise
+                    in logistics and management keeps our team on track and productive.
                   </Typography>
                 </CardContent>
                 <CardActions>
@@ -216,8 +216,8 @@ const Content = ({ isCustomer, loading }) => {
                     Loraine Britney
                   </Typography>
                   <Typography variant="h6" color="text.secondary">
-                    Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all
-                    continents except Antarctica
+                    Loraine is our marketing guru, with a knack for storytelling and brand building. She ensures that
+                    our message of sustainability and quality reaches coffee lovers around the world.
                   </Typography>
                 </CardContent>
                 <CardActions>

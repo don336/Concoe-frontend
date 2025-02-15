@@ -39,10 +39,10 @@ const AddSaleFeature = () => {
       quantity,
       price
     };
-    dispatch(addSale(saleData));
-    if (dispatch) {
+    dispatch(addSale(saleData)).then(() => {
       navigate("/Sales");
-    }
+      window.location.reload();
+    });
   };
   return (
     <Container maxWidth="xl">

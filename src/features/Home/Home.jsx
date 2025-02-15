@@ -6,7 +6,7 @@ import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 
 const Home = () => {
-  const [isCustomer, setIsCustomer] = useState(true);
+  const [isCustomer, setIsCustomer] = useState(false);
   const [loading, setLoading] = useState(true);
   const userEmail = useSelector(state => state.auth.currentUser.email);
   const Customers = useSelector(state => state.customer.customers);
@@ -23,11 +23,10 @@ const Home = () => {
     setLoading(false);
   }, [Customers]);
 
-
   return (
     <StyledContainer maxWidth="xl">
       <Navbar />
-      <Content isCustomer={isCustomer} loading={loading}/>
+      <Content isCustomer={isCustomer} loading={loading} />
       <Footer />
     </StyledContainer>
   );

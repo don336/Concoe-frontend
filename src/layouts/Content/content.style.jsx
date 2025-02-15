@@ -12,7 +12,7 @@ import { COLORS } from "../../styles/theme.jsx";
 
 export const StyledContainer = styled(muiContainer)`
   padding: 30px 15px 20px 20px;
-  margin: auto;
+  margin-top: 50px;
 `;
 export const StyledTypography = styled(Typography)`
   padding: 0.5rem;

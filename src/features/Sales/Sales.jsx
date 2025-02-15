@@ -17,17 +17,18 @@ const Sales = () => {
   useEffect(() => {
     if (!Authenticated) {
       navigate("/login");
-    } else {
-      // Check if the userEmail exists in the Customers array
-      const isUserACustomer = Customers.map(customer => customer.email === userEmail);
-
-      // Set isCustomer based on the result
-      setIsCustomer(isUserACustomer);
-
-      // If the user is not a customer, navigate to the customer registration page
-      if (!isUserACustomer) {
-        navigate("/customer-registration");
-      }
+    }
+    if (Customers.length) {
+      Customers.map(customer => {
+        if (customer.email === userEmail) {
+          setIsCustomer(true);
+          localStorage.setItem("customerId", customer.customerId);
+          return customer;
+        } else {
+          setIsCustomer(false);
+          navigate("/customer-registration");
+        }
+      });
     }
   }, [Authenticated, userEmail, Customers]);
   return (
